@@ -6,7 +6,7 @@
                     <div class="panel-heading">vue constroct</div>
 
                     <div class="panel-body">
-                        实力
+                        this is vue
                     </div>
                 </div>
             </div>
@@ -21,9 +21,3 @@
         }
     }
 </script>
-
-<style >
-  .panel-heading {
-    font-size: 20px !important;
-  }
-</style>

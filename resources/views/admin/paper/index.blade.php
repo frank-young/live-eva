@@ -1,18 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                  <h2>问卷管理</h2>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <h1>这是 blade</h1>
+    <example></example>
+    <paper-list></paper-list>
 @endsection
