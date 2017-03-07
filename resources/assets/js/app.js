@@ -14,6 +14,7 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('paper-list', require('./components/paper/List.vue'));
 
 const app = new Vue({
     el: '#app'
