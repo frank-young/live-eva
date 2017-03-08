@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">新建问卷</div>
+                <div class="panel-heading">新建问卷子模块</div>
                 <div class="panel-body">
 
                     @if (count($errors) > 0)
@@ -15,11 +15,11 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('admin/paper') }}" method="POST">
+                    <form action="{{ url('admin/module') }}" method="POST">
                         {!! csrf_field() !!}
-                        <input type="text" name="name" class="form-control" required="required" placeholder="请输入标题"value="{{ old('name') }}">
+                        <input type="text" name="module_name" class="form-control" required="required" placeholder="请输入标题"value="{{ old('module_name') }}">
                         <br>
-                        <textarea name="description" rows="3" class="form-control" placeholder="请输入内容">{{ old('name') }}</textarea>
+                        <textarea name="description" rows="3" class="form-control"  placeholder="请输入内容">{{ old('name') }}</textarea>
                         <br>
                         <button class="btn btn-lg btn-info">确认</button>
                     </form>

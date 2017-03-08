@@ -10,7 +10,8 @@ class PaperController extends Controller
 {
   public function index()
   {
-      return view('admin/paper/index')->withArticles(Paper::all());
+      $papers = Paper::all();
+      return view('admin/paper/index', compact('papers'));
   }
 
   // create page

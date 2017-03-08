@@ -17,4 +17,5 @@ Route::get('/', 'HomeController@index');
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'HomeController@index');  // 管理登录首页
     Route::resource('paper', 'PaperController');  // 问卷模块
+    Route::resource('module', 'ModuleController');  // 问卷子标题模块
 });

@@ -3,10 +3,12 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">vue constroct</div>
+                    <div class="panel-heading">问卷列表</div>
 
                     <div class="panel-body">
-                        实力
+                        <div class="" v-for="d in data">
+                            {{d.module_name}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -16,14 +18,10 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        props: {
+            data: {
+                type: Array
+            }
         }
     }
 </script>
-
-<style >
-  .panel-heading {
-    font-size: 20px !important;
-  }
-</style>
