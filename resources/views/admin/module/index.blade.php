@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <paper-list :data="{{ $papers }}"></paper-list>
+    <module-list :data="{{ $modules }}"></module-list>
 @endsection
