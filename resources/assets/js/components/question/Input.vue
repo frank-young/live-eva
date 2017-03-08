@@ -50,15 +50,11 @@
     const ERR_OK = 0
 
     export default {
-        props: {
-            token: {
-                type: String
-            }
-        },
         data() {
             return {
                 inputArr: [],
-                name: ''
+                name: '',
+                token: window.Laravel.csrfToken
             }
         },
         created() {

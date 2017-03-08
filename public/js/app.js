@@ -12235,15 +12235,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var ERR_OK = 0;
 
 /* harmony default export */ __webpack_exports__["default"] = {
-    props: {
-        token: {
-            type: String
-        }
-    },
     data: function data() {
         return {
             inputArr: [],
-            name: ''
+            name: '',
+            token: window.Laravel.csrfToken
         };
     },
     created: function created() {
