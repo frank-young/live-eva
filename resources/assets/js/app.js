@@ -12,8 +12,12 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
 Vue.component('paper-list', require('./components/paper/List.vue'));
 Vue.component('module-list', require('./components/module/List.vue'));
+Vue.component('question-input', require('./components/question/Input.vue'));
 
 const app = new Vue({
     el: '#app'
