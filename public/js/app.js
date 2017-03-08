@@ -11251,10 +11251,7 @@ __webpack_require__(33);
  */
 
 Vue.component('example', __webpack_require__(38));
-<<<<<<< HEAD
-=======
 Vue.component('paper-list', __webpack_require__(39));
->>>>>>> paper
 
 var app = new Vue({
   el: '#app'
@@ -12137,9 +12134,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
-<<<<<<< HEAD
-/* 32 */,
-=======
 /* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12169,7 +12163,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
->>>>>>> paper
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14606,10 +14599,6 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-<<<<<<< HEAD
-/* 35 */,
-/* 36 */,
-=======
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14680,7 +14669,6 @@ module.exports = function() {
 
 
 /***/ }),
->>>>>>> paper
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31776,13 +31764,10 @@ module.exports = function() {
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-=======
 
 /* styles */
 __webpack_require__(42)
 
->>>>>>> paper
 var Component = __webpack_require__(9)(
   /* script */
   __webpack_require__(31),
@@ -31814,10 +31799,6 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 39 */,
-/* 40 */,
-=======
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31881,7 +31862,6 @@ if (false) {
 }
 
 /***/ }),
->>>>>>> paper
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31898,15 +31878,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-<<<<<<< HEAD
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_vm._v("\n                    I'm an example component!\n                ")])])])])])
-=======
   }, [_vm._v("vue constroct")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_vm._v("\n                    实力\n                ")])])])])])
->>>>>>> paper
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -31917,11 +31891,6 @@ if (false) {
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 42 */,
-/* 43 */,
-/* 44 */,
-=======
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32217,7 +32186,6 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
->>>>>>> paper
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
