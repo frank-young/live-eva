@@ -15,12 +15,12 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('admin/paper') }}" method="POST">
+                    <!-- <form action="{{ url('admin/paper') }}" method="POST">
                         {!! csrf_field() !!}
                         <input type="text" name="question_name" class="form-control" required="required" placeholder="请输入标题"value="{{ old('question_name') }}">
                         <br>
                         <button class="btn btn-lg btn-info">确认</button>
-                    </form>
+                    </form> -->
 
                     <question-input :token="'{{ csrf_token() }}'"></question-input>
                 </div>
