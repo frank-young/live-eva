@@ -67,7 +67,7 @@ class QuestionController extends Controller
 
     if ($question->save()) {
         $question_id = $question->id;
-        Answer::where(['question_id' => $question_id ])->delete();
+        Answer::where(['question_id' => $question_id ])->delete();  // 先清除掉此问题的所有答案，这样做的方式是减少了编辑和删除答案的判断，一步到位。
         $this::_save($request->get('len'), $request, $question_id);
 
         $data = ['errno'=>0, 'msg'=>'success'];
