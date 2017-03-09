@@ -62,11 +62,6 @@
     const ERR_OK = 0
 
     export default {
-<<<<<<< HEAD
-        data() {
-            return {
-                inputArr: [],
-=======
         props: {
             id: {
                 type: Number
@@ -76,7 +71,6 @@
             return {
                 inputArr: [],
                 questions: [],
->>>>>>> question
                 name: '',
                 token: window.Laravel.csrfToken
             }

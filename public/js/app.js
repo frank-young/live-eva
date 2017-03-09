@@ -12185,9 +12185,147 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 33 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (65:0)\n\n\u001b[0m \u001b[90m 63 | \u001b[39m\n \u001b[90m 64 | \u001b[39m    \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 65 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 66 | \u001b[39m        data() {\n \u001b[90m 67 | \u001b[39m            \u001b[36mreturn\u001b[39m {\n \u001b[90m 68 | \u001b[39m                inputArr\u001b[33m:\u001b[39m []\u001b[33m,\u001b[39m\u001b[0m\n");
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var ERR_OK = 0;
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    props: {
+        id: {
+            type: Number
+        }
+    },
+    data: function data() {
+        return {
+            inputArr: [],
+            questions: [],
+            name: '',
+            token: window.Laravel.csrfToken
+        };
+    },
+    created: function created() {
+        this.inputArr = this._createOriginAnswer(4);
+        this._getQuestionsData();
+    },
+
+    methods: {
+        submit: function submit(event) {
+            var _this = this;
+
+            var options = {};
+            var formData = new FormData(event.target);
+
+            options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+            options.emulateJSON = true;
+
+            this.$http.post('/live/live-eva/public/admin/question', formData, options).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this.name = '';
+                    _this.inputArr = _this._createOriginAnswer(4);
+                    _this._getQuestionsData();
+                }
+            });
+        },
+        edit: function edit() {},
+        _createOriginAnswer: function _createOriginAnswer(len) {
+            var arr = [];
+            for (var i = 0; i < len; i++) {
+                var obj = {
+                    index: i,
+                    value: '答案' + i,
+                    score: i + 1
+                };
+                arr.push(obj);
+            }
+            return arr;
+        },
+        addAnswer: function addAnswer() {
+            var obj = {
+                index: this.inputArr.length,
+                value: '',
+                score: this.inputArr.length + 1
+            };
+            this.inputArr.push(obj);
+        },
+        deleteAnswer: function deleteAnswer(index) {
+            this.inputArr.splice(index, 1);
+        },
+        _getQuestionsData: function _getQuestionsData() {
+            var _this2 = this;
+
+            this.$http.get('../question/api/show/' + this.id).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this2.questions = res.questions;
+                }
+            });
+        }
+    }
+};
 
 /***/ }),
 /* 34 */
