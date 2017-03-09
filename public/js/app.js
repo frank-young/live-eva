@@ -12135,11 +12135,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     props: {
         data: {
             type: Array
+        },
+        id: {
+            type: Number
         }
     }
 };
@@ -12231,19 +12237,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 
 /* harmony default export */ __webpack_exports__["default"] = {
+<<<<<<< HEAD
     data: function data() {
         return {
             inputArr: [],
+=======
+    props: {
+        id: {
+            type: Number
+        }
+    },
+    data: function data() {
+        return {
+            inputArr: [],
+            questions: [],
+>>>>>>> question
             name: '',
             token: window.Laravel.csrfToken
         };
     },
     created: function created() {
         this.inputArr = this._createOriginAnswer(4);
+        this._getQuestionsData();
     },
 
     methods: {
@@ -12261,9 +12292,11 @@ var ERR_OK = 0;
                 if (res.errno === ERR_OK) {
                     _this.name = '';
                     _this.inputArr = _this._createOriginAnswer(4);
+                    _this._getQuestionsData();
                 }
             });
         },
+        edit: function edit() {},
         _createOriginAnswer: function _createOriginAnswer(len) {
             var arr = [];
             for (var i = 0; i < len; i++) {
@@ -12286,6 +12319,16 @@ var ERR_OK = 0;
         },
         deleteAnswer: function deleteAnswer(index) {
             this.inputArr.splice(index, 1);
+        },
+        _getQuestionsData: function _getQuestionsData() {
+            var _this2 = this;
+
+            this.$http.get('../question/api/show/' + this.id).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this2.questions = res.questions;
+                }
+            });
         }
     }
 };
@@ -32009,11 +32052,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("问卷列表")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("类目列表")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, _vm._l((_vm.data), function(d) {
-    return _c('div', {}, [_vm._v("\n                        " + _vm._s(d.module_name) + "\n                    ")])
-  }))])])])])
+  }, [_vm._l((_vm.data), function(d) {
+    return _c('div', {}, [_c('a', {
+      attrs: {
+        "href": '../question/' + d.id
+      }
+    }, [_vm._v(_vm._s(d.module_name))])])
+  }), _vm._v(" "), _c('div', {}, [_c('a', {
+    staticClass: "btn btn-info",
+    attrs: {
+      "href": 'create?id=' + _vm.id
+    }
+  }, [_vm._v("添加类目")])])], 2)])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -32036,14 +32088,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-8 col-md-offset-2"
   }, [_c('div', {
     staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("问卷列表")]), _vm._v(" "), _c('div', {
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, _vm._l((_vm.data), function(d) {
-    return _c('div', {}, [_vm._v("\n                        " + _vm._s(d.name) + "\n                    ")])
+    return _c('div', {}, [_c('a', {
+      attrs: {
+        "href": 'module/' + d.id
+      }
+    }, [_vm._v(_vm._s(d.name))])])
   }))])])])])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("问卷列表 "), _c('a', {
+    staticClass: "btn btn-info",
+    attrs: {
+      "href": "paper/create"
+    }
+  }, [_vm._v("添加问卷")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -32058,14 +32121,33 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
+    staticClass: "col-md-4"
   }, [_c('div', {
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("这是添加的input")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("问题")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, _vm._l((_vm.questions), function(question) {
+    return _c('div', {}, [_c('a', {
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": _vm.edit
+      }
+    }, [_vm._v(_vm._s(question.question_name))])])
+  }))])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8 "
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("新添问题")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', {
     staticClass: "form-horizontal comment-input",
@@ -32104,6 +32186,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.inputArr.length = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.id),
+      expression: "id"
+    }],
+    attrs: {
+      "type": "hidden",
+      "name": "module_id"
+    },
+    domProps: {
+      "value": _vm._s(_vm.id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.id = $event.target.value
       }
     }
   }), _vm._v(" "), _c('div', {
@@ -32211,7 +32313,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.addAnswer
     }
-  }, [_vm._v("新建选项")])])]), _vm._v(" "), _vm._m(0)], 2)])])])])
+  }, [_vm._v("新建选项")])])]), _vm._v(" "), _vm._m(0)], 2)])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"

@@ -12,8 +12,23 @@ class QuestionController extends Controller
 {
   public function index()
   {
-      $questions = Question::all();
-      return view('admin/question/index', compact('questions'));
+      // $questions = Question::all();
+      // return view('admin/question/index', compact('questions'));
+  }
+
+  // create page
+  public function show($id)
+  {
+    $data = ['id' => $id];
+    return view('admin/question/show', compact('data'));
+  }
+
+  public function apiShow($id)
+  {
+    $questions = Question::where(['module_id' => $id])->get();
+
+    $data = ['errno'=>0, 'msg'=>'添加成功','questions' => $questions];
+    return Response::json($data);
   }
 
   // create page
@@ -31,7 +46,7 @@ class QuestionController extends Controller
 
     $question = new Question;
     $question->question_name = $request->get('question_name');
-    $question->module_id = 1;
+    $question->module_id = $request->get('module_id');
 
     if ($question->save()) {
         $this::_save($request->get('len'), $request, $question->id);

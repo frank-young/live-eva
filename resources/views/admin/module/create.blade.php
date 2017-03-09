@@ -17,6 +17,7 @@
 
                     <form action="{{ url('admin/module') }}" method="POST">
                         {!! csrf_field() !!}
+                        <input type="hidden" name="paper_id" value="{{$data['id']}} ">
                         <input type="text" name="module_name" class="form-control" required="required" placeholder="请输入标题"value="{{ old('module_name') }}">
                         <br>
                         <textarea name="description" rows="3" class="form-control"  placeholder="请输入内容">{{ old('name') }}</textarea>
