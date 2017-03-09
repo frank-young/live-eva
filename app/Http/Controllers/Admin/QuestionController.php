@@ -27,7 +27,16 @@ class QuestionController extends Controller
   {
     $questions = Question::where(['module_id' => $id])->get();
 
-    $data = ['errno'=>0, 'msg'=>'添加成功','questions' => $questions];
+    $data = ['errno'=>0, 'msg'=>'success','questions' => $questions];
+    return Response::json($data);
+  }
+
+  public function edit($id)
+  {
+    $question = Question::where(['id' => $id])->first();
+    $answers = Answer::where(['question_id' => $id])->get();
+
+    $data = ['errno'=>0, 'msg'=>'success', 'question' => $question, 'answers' => $answers];
     return Response::json($data);
   }
 
@@ -51,7 +60,7 @@ class QuestionController extends Controller
     if ($question->save()) {
         $this::_save($request->get('len'), $request, $question->id);
 
-        $data = ['errno'=>0, 'msg'=>'添加成功'];
+        $data = ['errno'=>0, 'msg'=>'success'];
 		    return Response::json($data);
     } else {
         return redirect()->back()->withInput()->withErrors('保存失败！');

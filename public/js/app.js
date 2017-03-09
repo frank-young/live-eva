@@ -12249,6 +12249,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 
@@ -12260,67 +12302,115 @@ var ERR_OK = 0;
     },
     data: function data() {
         return {
-            inputArr: [],
+            defaultLen: 5,
+            answers: [],
             questions: [],
             name: '',
-            token: window.Laravel.csrfToken
+            token: window.Laravel.csrfToken,
+            isAdd: true,
+            questionEdit: {},
+            answersEdit: []
         };
     },
     created: function created() {
-        this.inputArr = this._createOriginAnswer(4);
-        this._getQuestionsData();
+        this.answers = this._createOriginAnswer(this.defaultLen);
+        this._getQuestionsTitleData();
     },
 
     methods: {
         submit: function submit(event) {
             var _this = this;
 
+            // 提交
             var options = {};
             var formData = new FormData(event.target);
 
             options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
             options.emulateJSON = true;
 
-            this.$http.post('/live/live-eva/public/admin/question', formData, options).then(function (res) {
+            this.$http.post('../question', formData, options).then(function (res) {
                 res = res.body;
                 if (res.errno === ERR_OK) {
                     _this.name = '';
-                    _this.inputArr = _this._createOriginAnswer(4);
-                    _this._getQuestionsData();
+                    _this.answers = _this._createOriginAnswer(_this.defaultLen);
+                    _this._getQuestionsTitleData();
                 }
             });
         },
-        edit: function edit() {},
+        submitEdit: function submitEdit(event) {
+            var _this2 = this;
+
+            // 提交
+            var options = {};
+            var formData = new FormData(event.target);
+
+            options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+            options.emulateJSON = true;
+
+            this.$http.post('../question/update', formData, options).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this2.name = '';
+                    _this2.answers = _this2._createOriginAnswer(_this2.defaultLen);
+                    _this2._getQuestionsTitleData();
+                }
+            });
+        },
+        addQuestion: function addQuestion() {
+            this.isAdd = true;
+        },
+        editQuestion: function editQuestion(id) {
+            // 编辑问题
+            this.isAdd = false;
+            this._getQuestionData(id);
+        },
         _createOriginAnswer: function _createOriginAnswer(len) {
+            // 创建原始答案
             var arr = [];
             for (var i = 0; i < len; i++) {
                 var obj = {
                     index: i,
-                    value: '答案' + i,
+                    answer_name: '答案' + i,
                     score: i + 1
                 };
                 arr.push(obj);
             }
             return arr;
         },
-        addAnswer: function addAnswer() {
+        addAnswer: function addAnswer(answers) {
+            // 添加答案
+            var i = answers.length;
             var obj = {
-                index: this.inputArr.length,
-                value: '',
-                score: this.inputArr.length + 1
+                index: i,
+                answer_name: '新添',
+                score: i + 1
             };
-            this.inputArr.push(obj);
+            answers.push(obj);
         },
-        deleteAnswer: function deleteAnswer(index) {
-            this.inputArr.splice(index, 1);
+        deleteAnswer: function deleteAnswer(answers, index) {
+            // 删除答案
+            answers.splice(index, 1);
         },
-        _getQuestionsData: function _getQuestionsData() {
-            var _this2 = this;
+        _getQuestionsTitleData: function _getQuestionsTitleData() {
+            var _this3 = this;
 
+            // 获取问题标题列表数据
             this.$http.get('../question/api/show/' + this.id).then(function (res) {
                 res = res.body;
                 if (res.errno === ERR_OK) {
-                    _this2.questions = res.questions;
+                    _this3.questions = res.questions;
+                }
+            });
+        },
+        _getQuestionData: function _getQuestionData(id) {
+            var _this4 = this;
+
+            // 获取单个问题数据
+            this.$http.get('../question/' + id + '/edit').then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this4.questionEdit = res.question;
+                    _this4.answersEdit = res.answers;
                 }
             });
         }
@@ -32126,18 +32216,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-heading"
   }, [_vm._v("问题")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, _vm._l((_vm.questions), function(question) {
+  }, [_vm._l((_vm.questions), function(question) {
     return _c('div', {}, [_c('a', {
       attrs: {
         "href": "#"
       },
       on: {
-        "click": _vm.edit
+        "click": function($event) {
+          _vm.editQuestion(question.id)
+        }
       }
-    }, [_vm._v(_vm._s(question.question_name))])])
-  }))])]), _vm._v(" "), _c('div', {
+    }, [_vm._v(_vm._s(question.question_name) + " ")])])
+  }), _vm._v(" "), _c('div', {}, [_c('button', {
+    staticClass: "btn btn-info",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.addQuestion
+    }
+  }, [_vm._v("添加问题")])])], 2)])]), _vm._v(" "), _c('div', {
     staticClass: "col-md-8 "
   }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isAdd),
+      expression: "isAdd"
+    }],
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
@@ -32166,20 +32272,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.inputArr.length),
-      expression: "inputArr.length"
+      value: (_vm.answers.length),
+      expression: "answers.length"
     }],
     attrs: {
       "type": "hidden",
       "name": "len"
     },
     domProps: {
-      "value": _vm._s(_vm.inputArr.length)
+      "value": _vm._s(_vm.answers.length)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.inputArr.length = $event.target.value
+        _vm.answers.length = $event.target.value
       }
     }
   }), _vm._v(" "), _c('input', {
@@ -32229,7 +32335,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.name = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._l((_vm.inputArr), function(input, index) {
+  })])]), _vm._v(" "), _vm._l((_vm.answers), function(answer, index) {
     return _c('div', {
       staticClass: "form-group"
     }, [_c('div', {
@@ -32238,8 +32344,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       directives: [{
         name: "model",
         rawName: "v-model",
-        value: (input.value),
-        expression: "input.value"
+        value: (answer.answer_name),
+        expression: "answer.answer_name"
       }],
       staticClass: "form-control",
       attrs: {
@@ -32249,12 +32355,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "placeholder": "答案"
       },
       domProps: {
-        "value": _vm._s(input.value)
+        "value": _vm._s(answer.answer_name)
       },
       on: {
         "input": function($event) {
           if ($event.target.composing) { return; }
-          input.value = $event.target.value
+          answer.answer_name = $event.target.value
         }
       }
     })]), _vm._v(" "), _c('div', {
@@ -32263,8 +32369,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       directives: [{
         name: "model",
         rawName: "v-model",
-        value: (input.score),
-        expression: "input.score"
+        value: (answer.score),
+        expression: "answer.score"
       }],
       staticClass: "form-control",
       attrs: {
@@ -32274,12 +32380,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "placeholder": "分值"
       },
       domProps: {
-        "value": _vm._s(input.score)
+        "value": _vm._s(answer.score)
       },
       on: {
         "input": function($event) {
           if ($event.target.composing) { return; }
-          input.score = $event.target.value
+          answer.score = $event.target.value
         }
       }
     })]), _vm._v(" "), _c('div', {
@@ -32291,7 +32397,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       on: {
         "click": function($event) {
-          _vm.deleteAnswer(index)
+          _vm.deleteAnswer(_vm.answers, index)
         }
       }
     }, [_vm._v("×")])])])
@@ -32305,10 +32411,203 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "button"
     },
     on: {
-      "click": _vm.addAnswer
+      "click": function($event) {
+        _vm.addAnswer(_vm.answers)
+      }
     }
-  }, [_vm._v("新建选项")])])]), _vm._v(" "), _vm._m(0)], 2)])])])])])
+  }, [_vm._v("新建选项")])])]), _vm._v(" "), _vm._m(0)], 2)])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.isAdd),
+      expression: "!isAdd"
+    }],
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("编辑问题")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal comment-input",
+    attrs: {
+      "method": "POST"
+    },
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.submitEdit($event)
+      }
+    }
+  }, [_c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "_token"
+    },
+    domProps: {
+      "value": _vm.token
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.answersEdit.length),
+      expression: "answersEdit.length"
+    }],
+    attrs: {
+      "type": "hidden",
+      "name": "len"
+    },
+    domProps: {
+      "value": _vm._s(_vm.answersEdit.length)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.answersEdit.length = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.questionEdit.module_id),
+      expression: "questionEdit.module_id"
+    }],
+    attrs: {
+      "type": "hidden",
+      "name": "module_id"
+    },
+    domProps: {
+      "value": _vm._s(_vm.questionEdit.module_id)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.questionEdit.module_id = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-xs-12"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.questionEdit.question_name),
+      expression: "questionEdit.question_name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "question_name",
+      "required": "required",
+      "placeholder": "请输入标题"
+    },
+    domProps: {
+      "value": _vm._s(_vm.questionEdit.question_name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.questionEdit.question_name = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _vm._l((_vm.answersEdit), function(answer, index) {
+    return _c('div', {
+      staticClass: "form-group"
+    }, [_c('div', {
+      staticClass: "col-xs-8"
+    }, [_c('input', {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: (answer.answer_name),
+        expression: "answer.answer_name"
+      }],
+      staticClass: "form-control",
+      attrs: {
+        "type": "text",
+        "name": 'answer_name' + index,
+        "required": "required",
+        "placeholder": "答案"
+      },
+      domProps: {
+        "value": _vm._s(answer.answer_name)
+      },
+      on: {
+        "input": function($event) {
+          if ($event.target.composing) { return; }
+          answer.answer_name = $event.target.value
+        }
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-2"
+    }, [_c('input', {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: (answer.score),
+        expression: "answer.score"
+      }],
+      staticClass: "form-control",
+      attrs: {
+        "type": "text",
+        "name": 'score' + index,
+        "required": "required",
+        "placeholder": "分值"
+      },
+      domProps: {
+        "value": _vm._s(answer.score)
+      },
+      on: {
+        "input": function($event) {
+          if ($event.target.composing) { return; }
+          answer.score = $event.target.value
+        }
+      }
+    })]), _vm._v(" "), _c('div', {
+      staticClass: "col-xs-2"
+    }, [_c('a', {
+      staticClass: "btn btn-danger",
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          _vm.deleteAnswer(_vm.answersEdit, index)
+        }
+      }
+    }, [_vm._v("×")])])])
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-xs-12"
+  }, [_c('button', {
+    staticClass: "btn btn-block btn-primary",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": function($event) {
+        _vm.addAnswer(_vm.answersEdit)
+      }
+    }
+  }, [_vm._v("新建选项")])])]), _vm._v(" "), _vm._m(1)], 2)])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-sm-4 control-label"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-8 text-right"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("确认")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
