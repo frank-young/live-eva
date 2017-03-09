@@ -14,10 +14,19 @@ class ModuleController extends Controller
       return view('admin/module/index', compact('modules'));
   }
 
-  // create module page
-  public function create()
+  public function show($id)
   {
-    return view('admin/module/create');
+      $modules = Module::where(['paper_id' => $id])->get();
+      $data = ['id'=>$id, 'modules'=>$modules];
+      return view('admin/module/show', compact('data'));
+  }
+
+  // create module page
+  public function create(Request $request)
+  {
+      $id = $request->get('id');
+      $data = ['id' => $id];
+      return view('admin/module/create', compact('data'));
   }
 
   // post store ctrl
@@ -30,10 +39,10 @@ class ModuleController extends Controller
     $module = new Module;
     $module->module_name = $request->get('module_name');
     $module->description = $request->get('description');
-    $module->paper_id = 1; // need save paper_id
+    $module->paper_id = $request->get('paper_id');
 
     if ($module->save()) {
-        return redirect('admin/module');
+        return redirect('admin/module/'.$module->paper_id);
     } else {
         return redirect()->back()->withInput()->withErrors('保存失败！');
     }

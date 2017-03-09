@@ -1,14 +1,26 @@
 <template>
-
+    <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                  <div class="panel-heading">问题</div>
+
+                  <div class="panel-body">
+                      <div class="" v-for="question in questions">
+                          <a href="#" @click="edit">{{question.question_name}}</a>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-8 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading">这是添加的input</div>
+                    <div class="panel-heading">新添问题</div>
 
                     <div class="panel-body">
                       <form @submit.prevent="submit"  method="POST" class="form-horizontal comment-input">
                         <input type="hidden" name="_token" :value="token">
                         <input type="hidden" name="len" v-model="inputArr.length">
+                        <input type="hidden" name="module_id" v-model="id">
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <input type="text" name="question_name" class="form-control" required="required" v-model="name" placeholder="请输入标题">
@@ -43,7 +55,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
 </template>
 
 <script>
@@ -51,18 +63,21 @@
 
     export default {
         props: {
-            token: {
-                type: String
+            id: {
+                type: Number
             }
         },
         data() {
             return {
                 inputArr: [],
-                name: ''
+                questions: [],
+                name: '',
+                token: window.Laravel.csrfToken
             }
         },
         created() {
             this.inputArr = this._createOriginAnswer(4)
+            this._getQuestionsData()
         },
         methods: {
             submit(event) {
@@ -77,8 +92,12 @@
                     if (res.errno === ERR_OK) {
                         this.name = ''
                         this.inputArr = this._createOriginAnswer(4)
+                        this._getQuestionsData()
                     }
                 })
+            },
+            edit() {
+
             },
             _createOriginAnswer(len) {
                 let arr = []
@@ -102,6 +121,14 @@
             },
             deleteAnswer(index) {
               this.inputArr.splice(index, 1)
+            },
+            _getQuestionsData() {
+              this.$http.get('../question/api/show/' + this.id).then((res) => {
+                  res = res.body
+                  if (res.errno === ERR_OK) {
+                      this.questions = res.questions
+                  }
+              })
             }
         }
     }

@@ -22,7 +22,7 @@
                         <button class="btn btn-lg btn-info">确认</button>
                     </form> -->
 
-                    <question-input :token="'{{ csrf_token() }}'"></question-input>
+                    
                 </div>
             </div>
         </div>
