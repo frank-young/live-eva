@@ -7,10 +7,10 @@
 
                     <div class="panel-body">
                         <div class="" v-for="d in data">
-                            <a :href="'../question/' + d.id">{{d.module_name}}</a>
+                            <a :href="'../module/' + d.id">{{d.module_name}}</a>
                         </div>
                         <div class="">
-                          <a :href="'create?id=' + id " class="btn btn-info">添加类目</a>
+                            <a :href="'../module/create?id=' + id " class="btn btn-info">添加类目</a>
                         </div>
                     </div>
                 </div>

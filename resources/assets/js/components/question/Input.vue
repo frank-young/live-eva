@@ -4,10 +4,9 @@
             <div class="col-md-4">
               <div class="panel panel-default">
                   <div class="panel-heading">问题</div>
-
                   <div class="panel-body">
                       <div class="" v-for="question in questions">
-                          <a href="#" @click="editQuestion(question.id)">{{question.question_name}} </a>
+                          <a href="#" @click="editQuestion(question.id)">{{question.question_name}} {{question.id}} </a>
                       </div>
                       <div class="">
                           <button type="button" class="btn btn-info" @click="addQuestion">添加问题</button>
@@ -19,7 +18,7 @@
                 <div class="panel panel-default" v-show="isAdd">
                     <div class="panel-heading">新添问题</div>
                     <div class="panel-body">
-                      <form @submit.prevent="submit"  method="POST" class="form-horizontal comment-input">
+                      <form @submit.prevent="submit" class="form-horizontal comment-input">
                         <input type="hidden" name="_token" :value="token">
                         <input type="hidden" name="len" v-model="answers.length">
                         <input type="hidden" name="module_id" v-model="id">
@@ -59,16 +58,17 @@
                 <div class="panel panel-default" v-show="!isAdd">
                     <div class="panel-heading">编辑问题</div>
                     <div class="panel-body">
-                      <form @submit.prevent="submitEdit"  method="POST" class="form-horizontal comment-input">
+                      <form @submit.prevent="submitEdit" class="form-horizontal comment-input">
                         <input type="hidden" name="_token" :value="token">
                         <input type="hidden" name="len" v-model="answersEdit.length">
-                        <input type="hidden" name="module_id" v-model="questionEdit.module_id">
+                        <input type="hidden" name="id" v-model="questionEdit.id">
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <input type="text" name="question_name" class="form-control" required="required" v-model="questionEdit.question_name" placeholder="请输入标题">
                             </div>
                         </div>
                         <div class="form-group" v-for="(answer,index) in answersEdit">
+                              <input type="hidden" :name="'answer_id' + index" v-model="answer.id">
                             <div class="col-xs-8">
                                 <input type="text" :name="'answer_name' + index" required="required" class="form-control" v-model="answer.answer_name" placeholder="答案">
                             </div>
@@ -197,7 +197,7 @@
             },
             _getQuestionsTitleData() {
               // 获取问题标题列表数据
-              this.$http.get('../question/api/show/' + this.id).then((res) => {
+              this.$http.get('../question/' + this.id).then((res) => {
                   res = res.body
                   if (res.errno === ERR_OK) {
                       this.questions = res.questions

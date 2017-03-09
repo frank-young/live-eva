@@ -7,7 +7,7 @@
 
                     <div class="panel-body">
                         <div class="" v-for="d in data">
-                            <a :href="'module/' + d.id">{{d.name}}</a>
+                            <a :href="'paper/' + d.id">{{d.name}}</a>
                         </div>
                     </div>
                 </div>

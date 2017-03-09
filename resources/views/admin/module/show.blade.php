@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <module-list :data="{{ $data['modules'] }}" :id=" {{ $data['id'] }} "></module-list>
+    <question-input :id="{{ $data['id']}} "></question-input>
 @endsection

@@ -12395,7 +12395,7 @@ var ERR_OK = 0;
             var _this3 = this;
 
             // 获取问题标题列表数据
-            this.$http.get('../question/api/show/' + this.id).then(function (res) {
+            this.$http.get('../question/' + this.id).then(function (res) {
                 res = res.body;
                 if (res.errno === ERR_OK) {
                     _this3.questions = res.questions;
@@ -32141,13 +32141,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._l((_vm.data), function(d) {
     return _c('div', {}, [_c('a', {
       attrs: {
-        "href": '../question/' + d.id
+        "href": '../module/' + d.id
       }
     }, [_vm._v(_vm._s(d.module_name))])])
   }), _vm._v(" "), _c('div', {}, [_c('a', {
     staticClass: "btn btn-info",
     attrs: {
-      "href": 'create?id=' + _vm.id
+      "href": '../module/create?id=' + _vm.id
     }
   }, [_vm._v("添加类目")])])], 2)])])])])
 },staticRenderFns: []}
@@ -32177,7 +32177,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.data), function(d) {
     return _c('div', {}, [_c('a', {
       attrs: {
-        "href": 'module/' + d.id
+        "href": 'paper/' + d.id
       }
     }, [_vm._v(_vm._s(d.name))])])
   }))])])])])
@@ -32226,7 +32226,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.editQuestion(question.id)
         }
       }
-    }, [_vm._v(_vm._s(question.question_name) + " ")])])
+    }, [_vm._v(_vm._s(question.question_name) + " " + _vm._s(question.id) + " ")])])
   }), _vm._v(" "), _c('div', {}, [_c('button', {
     staticClass: "btn btn-info",
     attrs: {
@@ -32251,9 +32251,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-body"
   }, [_c('form', {
     staticClass: "form-horizontal comment-input",
-    attrs: {
-      "method": "POST"
-    },
     on: {
       "submit": function($event) {
         $event.preventDefault();
@@ -32429,9 +32426,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-body"
   }, [_c('form', {
     staticClass: "form-horizontal comment-input",
-    attrs: {
-      "method": "POST"
-    },
     on: {
       "submit": function($event) {
         $event.preventDefault();
@@ -32470,20 +32464,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.questionEdit.module_id),
-      expression: "questionEdit.module_id"
+      value: (_vm.questionEdit.id),
+      expression: "questionEdit.id"
     }],
     attrs: {
       "type": "hidden",
-      "name": "module_id"
+      "name": "id"
     },
     domProps: {
-      "value": _vm._s(_vm.questionEdit.module_id)
+      "value": _vm._s(_vm.questionEdit.id)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.questionEdit.module_id = $event.target.value
+        _vm.questionEdit.id = $event.target.value
       }
     }
   }), _vm._v(" "), _c('div', {
@@ -32516,7 +32510,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])]), _vm._v(" "), _vm._l((_vm.answersEdit), function(answer, index) {
     return _c('div', {
       staticClass: "form-group"
-    }, [_c('div', {
+    }, [_c('input', {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: (answer.id),
+        expression: "answer.id"
+      }],
+      attrs: {
+        "type": "hidden",
+        "name": 'answer_id' + index
+      },
+      domProps: {
+        "value": _vm._s(answer.id)
+      },
+      on: {
+        "input": function($event) {
+          if ($event.target.composing) { return; }
+          answer.id = $event.target.value
+        }
+      }
+    }), _vm._v(" "), _c('div', {
       staticClass: "col-xs-8"
     }, [_c('input', {
       directives: [{

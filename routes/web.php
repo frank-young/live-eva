@@ -19,5 +19,5 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::resource('paper', 'PaperController');  // 问卷模块
     Route::resource('module', 'ModuleController');  // 问卷子标题模块
     Route::resource('question', 'QuestionController');  // 问题
-    Route::get('question/api/show/{question}', 'QuestionController@apiShow');  // ajax问题请求
+    Route::post('question/update', 'QuestionController@update');  // 编辑问题的ajax提交
 });

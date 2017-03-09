@@ -10,20 +10,8 @@ use Illuminate\Support\Facades\Response;
 
 class QuestionController extends Controller
 {
-  public function index()
-  {
-      // $questions = Question::all();
-      // return view('admin/question/index', compact('questions'));
-  }
-
-  // create page
+  // show detail page
   public function show($id)
-  {
-    $data = ['id' => $id];
-    return view('admin/question/show', compact('data'));
-  }
-
-  public function apiShow($id)
   {
     $questions = Question::where(['module_id' => $id])->get();
 
@@ -66,6 +54,30 @@ class QuestionController extends Controller
         return redirect()->back()->withInput()->withErrors('保存失败！');
     }
   }
+
+  // post update ctrl
+  public function update(Request $request)
+  {
+    $this->validate($request, [
+        'question_name' => 'required|max:255'
+    ]);
+
+    $question = Question::find($request->get('id'));
+    $question->question_name = $request->get('question_name');
+
+    if ($question->save()) {
+        $question_id = $question->id;
+        Answer::where(['question_id' => $question_id ])->delete();
+        $this::_save($request->get('len'), $request, $question_id);
+
+        $data = ['errno'=>0, 'msg'=>'success'];
+		    return Response::json($data);
+    } else {
+        return redirect()->back()->withInput()->withErrors('保存失败！');
+    }
+  }
+
+  // 获取保存的答案列表，并保存
   public function _save($len, $request, $id)
   {
     for($i = 0;$i<$len;$i++){

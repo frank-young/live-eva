@@ -8,16 +8,9 @@ use App\Models\Module;
 
 class ModuleController extends Controller
 {
-  public function index()
-  {
-      $modules = Module::all();
-      return view('admin/module/index', compact('modules'));
-  }
-
   public function show($id)
   {
-      $modules = Module::where(['paper_id' => $id])->get();
-      $data = ['id'=>$id, 'modules'=>$modules];
+      $data = ['id' => $id];
       return view('admin/module/show', compact('data'));
   }
 
