@@ -12138,6 +12138,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     props: {
@@ -12174,11 +12175,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
+var ERR_OK = 0;
 /* harmony default export */ __webpack_exports__["default"] = {
     props: {
         data: {
             type: Array
+        }
+    },
+    methods: {
+        produce: function produce(id) {
+            var _this = this;
+
+            this.$http.get('paper/produce/' + id).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this.questions = res.questions;
+                }
+            });
         }
     }
 };
@@ -12340,7 +12355,7 @@ var ERR_OK = 0;
         submitEdit: function submitEdit(event) {
             var _this2 = this;
 
-            // 提交
+            // 编辑提交
             var options = {};
             var formData = new FormData(event.target);
 
@@ -12357,6 +12372,7 @@ var ERR_OK = 0;
             });
         },
         addQuestion: function addQuestion() {
+            // 添加问题，这里编辑和添加模块做了隐藏互换。
             this.isAdd = true;
         },
         editQuestion: function editQuestion(id) {
@@ -32143,7 +32159,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '../module/' + d.id
       }
-    }, [_vm._v(_vm._s(d.module_name))])])
+    }, [_vm._v(_vm._s(d.module_name))]), _vm._v(" | \n                        "), _c('a', {
+      attrs: {
+        "href": "#"
+      }
+    }, [_vm._v("测评报告")])])
   }), _vm._v(" "), _c('div', {}, [_c('a', {
     staticClass: "btn btn-info",
     attrs: {
@@ -32179,7 +32199,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": 'paper/' + d.id
       }
-    }, [_vm._v(_vm._s(d.name))])])
+    }, [_vm._v(_vm._s(d.name))]), _vm._v(" |\n                        "), _c('a', {
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          _vm.produce(d.id)
+        }
+      }
+    }, [_vm._v("生成问卷")])])
   }))])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {

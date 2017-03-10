@@ -144,7 +144,7 @@
                 })
             },
             submitEdit(event) {
-                // 提交
+                // 编辑提交
                 let options = {}
                 let formData = new FormData(event.target)
 
@@ -161,6 +161,7 @@
                 })
             },
             addQuestion() {
+                // 添加问题，这里编辑和添加模块做了隐藏互换。
                 this.isAdd = true
             },
             editQuestion(id) {

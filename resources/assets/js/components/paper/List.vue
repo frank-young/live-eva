@@ -7,7 +7,8 @@
 
                     <div class="panel-body">
                         <div class="" v-for="d in data">
-                            <a :href="'paper/' + d.id">{{d.name}}</a>
+                            <a :href="'paper/' + d.id">{{d.name}}</a> |
+                            <a href="#" @click="produce(d.id)">生成问卷</a>
                         </div>
                     </div>
                 </div>
@@ -17,10 +18,21 @@
 </template>
 
 <script>
+    const ERR_OK = 0;
     export default {
         props: {
             data: {
                 type: Array
+            }
+        },
+        methods: {
+            produce(id) {
+                this.$http.get('paper/produce/' + id).then((res) => {
+                    res = res.body
+                    if (res.errno === ERR_OK) {
+                        this.questions = res.questions
+                    }
+                })
             }
         }
     }

@@ -22,11 +22,7 @@
                         <button class="btn btn-lg btn-info">确认</button>
                     </form> -->
 
-<<<<<<< HEAD
                     <question-input></question-input>
-=======
-                    
->>>>>>> question
                 </div>
             </div>
         </div>
