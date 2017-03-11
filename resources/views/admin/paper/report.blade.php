@@ -2,5 +2,5 @@
 
 @section('content')
 
-    <paper-report :data="{{ $modules }}"></paper-report>
+    <paper-report :data="{{ $paper }}"></paper-report>
 @endsection
