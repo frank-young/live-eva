@@ -60,17 +60,20 @@ class PaperController extends Controller
   {
       $paper = Paper::find($id);
       $modules = Module::where(['paper_id' => $id])->get();
-      $questions = [];
       foreach ($modules as $key => $value) {
-          // $value['questions'] = ['a'=>'a'];
-          // echo $value['questions'];
-          // $question = Question::where(['module_id' => $value->id])->get();
-          // array_push($value['questions'], $question);
+          $questions = Question::where(['module_id' => $value->id])->get();
+          foreach ($questions as $k => $v) {
+              $answers = Answer::where(['question_id' => $v->id])->get();
+              $v['answers'] = $answers;
+          }
+          $value['questions'] = $questions;
       }
-      $data = ['errno'=>0, 'msg'=>'success', 'paper' => $paper, 'modules' => $modules, 'questions' => $questions];
-      $html =  view('admin/paper/report', compact('data'))->__toString();
-      $path = 'static/report'.$id.'.html';
-      Storage::put($path, $html);
+      $data = ['errno'=>0, 'msg'=>'success', 'paper' => $paper, 'modules' => $modules];
+      // $html =  view('admin/paper/report', compact('data'))->__toString();
+      // $path = 'static/report'.$id.'.html';
+      // Storage::put($path, $html);
+
+      return view('admin/paper/report', compact('modules'));
       // return Response::json($data);
   }
 

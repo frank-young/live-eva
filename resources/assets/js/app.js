@@ -16,6 +16,7 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
 Vue.component('paper-list', require('./components/paper/List.vue'));
+Vue.component('paper-report', require('./components/paper/Report.vue'));
 Vue.component('module-list', require('./components/module/List.vue'));
 Vue.component('question-input', require('./components/question/Input.vue'));
 
