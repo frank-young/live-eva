@@ -70,12 +70,12 @@ class PaperController extends Controller
       }
       $paper->modules = $modules;
       // $data = ['errno'=>0, 'msg'=>'success', 'paper' => $paper];
-      // $html =  view('admin/paper/report', compact('data'))->__toString();
+      // $html =  view('admin/paper/report', compact('paper'))->__toString();
       // $path = 'static/report'.$id.'.html';
       // Storage::put($path, $html);
 
       return view('admin/paper/report', compact('paper'));
-      // return Response::json($data);
+      // return Response::json($paper);
   }
 
 }
