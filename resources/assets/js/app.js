@@ -20,6 +20,7 @@ Vue.component('paper-report', require('./components/paper/Report.vue'));
 Vue.component('module-list', require('./components/module/List.vue'));
 Vue.component('question-input', require('./components/question/Input.vue'));
 Vue.component('report-input', require('./components/report/Input.vue'));
+Vue.component('report-report', require('./components/report/Report.vue'));
 
 const app = new Vue({
     el: '#app'

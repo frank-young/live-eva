@@ -8,6 +8,7 @@ use App\Models\Paper;
 use App\Models\Module;
 use App\Models\Question;
 use App\Models\Answer;
+use App\Models\Report;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
@@ -93,11 +94,12 @@ class PaperController extends Controller
               $v->answer_name = $answer['answer_name'];
           }
           $value->sum = $sum;
+          $report = Report::where(['module_id' => $value->id])->where('min_score', '<=', $sum)->where('max_score', '>=', $sum)->first(['id', 'report_name', 'report_body','min_score', 'max_score']);
           $value->questions = $questions;
+          $value->report = $report;
       }
       $paper->modules = $modules;
       $data = ['errno'=>0, 'msg'=>'success', 'paper'=>$paper];
       return Response::json($data);
   }
-
 }

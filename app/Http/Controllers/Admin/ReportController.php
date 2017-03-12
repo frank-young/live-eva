@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Response;
 
 class ReportController extends Controller
 {
+    public function index()
+    {
+        return view('admin/report/report');
+    }
     // 报告新建和编辑。
     public function show($id)
     {
@@ -60,7 +64,7 @@ class ReportController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'report_name' => 'required|unique:reports|max:255',
+            'report_name' => 'required|max:255',
             'report_body' => 'required',
             'min_score' => 'required',
             'max_score' => 'required'

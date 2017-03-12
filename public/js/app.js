@@ -11261,6 +11261,7 @@ Vue.component('paper-report', __webpack_require__(42));
 Vue.component('module-list', __webpack_require__(40));
 Vue.component('question-input', __webpack_require__(43));
 Vue.component('report-input', __webpack_require__(65));
+Vue.component('report-report', __webpack_require__(69));
 
 var app = new Vue({
   el: '#app'
@@ -12253,9 +12254,6 @@ var ERR_OK = 0;
     },
 
     methods: {
-        select: function select(id, value) {
-            // alert(value)
-        },
         total: function total(event) {
             var options = {};
             var formData = new FormData(event.target);
@@ -12265,7 +12263,8 @@ var ERR_OK = 0;
             this.$http.post('/live/live-eva/public/paper/ctrl', formData, options).then(function (res) {
                 res = res.body;
                 if (res.errno === ERR_OK) {
-                    alert('提交成功');
+                    window.localStorage.setItem('report', JSON.stringify(res.paper));
+                    window.location.href = "/live/live-eva/public/admin/report";
                 }
             });
         }
@@ -32344,7 +32343,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "container"
   }, [_c('form', {
-    staticClass: "form-horizontal comment-input",
+    staticClass: "form-horizontal ",
     on: {
       "submit": function($event) {
         $event.preventDefault();
@@ -43955,6 +43954,106 @@ if(false) {
  }
  // When the module is disposed, remove the <style> tags
  module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var ERR_OK = 0;
+/* harmony default export */ __webpack_exports__["default"] = {
+    data: function data() {
+        return {
+            report: {}
+        };
+    },
+    created: function created() {
+        this.default();
+    },
+
+    methods: {
+        default: function _default() {
+            this.report = window.localStorage.getItem('report') ? JSON.parse(window.localStorage.getItem('report')) : {};
+        }
+    }
+};
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(68),
+  /* template */
+  __webpack_require__(70),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/frankyoung/Sites/live/live-eva/resources/assets/js/components/report/Report.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Report.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1494fbfc", Component.options)
+  } else {
+    hotAPI.reload("data-v-1494fbfc", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8 col-md-offset-2 text-center"
+  }, [_c('h1', [_vm._v(_vm._s(_vm.report.name))])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8 col-md-offset-2"
+  }, _vm._l((_vm.report.modules), function(module) {
+    return _c('div', {}, [_c('h2', [_vm._v(_vm._s(module.report.report_name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(module.report.report_body))])])
+  }))])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-1494fbfc", module.exports)
+  }
 }
 
 /***/ })

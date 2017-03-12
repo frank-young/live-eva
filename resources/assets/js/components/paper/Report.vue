@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <form @submit.prevent="total" class="form-horizontal comment-input">
+        <form @submit.prevent="total" class="form-horizontal ">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <h1>{{report.name}}</h1>
@@ -44,9 +44,6 @@
             console.log(this.report)
         },
         methods: {
-            select(id,value){
-                // alert(value)
-            },
             total(event) {
               let options = {}
               let formData = new FormData(event.target)
@@ -56,7 +53,8 @@
               this.$http.post('/live/live-eva/public/paper/ctrl', formData, options).then((res) => {
                   res = res.body
                   if (res.errno === ERR_OK) {
-                      alert('提交成功')
+                      window.localStorage.setItem('report',JSON.stringify(res.paper))
+                      window.location.href = "/live/live-eva/public/admin/report"
                   }
               })
             }
