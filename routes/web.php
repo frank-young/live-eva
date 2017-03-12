@@ -21,6 +21,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::resource('module', 'ModuleController');  // 问卷子标题模块
     Route::resource('question', 'QuestionController');  // 问题
     Route::post('question/update', 'QuestionController@update');  // 编辑问题的ajax提交
+
+    Route::resource('report', 'ReportController');  // 报告模块
+    Route::get('report/list/{report}', 'ReportController@list');  // 报告列表展示
+    Route::post('report/update', 'ReportController@update');  // 编辑报告的ajax提交
+
 });
 
 Route::post('paper/ctrl', 'Admin\PaperController@reportCtrl');  // 问卷提交处理

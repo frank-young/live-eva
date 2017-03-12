@@ -10,8 +10,7 @@ class ModuleController extends Controller
 {
   public function show($id)
   {
-      $data = ['id' => $id];
-      return view('admin/module/show', compact('data'));
+      return view('admin/module/show', compact('id'));
   }
 
   // create module page

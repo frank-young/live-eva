@@ -10,7 +10,6 @@ use App\Models\Question;
 use App\Models\Answer;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-// use Illuminate\View\View;
 
 class PaperController extends Controller
 {

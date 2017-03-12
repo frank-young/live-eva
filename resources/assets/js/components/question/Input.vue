@@ -18,7 +18,7 @@
                 <div class="panel panel-default" v-show="isAdd">
                     <div class="panel-heading">新添问题</div>
                     <div class="panel-body">
-                      <form @submit.prevent="submit" class="form-horizontal comment-input">
+                      <form @submit.prevent="submit" class="form-horizontal">
                         <input type="hidden" name="_token" :value="token">
                         <input type="hidden" name="len" v-model="answers.length">
                         <input type="hidden" name="module_id" v-model="id">

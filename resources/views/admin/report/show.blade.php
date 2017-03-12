@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <question-input :id="{{ $id }} "></question-input>
+    <report-input :id="{{ $id}} "></report-input>
 @endsection

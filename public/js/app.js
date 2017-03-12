@@ -11260,6 +11260,7 @@ Vue.component('paper-list', __webpack_require__(41));
 Vue.component('paper-report', __webpack_require__(42));
 Vue.component('module-list', __webpack_require__(40));
 Vue.component('question-input', __webpack_require__(43));
+Vue.component('report-input', __webpack_require__(65));
 
 var app = new Vue({
   el: '#app'
@@ -32266,9 +32267,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '../module/' + d.id
       }
-    }, [_vm._v(_vm._s(d.module_name))]), _vm._v(" | \n                        "), _c('a', {
+    }, [_vm._v(_vm._s(d.module_name))]), _vm._v(" |\n                        "), _c('a', {
       attrs: {
-        "href": "#"
+        "href": '../report/' + d.id
       }
     }, [_vm._v("测评报告")])])
   }), _vm._v(" "), _c('div', {}, [_c('a', {
@@ -32456,7 +32457,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("新添问题")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', {
-    staticClass: "form-horizontal comment-input",
+    staticClass: "form-horizontal",
     on: {
       "submit": function($event) {
         $event.preventDefault();
@@ -43293,6 +43294,668 @@ module.exports = function(module) {
 __webpack_require__(11);
 module.exports = __webpack_require__(12);
 
+
+/***/ }),
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var ERR_OK = 0;
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    props: {
+        id: {
+            type: Number
+        }
+    },
+    data: function data() {
+        return {
+            token: window.Laravel.csrfToken,
+            isAdd: true,
+            reportDefault: {},
+            reports: [],
+            reportEdit: {}
+        };
+    },
+    created: function created() {
+        this._getReportsTitleData();
+    },
+
+    methods: {
+        submit: function submit(event) {
+            var _this = this;
+
+            // 提交
+            var options = {};
+            var formData = new FormData(event.target);
+
+            options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+            options.emulateJSON = true;
+
+            this.$http.post('../report', formData, options).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this._getReportsTitleData();
+                    _this._reportDefault();
+                }
+            });
+        },
+        submitEdit: function submitEdit(event) {
+            var _this2 = this;
+
+            // 编辑提交
+            var options = {};
+            var formData = new FormData(event.target);
+
+            options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+            options.emulateJSON = true;
+
+            this.$http.post('../report/update', formData, options).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this2._getReportsTitleData();
+                }
+            });
+        },
+        addReport: function addReport() {
+            // 添加报告，这里编辑和添加模块做了隐藏互换。
+            this.isAdd = true;
+        },
+        editReport: function editReport(id) {
+            // 编辑报告
+            this.isAdd = false;
+            this._getReportData(id);
+        },
+        _getReportsTitleData: function _getReportsTitleData() {
+            var _this3 = this;
+
+            // 获取报告标题列表数据
+            this.$http.get('../report/list/' + this.id).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this3.reports = res.reports;
+                }
+            });
+        },
+        _getReportData: function _getReportData(id) {
+            var _this4 = this;
+
+            // 获取单个报告数据
+            this.$http.get('../report/' + id + '/edit').then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    _this4.reportEdit = res.report;
+                }
+            });
+        },
+        _reportDefault: function _reportDefault() {
+            // 初始化默认表单数据
+            this.reportDefault = {
+                report_name: '',
+                report_body: '',
+                min_score: null,
+                max_score: null
+            };
+        }
+    }
+};
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(38)();
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(67)
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(63),
+  /* template */
+  __webpack_require__(66),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/frankyoung/Sites/live/live-eva/resources/assets/js/components/report/Input.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Input.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5a5ee132", Component.options)
+  } else {
+    hotAPI.reload("data-v-5a5ee132", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "container"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-4"
+  }, [_c('div', {
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("报告")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_vm._l((_vm.reports), function(report) {
+    return _c('div', {}, [_c('a', {
+      attrs: {
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          _vm.editReport(report.id)
+        }
+      }
+    }, [_vm._v(_vm._s(report.report_name) + " ----> " + _vm._s(report.min_score) + "分至" + _vm._s(report.max_score) + "分 ")])])
+  }), _vm._v(" "), _c('div', {}, [_c('button', {
+    staticClass: "btn btn-info",
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.addReport
+    }
+  }, [_vm._v("添加报告")])])], 2)])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8 "
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isAdd),
+      expression: "isAdd"
+    }],
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("新添报告")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal",
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.submit($event)
+      }
+    }
+  }, [_c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "_token"
+    },
+    domProps: {
+      "value": _vm.token
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "type": "hidden",
+      "name": "module_id",
+      "required": "required"
+    },
+    domProps: {
+      "value": _vm.id
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("标题")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-10"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportDefault.report_name),
+      expression: "reportDefault.report_name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "report_name",
+      "required": "required",
+      "placeholder": "请输入标题"
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportDefault.report_name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportDefault.report_name = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("最小分值")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-4"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportDefault.min_score),
+      expression: "reportDefault.min_score"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "min_score",
+      "required": "required",
+      "placeholder": "最小分值（包括等于） "
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportDefault.min_score)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportDefault.min_score = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("最大分值")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-4"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportDefault.max_score),
+      expression: "reportDefault.max_score"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "max_score",
+      "required": "required",
+      "placeholder": "最大分值（包括等于） "
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportDefault.max_score)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportDefault.max_score = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("内容")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-10"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportDefault.report_body),
+      expression: "reportDefault.report_body"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "name": "report_body",
+      "rows": "3",
+      "placeholder": "请输入内容"
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportDefault.report_body)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportDefault.report_body = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (!_vm.isAdd),
+      expression: "!isAdd"
+    }],
+    staticClass: "panel panel-default"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_vm._v("编辑报告")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal",
+    on: {
+      "submit": function($event) {
+        $event.preventDefault();
+        _vm.submitEdit($event)
+      }
+    }
+  }, [_c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "_token"
+    },
+    domProps: {
+      "value": _vm.token
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "id"
+    },
+    domProps: {
+      "value": _vm.reportEdit.id
+    }
+  }), _vm._v(" "), _c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "type": "hidden",
+      "name": "module_id",
+      "required": "required"
+    },
+    domProps: {
+      "value": _vm.id
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("标题")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-10"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportEdit.report_name),
+      expression: "reportEdit.report_name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "report_name",
+      "required": "required",
+      "placeholder": "请输入标题"
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportEdit.report_name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportEdit.report_name = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("最小分值")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-4"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportEdit.min_score),
+      expression: "reportEdit.min_score"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "min_score",
+      "required": "required",
+      "placeholder": "最小分值（包括等于） "
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportEdit.min_score)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportEdit.min_score = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("最大分值")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-4"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportEdit.max_score),
+      expression: "reportEdit.max_score"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "max_score",
+      "required": "required",
+      "placeholder": "最大分值（包括等于） "
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportEdit.max_score)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportEdit.max_score = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-sm-2 control-label"
+  }, [_vm._v("内容")]), _vm._v(" "), _c('div', {
+    staticClass: "col-sm-10"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reportEdit.report_body),
+      expression: "reportEdit.report_body"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "name": "report_body",
+      "rows": "3",
+      "placeholder": "请输入内容"
+    },
+    domProps: {
+      "value": _vm._s(_vm.reportEdit.report_body)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reportEdit.report_body = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _vm._m(1)])])])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-sm-10 col-sm-offset-2"
+  }, [_c('button', {
+    staticClass: "btn btn-lg btn-info"
+  }, [_vm._v("确认")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-sm-10 col-sm-offset-2"
+  }, [_c('button', {
+    staticClass: "btn btn-lg btn-info"
+  }, [_vm._v("确认")])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-5a5ee132", module.exports)
+  }
+}
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(64);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(50)("20d9d1ea", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-5a5ee132!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Input.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-5a5ee132!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Input.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);
