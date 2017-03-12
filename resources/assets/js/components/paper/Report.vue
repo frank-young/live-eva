@@ -13,7 +13,7 @@
                         <div class="" v-for="question in module.questions">
                             <h3>{{question.question_name}}</h3>
                             <div class="" v-for="answer in question.answers">
-                                <label><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.score" >{{answer.answer_name}} ----------- {{answer.score}}分 </label>
+                                <label><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.id" >{{answer.answer_name}} ----------- {{answer.score}}分 </label>
                             </div>
                         </div>
                     </div>

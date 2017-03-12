@@ -32381,7 +32381,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             "name": 'answers[' + module.id + '][' + question.id + ']'
           },
           domProps: {
-            "value": answer.score
+            "value": answer.id
           }
         }), _vm._v(_vm._s(answer.answer_name) + " ----------- " + _vm._s(answer.score) + "分 ")])])
       })], 2)

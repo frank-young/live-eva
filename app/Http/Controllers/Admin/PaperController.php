@@ -85,14 +85,20 @@ class PaperController extends Controller
       $modules = Module::where(['paper_id' => $report_id])->get(['id','module_name']);
       foreach ($modules as $value) {
           $sum = 0;
-          $questions = Question::where(['module_id' => $value->id])->get(['id']);
+          $questions = Question::where(['module_id' => $value->id])->get(['id', 'question_name']);
           foreach ($questions as $v) {
-              $sum += $request->input('answers.'.$value->id.'.'.$v->id);
+              $answer_id = $request->input('answers.'.$value->id.'.'.$v->id);
+              $answer = Answer::where(['id' => $answer_id])->first(['answer_name', 'score']);
+              $sum += $answer['score'];
+              $v->answer_id = $answer_id;
+              $v->answer_name = $answer['answer_name'];
           }
           $value->sum = $sum;
+          $value->questions = $questions;
       }
       $paper->modules = $modules;
-      return Response::json($paper);
+      $data = ['errno'=>0, 'msg'=>'success', 'paper'=>$paper];
+      return Response::json($data);
   }
 
 }
