@@ -7,12 +7,13 @@
                 </div>
                 <div class="col-md-8 col-md-offset-2">
                     <input type="hidden" name="_token" :value="token">
-                    <div class="" v-for="(module,index) in report.modules">
+                    <input type="hidden" name="report_id" :value="report.id">
+                    <div class="" v-for="module in report.modules">
                         <h2>{{module.module_name}}</h2>
-                        <div class="" v-for="(question,i) in module.questions">
+                        <div class="" v-for="question in module.questions">
                             <h3>{{question.question_name}}</h3>
                             <div class="" v-for="answer in question.answers">
-                                <label><input type="radio" :name="'answer' + index + i" :value="answer.score">{{answer.answer_name}} ----------- {{answer.score}}分 </label>
+                                <label><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.score" >{{answer.answer_name}} ----------- {{answer.score}}分 </label>
                             </div>
                         </div>
                     </div>
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+    const ERR_OK = 0
     export default {
         props: {
             report: {
@@ -48,18 +50,15 @@
             total(event) {
               let options = {}
               let formData = new FormData(event.target)
-              console.log(this.picked)
-              // options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-              // options.emulateJSON = true
-              //
-              // this.$http.post('../question', formData, options).then((res) => {
-              //     res = res.body
-              //     if (res.errno === ERR_OK) {
-              //         this.name = ''
-              //         this.answers = this._createOriginAnswer(this.defaultLen)
-              //         this._getQuestionsTitleData()
-              //     }
-              // })
+
+              options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+              options.emulateJSON = true
+              this.$http.post('/live/live-eva/public/paper/ctrl', formData, options).then((res) => {
+                  res = res.body
+                  if (res.errno === ERR_OK) {
+                      alert('提交成功')
+                  }
+              })
             }
         }
     }

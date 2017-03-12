@@ -22,3 +22,5 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::resource('question', 'QuestionController');  // 问题
     Route::post('question/update', 'QuestionController@update');  // 编辑问题的ajax提交
 });
+
+Route::post('paper/ctrl', 'Admin\PaperController@reportCtrl');  // 问卷提交处理

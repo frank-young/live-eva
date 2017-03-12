@@ -12232,7 +12232,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
+var ERR_OK = 0;
 /* harmony default export */ __webpack_exports__["default"] = {
     props: {
         report: {
@@ -12256,18 +12258,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         total: function total(event) {
             var options = {};
             var formData = new FormData(event.target);
-            console.log(this.picked);
-            // options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-            // options.emulateJSON = true
-            //
-            // this.$http.post('../question', formData, options).then((res) => {
-            //     res = res.body
-            //     if (res.errno === ERR_OK) {
-            //         this.name = ''
-            //         this.answers = this._createOriginAnswer(this.defaultLen)
-            //         this._getQuestionsTitleData()
-            //     }
-            // })
+
+            options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+            options.emulateJSON = true;
+            this.$http.post('/live/live-eva/public/paper/ctrl', formData, options).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {
+                    alert('提交成功');
+                }
+            });
         }
     }
 };
@@ -32365,13 +32364,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.token
     }
-  }), _vm._v(" "), _vm._l((_vm.report.modules), function(module, index) {
-    return _c('div', {}, [_c('h2', [_vm._v(_vm._s(module.module_name))]), _vm._v(" "), _vm._l((module.questions), function(question, i) {
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "report_id"
+    },
+    domProps: {
+      "value": _vm.report.id
+    }
+  }), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
+    return _c('div', {}, [_c('h2', [_vm._v(_vm._s(module.module_name))]), _vm._v(" "), _vm._l((module.questions), function(question) {
       return _c('div', {}, [_c('h3', [_vm._v(_vm._s(question.question_name))]), _vm._v(" "), _vm._l((question.answers), function(answer) {
         return _c('div', {}, [_c('label', [_c('input', {
           attrs: {
             "type": "radio",
-            "name": 'answer' + index + i
+            "name": 'answers[' + module.id + '][' + question.id + ']'
           },
           domProps: {
             "value": answer.score

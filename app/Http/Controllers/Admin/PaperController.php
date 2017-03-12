@@ -60,9 +60,9 @@ class PaperController extends Controller
   {
       $paper = Paper::find($id);
       $modules = Module::where(['paper_id' => $id])->get();
-      foreach ($modules as $key => $value) {
+      foreach ($modules as $value) {
           $questions = Question::where(['module_id' => $value->id])->get();
-          foreach ($questions as $k => $v) {
+          foreach ($questions as $v) {
               $answers = Answer::where(['question_id' => $v->id])->get();
               $v->answers = $answers;
           }
@@ -76,6 +76,23 @@ class PaperController extends Controller
 
       return view('admin/paper/report', compact('paper'));
       // return Response::json($paper);
+  }
+  // 处理问卷提交信息
+  public function reportCtrl(Request $request)
+  {
+      $report_id = $request->get('report_id');
+      $paper = Paper::where(['id'=>$report_id])->first(['id','name']);
+      $modules = Module::where(['paper_id' => $report_id])->get(['id','module_name']);
+      foreach ($modules as $value) {
+          $sum = 0;
+          $questions = Question::where(['module_id' => $value->id])->get(['id']);
+          foreach ($questions as $v) {
+              $sum += $request->input('answers.'.$value->id.'.'.$v->id);
+          }
+          $value->sum = $sum;
+      }
+      $paper->modules = $modules;
+      return Response::json($paper);
   }
 
 }
