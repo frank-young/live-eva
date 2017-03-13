@@ -69,13 +69,13 @@ class PaperController extends Controller
           $value->questions = $questions;
       }
       $paper->modules = $modules;
-      // $data = ['errno'=>0, 'msg'=>'success', 'paper' => $paper];
-      // $html =  view('admin/paper/report', compact('paper'))->__toString();
-      // $path = 'static/report'.$id.'.html';
-      // Storage::put($path, $html);
-
-      return view('admin/paper/report', compact('paper'));
-      // return Response::json($paper);
+      $html =  view('admin/paper/report', compact('paper'))->__toString();
+      $path = 'static/report'.md5($id).'.html';
+      Storage::put($path, $html);
+      $URL = 'http://127.0.0.1:9999/live/live-eva/storage/app/';
+      $data = ['errno' => 0, 'msg' => 'success', 'url' => $URL.$path];
+      // return view('admin/paper/report', compact('paper'));
+      return Response::json($data);
   }
   // 处理问卷提交信息
   public function reportCtrl(Request $request)
