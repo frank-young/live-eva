@@ -2,7 +2,7 @@
     <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
-                    <h1>{{report.name}}</h1>
+                    <h1>{{report.name}}（测评报告）</h1>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
                     <div class="" v-for="module in report.modules">

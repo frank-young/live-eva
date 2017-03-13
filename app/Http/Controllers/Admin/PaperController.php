@@ -58,6 +58,9 @@ class PaperController extends Controller
   // 创建出完整的答卷 -> 这里是生成问卷
   public function produce($id)
   {
+      $SALT = 'frankyoung';
+      $URL = 'http://127.0.0.1:9999/live/live-eva/storage/app/';
+
       $paper = Paper::find($id);
       $modules = Module::where(['paper_id' => $id])->get();
       foreach ($modules as $value) {
@@ -70,9 +73,8 @@ class PaperController extends Controller
       }
       $paper->modules = $modules;
       $html =  view('admin/paper/report', compact('paper'))->__toString();
-      $path = 'static/report'.md5($id).'.html';
+      $path = 'static/report'.md5($id.$SALT).'.html';
       Storage::put($path, $html);
-      $URL = 'http://127.0.0.1:9999/live/live-eva/storage/app/';
       $data = ['errno' => 0, 'msg' => 'success', 'url' => $URL.$path];
       // return view('admin/paper/report', compact('paper'));
       return Response::json($data);

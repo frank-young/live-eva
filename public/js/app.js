@@ -12486,7 +12486,8 @@ var ERR_OK = 0;
             this.$http.get('paper/produce/' + id).then(function (res) {
                 res = res.body;
                 if (res.errno === ERR_OK) {
-                    _this.questions = res.questions;
+                    _this.url = res.url;
+                    alert(_this.url);
                 }
             });
         }
@@ -32863,7 +32864,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-md-8 col-md-offset-2 text-center"
-  }, [_c('h1', [_vm._v(_vm._s(_vm.report.name))])]), _vm._v(" "), _c('div', {
+  }, [_c('h1', [_vm._v(_vm._s(_vm.report.name) + "（测评报告）")])]), _vm._v(" "), _c('div', {
     staticClass: "col-md-8 col-md-offset-2"
   }, _vm._l((_vm.report.modules), function(module) {
     return _c('div', {}, [_c('h2', [_vm._v(_vm._s(module.report.report_name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(module.report.report_body))])])

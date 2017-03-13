@@ -34,7 +34,7 @@ class ModuleController extends Controller
     $module->paper_id = $request->get('paper_id');
 
     if ($module->save()) {
-        return redirect('admin/module/'.$module->paper_id);
+        return redirect('admin/module/'.$module->id);
     } else {
         return redirect()->back()->withInput()->withErrors('保存失败！');
     }

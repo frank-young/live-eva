@@ -30,7 +30,8 @@
                 this.$http.get('paper/produce/' + id).then((res) => {
                     res = res.body
                     if (res.errno === ERR_OK) {
-                        this.questions = res.questions
+                        this.url = res.url
+                        alert(this.url)
                     }
                 })
             }
