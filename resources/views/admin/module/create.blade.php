@@ -14,7 +14,6 @@
                             {!! implode('<br>', $errors->all()) !!}
                         </div>
                     @endif
-
                     <form action="{{ url('admin/module') }}" method="POST">
                         {!! csrf_field() !!}
                         <input type="hidden" name="paper_id" value="{{$data['id']}} ">
@@ -24,7 +23,6 @@
                         <br>
                         <button class="btn btn-lg btn-info">确认</button>
                     </form>
-
                 </div>
             </div>
         </div>
