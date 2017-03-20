@@ -12471,6 +12471,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 /* harmony default export */ __webpack_exports__["default"] = {
@@ -32893,12 +32908,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
+  }, [_c('div', {
+    staticClass: "row"
   }, _vm._l((_vm.data), function(d) {
-    return _c('div', {}, [_c('a', {
+    return _c('div', {
+      staticClass: "col-md-4"
+    }, [_c('div', {
+      staticClass: "list-box "
+    }, [_c('h3', [_c('a', {
       attrs: {
         "href": 'paper/' + d.id
       }
-    }, [_vm._v(_vm._s(d.name))]), _vm._v(" |\n                        "), _c('a', {
+    }, [_vm._v(_vm._s(d.name))])]), _vm._v(" "), _c('p', {
+      staticClass: "btn-group"
+    }, [_c('a', {
+      staticClass: "btn-edit",
+      attrs: {
+        "href": 'paper/' + d.id
+      }
+    }, [_vm._v("编辑问卷")]), _vm._v(" "), _c('a', {
+      staticClass: "btn-produce",
       attrs: {
         "href": "#"
       },
@@ -32907,17 +32936,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.produce(d.id)
         }
       }
-    }, [_vm._v("生成问卷")])])
-  }))])])])])
+    }, [_vm._v("生成问卷")])])])])
+  }))])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("问卷列表 "), _c('a', {
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-8"
+  }, [_c('p', [_vm._v("问卷")])]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-4 text-right"
+  }, [_c('a', {
     staticClass: "btn btn-info",
     attrs: {
       "href": "paper/create"
     }
-  }, [_vm._v("添加问卷")])])
+  }, [_vm._v("添加问卷")])])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

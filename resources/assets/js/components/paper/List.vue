@@ -3,12 +3,27 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">问卷列表 <a href="paper/create" class="btn btn-info">添加问卷</a></div>
-
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-md-8">
+                          <p>问卷</p>
+                        </div>
+                        <div class="col-md-4 text-right">
+                          <a href="paper/create" class="btn btn-info">添加问卷</a>
+                        </div>
+                      </div>
+                    </div>
                     <div class="panel-body">
-                        <div class="" v-for="d in data">
-                            <a :href="'paper/' + d.id">{{d.name}}</a> |
-                            <a href="#" @click="produce(d.id)">生成问卷</a>
+                        <div class="row">
+                            <div class="col-md-4" v-for="d in data">
+                                <div class="list-box ">
+                                  <h3><a :href="'paper/' + d.id">{{d.name}}</a></h3>
+                                  <p class="btn-group">
+                                    <a class="btn-edit" :href="'paper/' + d.id">编辑问卷</a>
+                                    <a class="btn-produce" href="#" @click="produce(d.id)">生成问卷</a>
+                                  </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
