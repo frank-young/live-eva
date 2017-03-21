@@ -8330,6 +8330,10 @@ p {
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .navbar-default {
   background-color: #2A3F54;
 }
@@ -8369,6 +8373,8 @@ p {
 
 .btn {
   border-radius: 1px;
+  font-weight: normal;
+  text-shadow: none;
 }
 
 .list-box {
@@ -8464,6 +8470,12 @@ p {
 
 .side-list-wrap .side-list-item a:hover,
 .side-list-wrap .side-list-item a:focus {
-  background-color: #f66;
+  background-color: #2A3F54;
   color: #fff;
+}
+
+.btn-add {
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+  color: #999;
 }

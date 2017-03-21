@@ -3,14 +3,22 @@
         <div class="row">
             <div class="col-md-4">
               <div class="panel panel-default">
-                  <div class="panel-heading">报告</div>
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <p>报告</p>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <a class="btn btn-info" @click="addReport">添加报告</a>
+                      </div>
+                    </div>
+                  </div>
                   <div class="panel-body">
-                      <div class="" v-for="report in reports">
-                          <a href="#" @click="editReport(report.id)">{{report.report_name}} ----> {{report.min_score}}分至{{report.max_score}}分 </a>
+                    <div class="side-list-wrap">
+                      <div class="side-list-item" v-for="report in reports">
+                        <a href="#" @click="editReport(report.id)">{{report.report_name}} ----> {{report.min_score}}分至{{report.max_score}}分 </a>
                       </div>
-                      <div class="">
-                          <button type="button" class="btn btn-info" @click="addReport">添加报告</button>
-                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -44,8 +52,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
-                                    <button class="btn btn-lg btn-info">确认</button>
+                                <div class="col-sm-10 col-sm-offset-2 text-right">
+                                    <button class="btn btn-info">确认</button>
                                 </div>
                             </div>
                         </form>
@@ -82,8 +90,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-10 col-sm-offset-2">
-                                    <button class="btn btn-lg btn-info">确认</button>
+                                <div class="col-sm-10 col-sm-offset-2 text-right">
+                                    <button class="btn btn-info">确认</button>
                                 </div>
                             </div>
                         </form>

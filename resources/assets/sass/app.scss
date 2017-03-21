@@ -58,6 +58,8 @@ $bg-color: #2A3F54;
 
 .btn {
   border-radius: 1px;
+  font-weight: normal;
+  text-shadow: none;
 }
 
 // 问卷、类目样式
@@ -136,9 +138,14 @@ $bg-color: #2A3F54;
       transition: all .3s;
       &:hover,
       &:focus {
-        background-color: $brand-red;
+        background-color: $brand-primary;
         color: #fff;
       }
     }
   }
+}
+.btn-add {
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+  color: #999;
 }

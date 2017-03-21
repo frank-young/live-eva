@@ -12960,6 +12960,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 
@@ -33308,13 +33316,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.deleteAnswer(_vm.answers, index)
         }
       }
-    }, [_vm._v("×")])])])
+    }, [_vm._v("删除")])])])
   }), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
     staticClass: "col-xs-12"
   }, [_c('button', {
-    staticClass: "btn btn-block btn-primary",
+    staticClass: "btn btn-block btn-add",
     attrs: {
       "type": "button"
     },
@@ -33509,7 +33517,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "col-xs-12"
   }, [_c('button', {
-    staticClass: "btn btn-block btn-primary",
+    staticClass: "btn btn-block btn-add",
     attrs: {
       "type": "button"
     },
@@ -33539,7 +33547,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('div', {
     staticClass: "col-sm-8 text-right"
   }, [_c('button', {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-info",
     attrs: {
       "type": "submit"
     }
@@ -33552,7 +33560,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('div', {
     staticClass: "col-sm-8 text-right"
   }, [_c('button', {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-info",
     attrs: {
       "type": "submit"
     }
@@ -33581,10 +33589,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
-  }, [_vm._v("报告")]), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "col-md-4 text-right"
+  }, [_c('a', {
+    staticClass: "btn btn-info",
+    on: {
+      "click": _vm.addReport
+    }
+  }, [_vm._v("添加报告")])])])]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, [_vm._l((_vm.reports), function(report) {
-    return _c('div', {}, [_c('a', {
+  }, [_c('div', {
+    staticClass: "side-list-wrap"
+  }, _vm._l((_vm.reports), function(report) {
+    return _c('div', {
+      staticClass: "side-list-item"
+    }, [_c('a', {
       attrs: {
         "href": "#"
       },
@@ -33594,15 +33615,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v(_vm._s(report.report_name) + " ----> " + _vm._s(report.min_score) + "分至" + _vm._s(report.max_score) + "分 ")])])
-  }), _vm._v(" "), _c('div', {}, [_c('button', {
-    staticClass: "btn btn-info",
-    attrs: {
-      "type": "button"
-    },
-    on: {
-      "click": _vm.addReport
-    }
-  }, [_vm._v("添加报告")])])], 2)])]), _vm._v(" "), _c('div', {
+  }))])])]), _vm._v(" "), _c('div', {
     staticClass: "col-md-8 "
   }, [_c('div', {
     directives: [{
@@ -33755,7 +33768,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.reportDefault.report_body = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _vm._m(1)])])]), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -33914,22 +33927,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.reportEdit.report_body = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(1)])])])])])])
+  })])]), _vm._v(" "), _vm._m(2)])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('p', [_vm._v("报告")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
-    staticClass: "col-sm-10 col-sm-offset-2"
+    staticClass: "col-sm-10 col-sm-offset-2 text-right"
   }, [_c('button', {
-    staticClass: "btn btn-lg btn-info"
+    staticClass: "btn btn-info"
   }, [_vm._v("确认")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"
   }, [_c('div', {
-    staticClass: "col-sm-10 col-sm-offset-2"
+    staticClass: "col-sm-10 col-sm-offset-2 text-right"
   }, [_c('button', {
-    staticClass: "btn btn-lg btn-info"
+    staticClass: "btn btn-info"
   }, [_vm._v("确认")])])])
 }]}
 module.exports.render._withStripped = true

@@ -50,19 +50,19 @@
                               <input type="text" :name="'score' + index" required="required" class="form-control" placeholder="分值" v-model="answer.score">
                             </div>
                             <div class="col-xs-2">
-                              <a href="#" class="btn btn-danger" @click="deleteAnswer(answers, index)">&times;</a>
+                              <a href="#" class="btn btn-danger" @click="deleteAnswer(answers, index)">删除</a>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <button type="button" class="btn btn-block btn-primary" @click="addAnswer(answers)">新建选项</button>
+                                <button type="button" class="btn btn-block btn-add" @click="addAnswer(answers)">新建选项</button>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 control-label">
                             </div>
                             <div class="col-sm-8 text-right">
-                                <button type="submit" class="btn btn-primary">确认</button>
+                                <button type="submit" class="btn btn-info">确认</button>
                             </div>
                         </div>
                     </form>
@@ -96,14 +96,14 @@
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <button type="button" class="btn btn-block btn-primary" @click="addAnswer(answersEdit)">新建选项</button>
+                                <button type="button" class="btn btn-block btn-add" @click="addAnswer(answersEdit)">新建选项</button>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4 control-label">
                             </div>
                             <div class="col-sm-8 text-right">
-                                <button type="submit" class="btn btn-primary">确认</button>
+                                <button type="submit" class="btn btn-info">确认</button>
                             </div>
                         </div>
                     </form>
