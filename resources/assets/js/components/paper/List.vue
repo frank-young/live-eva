@@ -15,9 +15,17 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-4" v-for="d in data">
+                            <div class="col-xs-6 col-md-4" v-for="d in data">
                                 <div class="list-box ">
                                   <h3><a :href="'paper/' + d.id">{{d.name}}</a></h3>
+                                  <div class="line-box">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                  </div>
                                   <p class="btn-group">
                                     <a class="btn-edit" :href="'paper/' + d.id">编辑问卷</a>
                                     <a class="btn-produce" href="#" @click="produce(d.id)">生成问卷</a>

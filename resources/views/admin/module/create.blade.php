@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">新建问卷子模块</div>
                 <div class="panel-body">
@@ -21,7 +21,7 @@
                         <br>
                         <textarea name="description" rows="3" class="form-control"  placeholder="请输入内容">{{ old('name') }}</textarea>
                         <br>
-                        <button class="btn btn-lg btn-info">确认</button>
+                        <button class="btn btn-info">确认</button>
                     </form>
                 </div>
             </div>

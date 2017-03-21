@@ -3,20 +3,35 @@
         <div class="row">
             <div class="col-md-4">
               <div class="panel panel-default">
-                  <div class="panel-heading">问题</div>
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <p>问题</p>
+                      </div>
+                      <div class="col-md-4 text-right">
+                        <a class="btn btn-info" @click="addQuestion">添加问题</a>
+                      </div>
+                    </div>
+                  </div>
                   <div class="panel-body">
-                      <div class="" v-for="question in questions">
+                    <div class="side-list-wrap">
+                      <div class="side-list-item" v-for="question in questions">
                           <a href="#" @click="editQuestion(question.id)">{{question.question_name}} {{question.id}} </a>
                       </div>
-                      <div class="">
-                          <button type="button" class="btn btn-info" @click="addQuestion">添加问题</button>
-                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
             <div class="col-md-8 ">
                 <div class="panel panel-default" v-show="isAdd">
-                    <div class="panel-heading">新添问题</div>
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-md-8">
+                          <p>添加问题</p>
+                        </div>
+
+                      </div>
+                    </div>
                     <div class="panel-body">
                       <form @submit.prevent="submit" class="form-horizontal">
                         <input type="hidden" name="_token" :value="token">
