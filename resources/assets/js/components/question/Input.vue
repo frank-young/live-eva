@@ -26,10 +26,9 @@
                 <div class="panel panel-default" v-show="isAdd">
                     <div class="panel-heading">
                       <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                           <p>添加问题</p>
                         </div>
-
                       </div>
                     </div>
                     <div class="panel-body">
@@ -71,7 +70,15 @@
                 </div>
                 <!-- split -->
                 <div class="panel panel-default" v-show="!isAdd">
-                    <div class="panel-heading">编辑问题</div>
+                    <div class="panel-heading">
+                      <div class="panel-heading">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p>编辑问题</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="panel-body">
                       <form @submit.prevent="submitEdit" class="form-horizontal comment-input">
                         <input type="hidden" name="_token" :value="token">

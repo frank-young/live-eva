@@ -12515,6 +12515,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 /* harmony default export */ __webpack_exports__["default"] = {
@@ -12523,6 +12529,10 @@ var ERR_OK = 0;
             type: Array
         }
     },
+    data: function data() {
+        token: window.Laravel.csrfToken;
+    },
+
     methods: {
         produce: function produce(id) {
             var _this = this;
@@ -12533,6 +12543,12 @@ var ERR_OK = 0;
                     _this.url = res.url;
                     alert(_this.url);
                 }
+            });
+        },
+        deleteFunc: function deleteFunc(id) {
+            this.$http.get('paper/produce/' + id).then(function (res) {
+                res = res.body;
+                if (res.errno === ERR_OK) {}
             });
         }
     }
@@ -12614,6 +12630,13 @@ var ERR_OK = 0;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12864,6 +12887,20 @@ var ERR_OK = 0;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32922,7 +32959,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": '../module/' + d.id
       }
-    }, [_vm._v("编辑类目")]), _vm._v(" "), _c('a', {
+    }, [_vm._v("添加问题")]), _vm._v(" "), _c('a', {
       staticClass: "btn-produce",
       attrs: {
         "href": '../report/' + d.id
@@ -33004,7 +33041,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": 'paper/' + d.id
       }
-    }, [_vm._v("编辑问卷")]), _vm._v(" "), _c('a', {
+    }, [_vm._v("添加类目")]), _vm._v(" "), _c('a', {
       staticClass: "btn-produce",
       attrs: {
         "href": "#"
@@ -33014,7 +33051,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.produce(d.id)
         }
       }
-    }, [_vm._v("生成问卷")])])])])
+    }, [_vm._v("生成问卷")])]), _vm._v(" "), _c('div', {
+      staticClass: "delete"
+    }, [_c('form', {
+      on: {
+        "submit": function($event) {
+          $event.preventDefault();
+          _vm.deleteFunc(_vm.comment.id)
+        }
+      }
+    }, [_c('input', {
+      attrs: {
+        "type": "hidden",
+        "name": "_token"
+      },
+      domProps: {
+        "value": _vm.token
+      }
+    }), _vm._v(" "), _c('button', {
+      staticClass: "btn"
+    }, [_vm._v("删除")])])])])])
   }))])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -33339,9 +33395,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "!isAdd"
     }],
     staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("编辑问题")]), _vm._v(" "), _c('div', {
+  }, [_vm._m(3), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', {
     staticClass: "form-horizontal comment-input",
@@ -33526,7 +33580,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.addAnswer(_vm.answersEdit)
       }
     }
-  }, [_vm._v("新建选项")])])]), _vm._v(" "), _vm._m(3)], 2)])])])])])
+  }, [_vm._v("新建选项")])])]), _vm._v(" "), _vm._m(4)], 2)])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "col-md-8"
@@ -33537,7 +33591,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
-    staticClass: "col-md-8"
+    staticClass: "col-md-12"
   }, [_c('p', [_vm._v("添加问题")])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -33552,6 +33606,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "type": "submit"
     }
   }, [_vm._v("确认")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel-heading"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-12"
+  }, [_c('p', [_vm._v("编辑问题")])])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"
@@ -33625,9 +33689,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "isAdd"
     }],
     staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("新添报告")]), _vm._v(" "), _c('div', {
+  }, [_vm._m(1), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', {
     staticClass: "form-horizontal",
@@ -33768,7 +33830,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.reportDefault.report_body = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(1)])])]), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _vm._m(2)])])]), _vm._v(" "), _c('div', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -33776,9 +33838,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "!isAdd"
     }],
     staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("编辑报告")]), _vm._v(" "), _c('div', {
+  }, [_vm._m(3), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', {
     staticClass: "form-horizontal",
@@ -33927,11 +33987,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.reportEdit.report_body = $event.target.value
       }
     }
-  })])]), _vm._v(" "), _vm._m(2)])])])])])])
+  })])]), _vm._v(" "), _vm._m(4)])])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "col-md-8"
   }, [_c('p', [_vm._v("报告")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel-heading"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-12"
+  }, [_c('p', [_vm._v("添加测评报告")])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"
@@ -33940,6 +34008,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('button', {
     staticClass: "btn btn-info"
   }, [_vm._v("确认")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "panel-heading"
+  }, [_c('div', {
+    staticClass: "panel-heading"
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md-12"
+  }, [_c('p', [_vm._v("编辑测评报告")])])])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "form-group"

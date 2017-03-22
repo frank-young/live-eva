@@ -28,7 +28,7 @@
                                     <span></span>
                                   </div>
                                   <p class="btn-group">
-                                    <a class="btn-edit" :href="'../module/' + d.id">编辑类目</a>
+                                    <a class="btn-edit" :href="'../module/' + d.id">添加问题</a>
                                     <a class="btn-produce" :href="'../report/' + d.id">测评报告</a>
                                   </p>
                                 </div>

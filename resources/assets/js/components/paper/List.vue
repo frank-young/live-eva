@@ -27,9 +27,15 @@
                                     <span></span>
                                   </div>
                                   <p class="btn-group">
-                                    <a class="btn-edit" :href="'paper/' + d.id">编辑问卷</a>
+                                    <a class="btn-edit" :href="'paper/' + d.id">添加类目</a>
                                     <a class="btn-produce" href="#" @click="produce(d.id)">生成问卷</a>
                                   </p>
+                                  <div class="delete">
+                                    <form @submit.prevent="deleteFunc(comment.id)">
+                                        <input type="hidden" name="_token" :value="token">
+                                        <button class="btn">删除</button>
+                                    </form>
+                                  </div>
                                 </div>
                             </div>
                         </div>
@@ -48,6 +54,9 @@
                 type: Array
             }
         },
+        data () {
+          token: window.Laravel.csrfToken
+        },
         methods: {
             produce(id) {
                 this.$http.get('paper/produce/' + id).then((res) => {
@@ -57,7 +66,14 @@
                         alert(this.url)
                     }
                 })
-            }
+            },
+            deleteFunc(id) {
+                this.$http.get('paper/produce/' + id).then((res) => {
+                    res = res.body
+                    if (res.errno === ERR_OK) {
+                    }
+                })
+            },
         }
     }
 </script>

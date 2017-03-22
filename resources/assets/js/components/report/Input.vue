@@ -24,7 +24,13 @@
             </div>
             <div class="col-md-8 ">
                 <div class="panel panel-default" v-show="isAdd">
-                    <div class="panel-heading">新添报告</div>
+                    <div class="panel-heading">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <p>添加测评报告</p>
+                        </div>
+                      </div>
+                    </div>
                     <div class="panel-body">
                       <form @submit.prevent="submit" class="form-horizontal">
                             <input type="hidden" name="_token" :value="token">
@@ -61,7 +67,15 @@
                 </div>
                 <!-- split -->
                 <div class="panel panel-default" v-show="!isAdd">
-                    <div class="panel-heading">编辑报告</div>
+                    <div class="panel-heading">
+                      <div class="panel-heading">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p>编辑测评报告</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="panel-body">
                         <form @submit.prevent="submitEdit" class="form-horizontal">
                             <input type="hidden" name="_token" :value="token">
