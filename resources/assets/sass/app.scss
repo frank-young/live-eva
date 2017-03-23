@@ -60,6 +60,10 @@ $bg-color: #2A3F54;
   border-radius: 1px;
   font-weight: normal;
   text-shadow: none;
+  &:active:focus,&:focus {
+    outline: none;
+    box-shadow: none;
+  }
 }
 
 // 问卷、类目样式

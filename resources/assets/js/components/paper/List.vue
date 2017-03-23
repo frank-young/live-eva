@@ -31,7 +31,7 @@
                                     <a class="btn-produce" href="#" @click="produce(d.id)">生成问卷</a>
                                   </p>
                                   <div class="delete">
-                                    <form @submit.prevent="deleteFunc(comment.id)">
+                                    <form @submit.prevent="deleteFunc(d.id)">
                                         <input type="hidden" name="_token" :value="token">
                                         <button class="btn">删除</button>
                                     </form>
@@ -55,7 +55,9 @@
             }
         },
         data () {
-          token: window.Laravel.csrfToken
+          return {
+            token: window.Laravel.csrfToken
+          }
         },
         methods: {
             produce(id) {

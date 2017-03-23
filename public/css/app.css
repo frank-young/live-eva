@@ -8377,6 +8377,12 @@ p {
   text-shadow: none;
 }
 
+.btn:active:focus,
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .list-box {
   position: relative;
   height: 240px;

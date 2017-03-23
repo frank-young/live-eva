@@ -12530,7 +12530,9 @@ var ERR_OK = 0;
         }
     },
     data: function data() {
-        token: window.Laravel.csrfToken;
+        return {
+            token: window.Laravel.csrfToken
+        };
     },
 
     methods: {
@@ -33057,7 +33059,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       on: {
         "submit": function($event) {
           $event.preventDefault();
-          _vm.deleteFunc(_vm.comment.id)
+          _vm.deleteFunc(d.id)
         }
       }
     }, [_c('input', {
