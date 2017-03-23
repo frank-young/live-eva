@@ -17,8 +17,11 @@ Route::get('/', 'HomeController@index');
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function() {
     Route::get('/', 'HomeController@index');  // 管理登录首页
     Route::resource('paper', 'PaperController');  // 问卷模块
-    Route::get('paper/produce/{paper}', 'PaperController@produce');  // 问卷模块
+    Route::get('paper/produce/{paper}', 'PaperController@produce');  // 生成问卷
+    Route::get('paper/edit/{paper}', 'PaperController@edit');  // 问卷修改 - 修改了原来的修改页面
     Route::resource('module', 'ModuleController');  // 问卷子标题模块
+    Route::get('module/edit/{module}', 'ModuleController@edit');  // 类目修改 - 修改了原来的修改页面
+
     Route::resource('question', 'QuestionController');  // 问题
     Route::post('question/update', 'QuestionController@update');  // 编辑问题的ajax提交
 

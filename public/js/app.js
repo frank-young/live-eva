@@ -12463,6 +12463,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         id: {
             type: Number
+        },
+        name: {
+            type: String
         }
     }
 };
@@ -12473,6 +12476,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -12545,12 +12549,6 @@ var ERR_OK = 0;
                     _this.url = res.url;
                     alert(_this.url);
                 }
-            });
-        },
-        deleteFunc: function deleteFunc(id) {
-            this.$http.get('paper/produce/' + id).then(function (res) {
-                res = res.body;
-                if (res.errno === ERR_OK) {}
             });
         }
     }
@@ -32934,7 +32932,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "panel-heading"
   }, [_c('div', {
     staticClass: "row"
-  }, [_vm._m(0), _vm._v(" "), _c('div', {
+  }, [_c('div', {
+    staticClass: "col-md-8"
+  }, [_c('p', [_vm._v(_vm._s(_vm.name))])]), _vm._v(" "), _c('div', {
     staticClass: "col-md-4 text-right"
   }, [_c('a', {
     staticClass: "btn btn-info",
@@ -32952,16 +32952,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "list-box"
     }, [_c('h3', [_c('a', {
       attrs: {
-        "href": '../module/' + d.id
+        "href": '../module/edit/' + d.id
       }
-    }, [_vm._v(_vm._s(d.module_name))])]), _vm._v(" "), _vm._m(1, true), _vm._v(" "), _c('p', {
+    }, [_vm._v(_vm._s(d.module_name))])]), _vm._v(" "), _vm._m(0, true), _vm._v(" "), _c('p', {
       staticClass: "btn-group"
     }, [_c('a', {
       staticClass: "btn-edit",
       attrs: {
         "href": '../module/' + d.id
       }
-    }, [_vm._v("添加问题")]), _vm._v(" "), _c('a', {
+    }, [_vm._v("问题管理")]), _vm._v(" "), _c('a', {
       staticClass: "btn-produce",
       attrs: {
         "href": '../report/' + d.id
@@ -32969,10 +32969,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v("测评报告")])])])])
   }))])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "col-md-8"
-  }, [_c('p', [_vm._v("类目")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "line-box"
   }, [_c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span')])
@@ -33034,7 +33030,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "list-box "
     }, [_c('h3', [_c('a', {
       attrs: {
-        "href": 'paper/' + d.id
+        "href": 'paper/edit/' + d.id
       }
     }, [_vm._v(_vm._s(d.name))])]), _vm._v(" "), _vm._m(1, true), _vm._v(" "), _c('p', {
       staticClass: "btn-group"
@@ -33043,7 +33039,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "href": 'paper/' + d.id
       }
-    }, [_vm._v("添加类目")]), _vm._v(" "), _c('a', {
+    }, [_vm._v("类目管理")]), _vm._v(" "), _c('a', {
       staticClass: "btn-produce",
       attrs: {
         "href": "#"
@@ -33053,26 +33049,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.produce(d.id)
         }
       }
-    }, [_vm._v("生成问卷")])]), _vm._v(" "), _c('div', {
-      staticClass: "delete"
-    }, [_c('form', {
-      on: {
-        "submit": function($event) {
-          $event.preventDefault();
-          _vm.deleteFunc(d.id)
-        }
-      }
-    }, [_c('input', {
-      attrs: {
-        "type": "hidden",
-        "name": "_token"
-      },
-      domProps: {
-        "value": _vm.token
-      }
-    }), _vm._v(" "), _c('button', {
-      staticClass: "btn"
-    }, [_vm._v("删除")])])])])])
+    }, [_vm._v("生成问卷")])])])])
   }))])])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {

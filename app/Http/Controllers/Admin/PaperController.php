@@ -26,7 +26,8 @@ class PaperController extends Controller
   {
       // 类目用了module这个词
       $modules = Module::where(['paper_id' => $id])->get();
-      $data = ['id'=>$id, 'modules'=>$modules];   // 这里传入了id，是为了在类目中储存问卷的id
+      $paper = Paper::where(['id' => $id])->first();
+      $data = ['id'=>$id,'name'=>$paper->name, 'modules'=>$modules];   // 这里传入了id，是为了在类目中储存问卷的id
       return view('admin/paper/show', compact('data'));
   }
 
@@ -104,4 +105,37 @@ class PaperController extends Controller
       $data = ['errno'=>0, 'msg'=>'success', 'paper'=>$paper];
       return Response::json($data);
   }
+
+  // 编辑问卷，修改了原来的url
+  public function edit($id)
+  {
+      $paper = Paper::where(['id' => $id])->first();
+      return view('admin/paper/edit', compact('paper'));
+  }
+
+  // 编辑问卷处理
+  public function update(Request $request)
+  {
+      $this->validate($request, [
+          'name' => 'required|max:255'
+      ]);
+      $paper = Paper::where('id', $request->get('id'))->first();
+      $paper->name = $request->get('name');
+      $paper->description = $request->get('description');
+      if ($paper->save()) {
+          return redirect('admin/paper');
+      } else {
+          return redirect()->back()->withInput()->withErrors('保存失败！');
+      }
+
+  }
+
+  // 删除问卷 -- 关闭了接口，删除需要删除此分类的全部数据
+  // public function destroy($id)
+	// {
+	//     Paper::find($id)->delete();
+	//     return Response::json(['errno'=>0, 'msg'=>'删除成功']);
+	// }
+
+
 }

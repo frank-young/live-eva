@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-xs-6 col-md-4" v-for="d in data">
                                 <div class="list-box ">
-                                  <h3><a :href="'paper/' + d.id">{{d.name}}</a></h3>
+                                  <h3><a :href="'paper/edit/' + d.id">{{d.name}}</a></h3>
                                   <div class="line-box">
                                     <span></span>
                                     <span></span>
@@ -27,15 +27,16 @@
                                     <span></span>
                                   </div>
                                   <p class="btn-group">
-                                    <a class="btn-edit" :href="'paper/' + d.id">添加类目</a>
+                                    <a class="btn-edit" :href="'paper/' + d.id">类目管理</a>
                                     <a class="btn-produce" href="#" @click="produce(d.id)">生成问卷</a>
                                   </p>
-                                  <div class="delete">
+                                  <!-- <div class="delete">
                                     <form @submit.prevent="deleteFunc(d.id)">
                                         <input type="hidden" name="_token" :value="token">
-                                        <button class="btn">删除</button>
+                                        <input type="hidden" name="_method" value="delete">
+                                        <button class="btn btn-delete">删除</button>
                                     </form>
-                                  </div>
+                                  </div> -->
                                 </div>
                             </div>
                         </div>
@@ -69,13 +70,18 @@
                     }
                 })
             },
-            deleteFunc(id) {
-                this.$http.get('paper/produce/' + id).then((res) => {
-                    res = res.body
-                    if (res.errno === ERR_OK) {
-                    }
-                })
-            },
+            // deleteFunc(id) {
+            //   let options = {}
+            //   let formData = new FormData(event.target)
+            //   options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+            //   options.emulateJSON = true
+            //
+            //     this.$http.post('paper/' + id, formData, options).then((res) => {
+            //         res = res.body
+            //         if (res.errno === ERR_OK) {
+            //         }
+            //     })
+            // }
         }
     }
 </script>
