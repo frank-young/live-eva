@@ -1,25 +1,30 @@
 <template>
     <div class="container">
         <form @submit.prevent="total" class="form-horizontal ">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="head">
                     <h1>{{report.name}}</h1>
+                    <p>{{report.description}}</p>
                 </div>
-                <div class="col-md-8 col-md-offset-2">
+                <div class="body">
                     <input type="hidden" name="_token" :value="token">
                     <input type="hidden" name="report_id" :value="report.id">
-                    <div class="" v-for="module in report.modules">
-                        <h2>{{module.module_name}}</h2>
-                        <div class="" v-for="question in module.questions">
+                    <div class="module" v-for="module in report.modules">
+                        <!-- <h2>{{module.module_name}}</h2> -->
+                        <div class="question" v-for="question in module.questions">
                             <h3>{{question.question_name}}</h3>
-                            <div class="" v-for="answer in question.answers">
-                                <label><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.id" required="required">{{answer.answer_name}} ----------- {{answer.score}}分 </label>
+                            <div class="answer-wrap">
+                              <div class="answer" v-for="answer in question.answers">
+                                  <label class="check-box"><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.id" ><span></span> {{answer.answer_name}} ----------- {{answer.score}}分 </label>
+                              </div>
                             </div>
                         </div>
                     </div>
+                    <div class="btn-box">
+                      <button type="submit" class="btn">提交</button>
+                    </div>
                 </div>
-                <div class="col-md-8 col-md-offset-2">
-                    <button type="submit" class="btn btn-primary">提交</button>
+                <div class="foot">
+                  <p>呐呐科技 &copy; 2017</p>
                 </div>
             </div>
         </form>
@@ -61,3 +66,121 @@
         }
     }
 </script>
+
+<style scoped>
+  body,h1,h2,h3,h4,h5,h6,div,p {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #f8f8f8;
+  }
+  .container {
+
+  }
+
+  .head {
+    padding: 1rem;
+  }
+  .head h1 {
+    margin-bottom: .75rem;
+    font-size: 20px;
+    line-height: 1.6em;
+    font-weight: 400;
+  }
+  .head p {
+    font-size: 14px;
+    line-height: 1.6em;
+    color: #888;
+  }
+  .body .question {
+    margin-bottom: 1rem;
+  }
+
+  .body .question h3 {
+    padding: 0 1rem .5rem 1rem;
+    font-size: 16px;
+    color: #666;
+    font-weight: normal;
+  }
+
+  .body .answer-wrap {
+    padding: 0 0 0 1rem;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+  }
+
+  .body .answer {
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    font-size: 14px;
+  }
+  .body .answer:last-of-type {
+    border-bottom: 0;
+  }
+
+  .check-box {
+    position: relative;
+    display: block;
+    padding: .7rem 0;
+    cursor: pointer;
+    padding-left: 2rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  .check-box input[type="radio"] {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.5rem;
+    opacity: 0;
+    filter: opacity(0);
+  }
+  .check-box span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: -0.6rem;
+    border: 1px solid #bbb;
+    border-radius: 50%;
+
+  }
+  .check-box input[type="radio"]:checked + span {
+    border-color: #3CC51F;
+    background-color: #3CC51F;
+  }
+  .check-box span:after {
+    content: '';
+    position: absolute;
+    left: .25rem;
+    top: .3rem;
+    width: .5rem;
+    height: .25rem;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+  }
+  .btn-box {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .btn-box .btn {
+    display: block;
+    width: 100%;
+    padding: .6rem;
+    border: 0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #3CC51F;
+    outline: none;
+  }
+  .foot p {
+    padding: .5rem;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+  }
+</style>
