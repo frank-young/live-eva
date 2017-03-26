@@ -70,6 +70,14 @@ $bg-color: #2A3F54;
   background-color: #f8f8f8;
 }
 
+.modal-content {
+  border-radius: 1px;
+}
+
+.modal-dialog {
+  margin: 150px auto;
+}
+
 // 问卷、类目样式
 .list-box {
   position: relative;
@@ -105,6 +113,9 @@ $bg-color: #2A3F54;
       text-decoration: none;
       &:hover {
         opacity: .8;
+      }
+      &:focus {
+        outline: none;
       }
     }
     a.btn-edit {

@@ -8387,6 +8387,14 @@ p {
   background-color: #f8f8f8;
 }
 
+.modal-content {
+  border-radius: 1px;
+}
+
+.modal-dialog {
+  margin: 150px auto;
+}
+
 .list-box {
   position: relative;
   height: 240px;
@@ -8432,6 +8440,11 @@ p {
 .list-box .btn-group a.btn-edit:hover,
 .list-box .btn-group a.btn-produce:hover {
   opacity: .8;
+}
+
+.list-box .btn-group a.btn-edit:focus,
+.list-box .btn-group a.btn-produce:focus {
+  outline: none;
 }
 
 .list-box .btn-group a.btn-edit {

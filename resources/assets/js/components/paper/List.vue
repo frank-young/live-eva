@@ -28,7 +28,7 @@
                                   </div>
                                   <p class="btn-group">
                                     <a class="btn-edit" :href="'paper/' + d.id">类目管理</a>
-                                    <a class="btn-produce" href="#" @click="produce(d.id)">生成问卷</a>
+                                    <a class="btn-produce" href="#" @click="produce(d.id)" data-toggle="modal" data-target="#reportModal">生成问卷</a>
                                   </p>
                                   <!-- <div class="delete">
                                     <form @submit.prevent="deleteFunc(d.id)">
@@ -44,44 +44,66 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="reportModalLabel">生成问卷分享链接</h4>
+              </div>
+              <div class="modal-body">
+                <div class="input-group">
+                  <input type="text" class="form-control" :value="url">
+                  <span class="input-group-btn">
+                    <button  class="btn btn-default" type="button">复制链接</button>
+                  </span>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">确认</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
 </template>
 
 <script>
-    const ERR_OK = 0;
-    export default {
-        props: {
-            data: {
-                type: Array
-            }
-        },
-        data () {
-          return {
-            token: window.Laravel.csrfToken
-          }
-        },
-        methods: {
-            produce(id) {
-                this.$http.get('paper/produce/' + id).then((res) => {
-                    res = res.body
-                    if (res.errno === ERR_OK) {
-                        this.url = res.url
-                        alert(this.url)
-                    }
-                })
-            },
-            // deleteFunc(id) {
-            //   let options = {}
-            //   let formData = new FormData(event.target)
-            //   options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-            //   options.emulateJSON = true
-            //
-            //     this.$http.post('paper/' + id, formData, options).then((res) => {
-            //         res = res.body
-            //         if (res.errno === ERR_OK) {
-            //         }
-            //     })
-            // }
+const ERR_OK = 0;
+export default {
+    props: {
+        data: {
+            type: Array
         }
+    },
+    data () {
+      return {
+        url: '',
+        token: window.Laravel.csrfToken
+      }
+    },
+    methods: {
+        produce (id) {
+            this.$http.get('paper/produce/' + id).then((res) => {
+                res = res.body
+                if (res.errno === ERR_OK) {
+                    this.url = res.url
+                }
+            })
+        }
+        // deleteFunc(id) {
+        //   let options = {}
+        //   let formData = new FormData(event.target)
+        //   options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        //   options.emulateJSON = true
+        //
+        //     this.$http.post('paper/' + id, formData, options).then((res) => {
+        //         res = res.body
+        //         if (res.errno === ERR_OK) {
+        //         }
+        //     })
+        // }
     }
+}
 </script>

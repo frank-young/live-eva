@@ -12525,6 +12525,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 /* harmony default export */ __webpack_exports__["default"] = {
@@ -12535,6 +12557,7 @@ var ERR_OK = 0;
     },
     data: function data() {
         return {
+            url: '',
             token: window.Laravel.csrfToken
         };
     },
@@ -12547,10 +12570,22 @@ var ERR_OK = 0;
                 res = res.body;
                 if (res.errno === ERR_OK) {
                     _this.url = res.url;
-                    alert(_this.url);
                 }
             });
         }
+        // deleteFunc(id) {
+        //   let options = {}
+        //   let formData = new FormData(event.target)
+        //   options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        //   options.emulateJSON = true
+        //
+        //     this.$http.post('paper/' + id, formData, options).then((res) => {
+        //         res = res.body
+        //         if (res.errno === ERR_OK) {
+        //         }
+        //     })
+        // }
+
     }
 };
 
@@ -33042,7 +33077,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v("类目管理")]), _vm._v(" "), _c('a', {
       staticClass: "btn-produce",
       attrs: {
-        "href": "#"
+        "href": "#",
+        "data-toggle": "modal",
+        "data-target": "#reportModal"
       },
       on: {
         "click": function($event) {
@@ -33050,7 +33087,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }, [_vm._v("生成问卷")])])])])
-  }))])])])])])
+  }))])])])]), _vm._v(" "), _c('div', {
+    staticClass: "modal fade",
+    attrs: {
+      "id": "reportModal",
+      "tabindex": "-1",
+      "role": "dialog",
+      "aria-labelledby": "reportModalLabel"
+    }
+  }, [_c('div', {
+    staticClass: "modal-dialog",
+    attrs: {
+      "role": "document"
+    }
+  }, [_c('div', {
+    staticClass: "modal-content"
+  }, [_vm._m(2), _vm._v(" "), _c('div', {
+    staticClass: "modal-body"
+  }, [_c('div', {
+    staticClass: "input-group"
+  }, [_c('input', {
+    staticClass: "form-control",
+    attrs: {
+      "type": "text"
+    },
+    domProps: {
+      "value": _vm.url
+    }
+  }), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _vm._m(4)])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "panel-heading"
@@ -33070,6 +33134,50 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "line-box"
   }, [_c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span'), _vm._v(" "), _c('span')])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "modal-header"
+  }, [_c('button', {
+    staticClass: "close",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c('span', {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])]), _vm._v(" "), _c('h4', {
+    staticClass: "modal-title",
+    attrs: {
+      "id": "reportModalLabel"
+    }
+  }, [_vm._v("生成问卷分享链接")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "input-group-btn"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("复制链接")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "modal-footer"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    attrs: {
+      "type": "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("关闭")]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "type": "button"
+    }
+  }, [_vm._v("确认")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
