@@ -38,17 +38,6 @@
 </script>
 
 <style scoped>
-body,h1,h2,h3,h4,h5,h6,div,p {
-  margin: 0;
-  padding: 0;
-}
-body {
-  background-color: #f8f8f8;
-}
-.container {
-
-}
-
 .head {
   padding: 1rem;
 }

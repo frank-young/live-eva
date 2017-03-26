@@ -15628,7 +15628,20 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
-/* 41 */,
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)();
+// imports
+
+
+// module
+exports.push([module.i, "\nbody,h1,h2,h3,h4,h5,h6,div,p {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  background-color: #f8f8f8;\n}\n.container {\n}\n.head {\n  padding: 1rem;\n}\n.head h1 {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question {\n  margin-bottom: 1rem;\n}\n.body .question h3 {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body .answer-wrap {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer:last-of-type {\n  border-bottom: 0;\n}\n.check-box {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span {\n  border-color: #3CC51F;\n  background-color: #3CC51F;\n}\n.check-box span:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .3rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn {\n  display: block;\n  width: 100%;\n  padding: .6rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 14px;\n  color: #fff;\n  background-color: #3CC51F;\n  outline: none;\n}\n.foot p {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -32822,7 +32835,7 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(78)
+__webpack_require__(58)
 
 var Component = __webpack_require__(1)(
   /* script */
@@ -32830,7 +32843,7 @@ var Component = __webpack_require__(1)(
   /* template */
   __webpack_require__(54),
   /* scopeId */
-  "data-v-1f61854c",
+  null,
   /* cssModules */
   null
 )
@@ -35690,7 +35703,32 @@ module.exports = plugin;
 
 
 /***/ }),
-/* 58 */,
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(41);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(6)("5d40f08e", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
 /* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44405,46 +44443,8 @@ module.exports = __webpack_require__(14);
 /* 74 */,
 /* 75 */,
 /* 76 */,
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(3)();
-// imports
-
-
-// module
-exports.push([module.i, "\nbody[data-v-1f61854c],h1[data-v-1f61854c],h2[data-v-1f61854c],h3[data-v-1f61854c],h4[data-v-1f61854c],h5[data-v-1f61854c],h6[data-v-1f61854c],div[data-v-1f61854c],p[data-v-1f61854c] {\n  margin: 0;\n  padding: 0;\n}\nbody[data-v-1f61854c] {\n  background-color: #f8f8f8;\n}\n.container[data-v-1f61854c] {\n}\n.head[data-v-1f61854c] {\n  padding: 1rem;\n}\n.head h1[data-v-1f61854c] {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p[data-v-1f61854c] {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question[data-v-1f61854c] {\n  margin-bottom: 1rem;\n}\n.body .question h3[data-v-1f61854c] {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body .answer-wrap[data-v-1f61854c] {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer[data-v-1f61854c] {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer[data-v-1f61854c]:last-of-type {\n  border-bottom: 0;\n}\n.check-box[data-v-1f61854c] {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"][data-v-1f61854c] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span[data-v-1f61854c] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span[data-v-1f61854c] {\n  border-color: #3CC51F;\n  background-color: #3CC51F;\n}\n.check-box span[data-v-1f61854c]:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .3rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box[data-v-1f61854c] {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn[data-v-1f61854c] {\n  display: block;\n  width: 100%;\n  padding: .6rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 14px;\n  color: #fff;\n  background-color: #3CC51F;\n  outline: none;\n}\n.foot p[data-v-1f61854c] {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(77);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(6)("74ddec4e", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c&scoped=true!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c&scoped=true!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
+/* 77 */,
+/* 78 */,
 /* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44453,7 +44453,7 @@ exports = module.exports = __webpack_require__(3)();
 
 
 // module
-exports.push([module.i, "\nbody[data-v-1494fbfc],h1[data-v-1494fbfc],h2[data-v-1494fbfc],h3[data-v-1494fbfc],h4[data-v-1494fbfc],h5[data-v-1494fbfc],h6[data-v-1494fbfc],div[data-v-1494fbfc],p[data-v-1494fbfc] {\n  margin: 0;\n  padding: 0;\n}\nbody[data-v-1494fbfc] {\n  background-color: #f8f8f8;\n}\n.container[data-v-1494fbfc] {\n}\n.head[data-v-1494fbfc] {\n  padding: 1rem;\n}\n.head h1[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body[data-v-1494fbfc] {\n  min-height: 85vh;\n  padding: 1rem;\n}\n.module[data-v-1494fbfc] {\n  margin-bottom: 2rem;\n}\n.module h2[data-v-1494fbfc] {\n  font-size: 16px;\n  margin-bottom: 1rem;\n  color: #333;\n}\n.module p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.7em;\n  color: #555;\n}\n.foot p[data-v-1494fbfc] {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.head[data-v-1494fbfc] {\n  padding: 1rem;\n}\n.head h1[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body[data-v-1494fbfc] {\n  min-height: 85vh;\n  padding: 1rem;\n}\n.module[data-v-1494fbfc] {\n  margin-bottom: 2rem;\n}\n.module h2[data-v-1494fbfc] {\n  font-size: 16px;\n  margin-bottom: 1rem;\n  color: #333;\n}\n.module p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.7em;\n  color: #555;\n}\n.foot p[data-v-1494fbfc] {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
