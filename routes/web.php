@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::get('report/list/{report}', 'ReportController@list');  // 报告列表展示
     Route::post('report/update', 'ReportController@update');  // 编辑报告的ajax提交
 
+    Route::resource('record', 'RecordController');  // 用户答卷记录
+
 });
 
 Route::post('paper/ctrl', 'Admin\PaperController@reportCtrl');  // 问卷提交处理

@@ -9,6 +9,8 @@ use App\Models\Module;
 use App\Models\Question;
 use App\Models\Answer;
 use App\Models\Report;
+use App\Models\Record;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
@@ -86,6 +88,10 @@ class PaperController extends Controller
       $report_id = $request->get('report_id');
       $paper = Paper::where(['id'=>$report_id])->first(['id','name']);
       $modules = Module::where(['paper_id' => $report_id])->get(['id','module_name']);
+      $uuid = uniqid(mt_rand().'_', true);
+      $customer = new Customer;
+      $customer->user_token = $uuid;
+      $customer->save();
       foreach ($modules as $value) {
           $sum = 0;
           $questions = Question::where(['module_id' => $value->id])->get(['id', 'question_name']);
@@ -95,6 +101,19 @@ class PaperController extends Controller
               $sum += $answer['score'];
               $v->answer_id = $answer_id;
               $v->answer_name = $answer['answer_name'];
+
+              // 用户填写记录存储
+              $record = new Record;
+              $record->user_id = $customer->id;
+              $record->paper_id = $report_id;
+              $record->module_id = $value->id;
+              $record->question_id = $v->id;
+              $record->question_name = $v->question_name;
+              $record->answer_id = $answer_id;
+              $record->answer_name = $answer['answer_name'];
+              $record->score = $answer['score'];
+              $record->save();
+
           }
           $value->sum = $sum;
           $report = Report::where(['module_id' => $value->id])->where('min_score', '<=', $sum)->where('max_score', '>=', $sum)->first(['id', 'report_name', 'report_body','min_score', 'max_score']);
@@ -136,6 +155,8 @@ class PaperController extends Controller
 	//     Paper::find($id)->delete();
 	//     return Response::json(['errno'=>0, 'msg'=>'删除成功']);
 	// }
+  public function save_record() {
 
+  }
 
 }

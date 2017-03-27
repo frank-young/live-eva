@@ -28,6 +28,7 @@
         },
         created() {
             this.default()
+            console.log(this.report)
         },
         methods: {
             default() {
