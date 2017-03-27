@@ -13,8 +13,8 @@
                         <div class="question" v-for="question in module.questions">
                             <h3>{{question.question_name}}</h3>
                             <div class="answer-wrap">
-                              <div class="answer" v-for="answer in question.answers">
-                                  <label class="check-box"><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.id" ><span></span> {{answer.answer_name}} ----------- {{answer.score}}分 </label>
+                              <div class="answer" v-for="(answer,index) in question.answers">
+                                  <label class="check-box"><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.id" ><span></span>{{index | answerEn}}. {{answer.answer_name}}</label>
                               </div>
                             </div>
                         </div>
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+    import Vue from 'vue'
+
     const ERR_OK = 0
     export default {
         props: {
@@ -65,6 +67,10 @@
             }
         }
     }
+    Vue.filter('answerEn', (value) => {
+      let en = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M' ,'N', 'O', 'P', 'Q', 'R', 'S']
+      return en[value]
+    })
 </script>
 
 <style>
@@ -145,17 +151,16 @@
     margin-top: -0.6rem;
     border: 1px solid #bbb;
     border-radius: 50%;
-
   }
   .check-box input[type="radio"]:checked + span {
-    border-color: #3CC51F;
-    background-color: #3CC51F;
+    border-color: #1AAD19;
+    background-color: #1AAD19;
   }
   .check-box span:after {
     content: '';
     position: absolute;
     left: .25rem;
-    top: .3rem;
+    top: .35rem;
     width: .5rem;
     height: .25rem;
     border-left: 2px solid #fff;
@@ -174,7 +179,7 @@
     border-radius: 4px;
     font-size: 14px;
     color: #fff;
-    background-color: #3CC51F;
+    background-color: #1AAD19;
     outline: none;
   }
   .foot p {
