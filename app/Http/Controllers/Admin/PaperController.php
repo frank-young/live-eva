@@ -11,6 +11,7 @@ use App\Models\Answer;
 use App\Models\Report;
 use App\Models\Record;
 use App\Models\Customer;
+use App\Models\Customer_record;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
@@ -91,7 +92,15 @@ class PaperController extends Controller
       $uuid = uniqid(mt_rand().'_', true);
       $customer = new Customer;
       $customer->user_token = $uuid;
+      $customer->ip = $request->getClientIp();
       $customer->save();
+
+      // 储存用户答卷报告信息
+      $customer_record = new Customer_record;
+      $customer_record->customer_id = $customer->id;
+      $customer_record->paper_id = $report_id;
+      $customer_record->paper_name = $paper->name;
+
       foreach ($modules as $value) {
           $sum = 0;
           $questions = Question::where(['module_id' => $value->id])->get(['id', 'question_name']);
@@ -100,20 +109,22 @@ class PaperController extends Controller
               $answer = Answer::where(['id' => $answer_id])->first(['answer_name', 'score']);
               $sum += $answer['score'];
               $v->answer_id = $answer_id;
+              $v->ip = $answer_id;
               $v->answer_name = $answer['answer_name'];
 
               // 用户填写记录存储
               $record = new Record;
-              $record->user_id = $customer->id;
+              $record->customer_id = $customer->id;
               $record->paper_id = $report_id;
+              $record->paper_name = $paper->name;
               $record->module_id = $value->id;
+              $record->module_name = $value->module_name;
               $record->question_id = $v->id;
               $record->question_name = $v->question_name;
               $record->answer_id = $answer_id;
               $record->answer_name = $answer['answer_name'];
               $record->score = $answer['score'];
               $record->save();
-
           }
           $value->sum = $sum;
           $report = Report::where(['module_id' => $value->id])->where('min_score', '<=', $sum)->where('max_score', '>=', $sum)->first(['id', 'report_name', 'report_body','min_score', 'max_score']);
@@ -121,6 +132,8 @@ class PaperController extends Controller
           $value->report = $report;
       }
       $paper->modules = $modules;
+      $customer_record->report_json = $paper;
+      $customer_record->save();
       $data = ['errno'=>0, 'msg'=>'success', 'paper'=>$paper];
       return Response::json($data);
   }

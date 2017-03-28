@@ -18,7 +18,9 @@ class CreateRecordTable extends Migration
           $table->increments('id');
           $table->integer('customer_id');
           $table->integer('paper_id');
+          $table->string('paper_name');
           $table->integer('module_id');
+          $table->string('module_name');
           $table->integer('question_id');
           $table->string('question_name');
           $table->integer('answer_id');

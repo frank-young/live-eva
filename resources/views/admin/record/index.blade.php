@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <record-list :data="{{ $records }}"></record-list>
+    <record-list :data="{{ $customers }}"></record-list>
 @endsection
