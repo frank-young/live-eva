@@ -16,7 +16,7 @@
                   <div class="panel-body">
                     <div class="side-list-wrap">
                       <div class="side-list-item" v-for="question in questions">
-                          <a href="#" @click="editQuestion(question.id)">{{question.question_name}} {{question.id}} </a>
+                          <a href="#" @click="editQuestion(question.id)">{{question.question_name}}</a>
                       </div>
                     </div>
                   </div>
@@ -194,10 +194,12 @@
             _createOriginAnswer(len) {
                 // 创建原始答案
                 let arr = []
+                let defaultAnswer = ['没有', '很少', '偶尔', '常常', '总是']
+
                 for (var i = 0; i < len; i++) {
                     let obj = {
                         index: i,
-                        answer_name: '答案' + i,
+                        answer_name: defaultAnswer[i],
                         score: i + 1
                       }
                       arr.push(obj)
