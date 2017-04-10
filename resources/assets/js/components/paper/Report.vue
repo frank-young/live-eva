@@ -1,33 +1,32 @@
 <template>
     <div class="container">
         <form @submit.prevent="total" class="form-horizontal ">
-                <div class="head">
-                    <h1>{{report.name}}</h1>
-                    <p>{{report.description}}</p>
-                </div>
-                <div class="body">
-                    <input type="hidden" name="_token" :value="token">
-                    <input type="hidden" name="report_id" :value="report.id">
-                    <div class="module" v-for="module in report.modules">
-                        <!-- <h2>{{module.module_name}}</h2> -->
-                        <div class="question" v-for="question in module.questions">
-                            <h3>{{question.question_name}}</h3>
-                            <div class="answer-wrap">
-                              <div class="answer" v-for="(answer,index) in question.answers">
-                                  <label class="check-box"><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.id" ><span></span>{{index | answerEn}}. {{answer.answer_name}}</label>
-                              </div>
-                            </div>
+            <div class="head">
+                <h1>{{report.name}}</h1>
+                <p>{{report.description}}</p>
+            </div>
+            <div class="body">
+                <input type="hidden" name="_token" :value="token">
+                <input type="hidden" name="report_id" :value="report.id">
+                <div class="module" v-for="module in report.modules">
+                    <!-- <h2>{{module.module_name}}</h2> -->
+                    <div class="question" v-for="question in module.questions">
+                        <h3>{{question.question_name}}</h3>
+                        <div class="answer-wrap">
+                          <div class="answer" v-for="(answer,index) in question.answers">
+                              <label class="check-box"><input type="radio" :name="'answers['+module.id+']['+question.id+']'" :value="answer.id" required="true"><span></span>{{index | answerEn}}. {{answer.answer_name}}</label>
+                          </div>
                         </div>
                     </div>
-                    <div class="btn-box">
-                      <button type="submit" class="btn">提交</button>
-                    </div>
                 </div>
-                <div class="foot">
-                  <p>呐呐科技 &copy; 2017</p>
+                <div class="btn-box">
+                  <button type="submit" class="btn">提交</button>
                 </div>
             </div>
-        </form>
+          </form>
+          <div class="foot">
+            <p>呐呐科技 &copy; 2017</p>
+          </div>
     </div>
 </template>
 
@@ -59,6 +58,8 @@
               options.emulateJSON = true
               this.$http.post('/live/live-eva/public/paper/ctrl', formData, options).then((res) => {
                   res = res.body
+                  console.log('提交成功')
+                  alert('提交成功')
                   if (res.errno === ERR_OK) {
                       window.localStorage.setItem('report',JSON.stringify(res.paper))
                       window.location.href = "/live/live-eva/public/admin/report"
@@ -174,10 +175,10 @@
   .btn-box .btn {
     display: block;
     width: 100%;
-    padding: .6rem;
+    padding: .65rem;
     border: 0;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
     background-color: #1AAD19;
     outline: none;
