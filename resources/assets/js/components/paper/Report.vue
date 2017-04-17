@@ -8,6 +8,14 @@
             <div class="body">
                 <input type="hidden" name="_token" :value="token">
                 <input type="hidden" name="report_id" :value="report.id">
+                <div class="answer-info">
+                  <h3>基础资料</h3>
+                  <div class="answer-wrap">
+                    <div class="answer">
+
+                    </div>
+                  </div>
+                </div>
                 <div class="module" v-for="module in report.modules">
                     <!-- <h2>{{module.module_name}}</h2> -->
                     <div class="question" v-for="question in module.questions">
@@ -104,7 +112,7 @@
     margin-bottom: 1rem;
   }
 
-  .body .question h3 {
+  .body h3 {
     padding: 0 1rem .5rem 1rem;
     font-size: 16px;
     color: #666;

@@ -16,7 +16,7 @@
     <div id="app">
         <paper-report :report="{{ $paper }}"></paper-report>
     </div>
+    <script type="text/javascript" src="http://frank.s1.natapp.link/live/live-eva/public/js/app.js"></script>
 
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -21206,6 +21206,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -24364,7 +24372,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\nbody,h1,h2,h3,h4,h5,h6,div,p {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  background-color: #f8f8f8;\n}\n.container {\n}\n.head {\n  padding: 1rem;\n}\n.head h1 {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question {\n  margin-bottom: 1rem;\n}\n.body .question h3 {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body .answer-wrap {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer:last-of-type {\n  border-bottom: 0;\n}\n.check-box {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span {\n  border-color: #1AAD19;\n  background-color: #1AAD19;\n}\n.check-box span:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .35rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn {\n  display: block;\n  width: 100%;\n  padding: .65rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 16px;\n  color: #fff;\n  background-color: #1AAD19;\n  outline: none;\n}\n.foot p {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\nbody,h1,h2,h3,h4,h5,h6,div,p {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  background-color: #f8f8f8;\n}\n.container {\n}\n.head {\n  padding: 1rem;\n}\n.head h1 {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question {\n  margin-bottom: 1rem;\n}\n.body h3 {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body .answer-wrap {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer:last-of-type {\n  border-bottom: 0;\n}\n.check-box {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span {\n  border-color: #1AAD19;\n  background-color: #1AAD19;\n}\n.check-box span:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .35rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn {\n  display: block;\n  width: 100%;\n  padding: .65rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 16px;\n  color: #fff;\n  background-color: #1AAD19;\n  outline: none;\n}\n.foot p {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -42039,7 +42047,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.report.id
     }
-  }), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
     return _c('div', {
       staticClass: "module"
     }, _vm._l((module.questions), function(question) {
@@ -42064,8 +42072,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }), _c('span'), _vm._v(_vm._s(_vm._f("answerEn")(index)) + ". " + _vm._s(answer.answer_name))])])
       }))])
     }))
-  }), _vm._v(" "), _vm._m(0)], 2)]), _vm._v(" "), _vm._m(1)])
+  }), _vm._v(" "), _vm._m(1)], 2)]), _vm._v(" "), _vm._m(2)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "answer-info"
+  }, [_c('h3', [_vm._v("基础资料")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('div', {
+    staticClass: "answer"
+  })])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "btn-box"
   }, [_c('button', {

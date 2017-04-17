@@ -17,6 +17,6 @@
         <report-report></report-report>
     </div>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="http://frank.s1.natapp.link/live/live-eva/public/js/app.js"></script>
 </body>
 </html>
