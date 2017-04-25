@@ -22,6 +22,7 @@ Vue.component('question-input', require('./components/question/Input.vue'));
 Vue.component('report-input', require('./components/report/Input.vue'));
 Vue.component('report-report', require('./components/report/Report.vue'));
 Vue.component('record-list', require('./components/record/List.vue'));
+Vue.component('base-info', require('./components/baseinfo/Baseinfo.vue'));
 
 const app = new Vue({
     el: '#app'

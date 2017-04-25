@@ -20131,6 +20131,7 @@ Vue.component('question-input', __webpack_require__(52));
 Vue.component('report-input', __webpack_require__(54));
 Vue.component('report-report', __webpack_require__(55));
 Vue.component('record-list', __webpack_require__(53));
+Vue.component('base-info', __webpack_require__(82));
 
 var app = new Vue({
   el: '#app'
@@ -21174,9 +21175,6 @@ var ERR_OK = 0;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-//
-//
-//
 //
 //
 //
@@ -24372,7 +24370,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\nbody,h1,h2,h3,h4,h5,h6,div,p {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  background-color: #f8f8f8;\n}\n.container {\n}\n.head {\n  padding: 1rem;\n}\n.head h1 {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question {\n  margin-bottom: 1rem;\n}\n.body h3 {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body .answer-wrap {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer:last-of-type {\n  border-bottom: 0;\n}\n.check-box {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span {\n  border-color: #1AAD19;\n  background-color: #1AAD19;\n}\n.check-box span:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .35rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn {\n  display: block;\n  width: 100%;\n  padding: .65rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 16px;\n  color: #fff;\n  background-color: #1AAD19;\n  outline: none;\n}\n.foot p {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\nbody,h1,h2,h3,h4,h5,h6,div,p {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  background-color: #f8f8f8;\n}\n.container {\n}\n.head {\n  padding: 1rem;\n}\n.head h1 {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question {\n  margin-bottom: 1rem;\n}\n.body h2,\n.body h3 {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body h2 {\n  font-size: 18px;\n  color: #333;\n  text-align: center;\n  margin: 20px auto 10px auto;\n}\n.body .answer-wrap {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer:last-of-type {\n  border-bottom: 0;\n}\n.check-box {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span {\n  border-color: #1AAD19;\n  background-color: #1AAD19;\n}\n.check-box span:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .35rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn {\n  display: block;\n  width: 100%;\n  padding: .65rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 16px;\n  color: #fff;\n  background-color: #1AAD19;\n  outline: none;\n}\n.foot p {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -42047,7 +42045,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.report.id
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
+  }), _vm._v(" "), _c('h2', [_vm._v("感觉统合基础资料表")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-info"
+  }, [_c('base-info', [_c('base-info')], 1)], 1), _vm._v(" "), _c('h2', [_vm._v("感觉统合评定量表")]), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
     return _c('div', {
       staticClass: "module"
     }, _vm._l((module.questions), function(question) {
@@ -42072,16 +42072,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }), _c('span'), _vm._v(_vm._s(_vm._f("answerEn")(index)) + ". " + _vm._s(answer.answer_name))])])
       }))])
     }))
-  }), _vm._v(" "), _vm._m(1)], 2)]), _vm._v(" "), _vm._m(2)])
+  }), _vm._v(" "), _vm._m(0)], 2)]), _vm._v(" "), _vm._m(1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "answer-info"
-  }, [_c('h3', [_vm._v("基础资料")]), _vm._v(" "), _c('div', {
-    staticClass: "answer-wrap"
-  }, [_c('div', {
-    staticClass: "answer"
-  })])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "btn-box"
   }, [_c('button', {
@@ -44880,6 +44872,1513 @@ module.exports = function(module) {
 __webpack_require__(14);
 module.exports = __webpack_require__(15);
 
+
+/***/ }),
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    data: function data() {
+        return {
+            report: {}
+        };
+    },
+    created: function created() {},
+
+    methods: {}
+};
+
+/***/ }),
+/* 81 */,
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(86)
+
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(80),
+  /* template */
+  __webpack_require__(83),
+  /* scopeId */
+  "data-v-4088631c",
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/frankyoung/Sites/live/live-eva/resources/assets/js/components/baseinfo/Baseinfo.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Baseinfo.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4088631c", Component.options)
+  } else {
+    hotAPI.reload("data-v-4088631c", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _vm._m(0)
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "baseinfo"
+  }, [_c('h3', [_vm._v("基础信息")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("姓名")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "name",
+      "value": "",
+      "required": "true",
+      "placeholder": "请输入孩子姓名"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("性别")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "sex",
+      "value": "",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 男\n            ")]), _vm._v(" "), _c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "sex",
+      "value": "",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 女\n            ")])])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("出生日期")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "date",
+      "name": "birthday",
+      "value": "",
+      "required": "true"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("监护人姓名")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "guardian_name",
+      "value": "",
+      "required": "true",
+      "placeholder": "监护人姓名"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("孩子年龄")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "age",
+      "value": "",
+      "required": "true",
+      "placeholder": "孩子年龄"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("关系")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "relation",
+      "value": "",
+      "required": "true",
+      "placeholder": "与孩子的关系"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("职业")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "profession",
+      "value": "",
+      "required": "true",
+      "placeholder": "请输入您的职业"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("联系地址")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "address",
+      "value": "",
+      "required": "true",
+      "placeholder": "详细的联系地址"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("联系电话")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "mobile",
+      "value": "",
+      "required": "true",
+      "placeholder": "请输入联系电话"
+    }
+  })])])])]), _vm._v(" "), _c('h3', [_vm._v("一、母孕期情况")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("1.孕期")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "pregnancy",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 早产\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "pregnancy",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 足月\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "pregnancy",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 自然产\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "pregnancy",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 刨腹产\n        ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("2.母亲怀孕期间活动量")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "pregnancy_activity",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 足\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "pregnancy_activity",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 不足\n        ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("3.父母生产时的年龄")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("父亲")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "father_age",
+      "value": "",
+      "required": "true",
+      "placeholder": "请输入年龄（数字）"
+    }
+  })])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("母亲")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "mother_age",
+      "value": "",
+      "required": "true",
+      "placeholder": "请输入年龄（数字）"
+    }
+  })])])])]), _vm._v(" "), _c('h3', [_vm._v("二、生长养育史")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("1.喂养情况")]), _vm._v(" "), _c('h5', [_vm._v("岁独立前喂养情况")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "feed",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 母乳\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "feed",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 人工\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "feed",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 混合\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("岁独立后喂养情况")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "feed_old",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 岁独立用小勺进餐\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "feed_old",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 右手\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "feed_old",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 左手\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "feed_old",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 不分\n        ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("2.运动发展情况")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "sports",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 婴儿期手脚自由活动\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "sports",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 包裹“蜡烛包”\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box"
+  }, [_c('label', [_vm._v("爬行时间")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "sports_time",
+      "value": "",
+      "required": "true",
+      "placeholder": "几个月会爬（输入数字）"
+    }
+  })])])]), _vm._v(" "), _c('h5', [_vm._v("是否用学步车")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "sports_car",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "sports_car",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 否\n        ")])])]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("3.安全感发展")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box input-box-max"
+  }, [_c('label', [_vm._v("两岁之前晚上和谁睡")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "safe_person",
+      "value": "",
+      "required": "true",
+      "placeholder": "父亲、母亲、爷爷、奶奶"
+    }
+  })])])]), _vm._v(" "), _c('h5', [_vm._v("三岁之前和母亲是否有分离")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "safe_mother",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "safe_mother",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 否\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("睡觉时需要依恋物")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "safe_things",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "safe_things",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 否\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("习惯咬手指啃东西")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "safe_bite",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "safe_bite",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 否\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("三、生活环境")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("1.养育方法")]), _vm._v(" "), _c('h5', [_vm._v("父亲：")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_father_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 宽\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_father_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 严\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_father_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 放任\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_father_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 普通\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_father_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 不定\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("母亲：")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_mother_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 宽\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_mother_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 严\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_mother_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 放任\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_mother_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 普通\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_mother_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 不定\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("养育者与孩子沟通时间")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_communicate_time",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 长\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_communicate_time",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 短\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_communicate_time",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 没有\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("密切程度")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_intimate",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 很密切\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_intimate",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 密切\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_intimate",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 一般\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_intimate",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 不密切\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("沟通方式")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_communicate_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 鼓励肯定多\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "bring_communicate_method",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 批评否定多\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("沟通方式")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "input-box input-box-max"
+  }, [_c('label', [_vm._v("父母关系如何")]), _vm._v(" "), _c('div', {
+    staticClass: "input-text"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "bring_relation",
+      "value": "",
+      "required": "true",
+      "placeholder": "很好、好、还不错、不好"
+    }
+  })])])])]), _vm._v(" "), _c('h3', [_vm._v("四、语言现状")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 口吃\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 发音不清\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 自言自语\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 固定音调\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 鹦鹉学舌\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 发音困难\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 说话声小\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 不爱讲话\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "lange",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 其他\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("五、行为表现")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "behavior",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 小动作多（吸手指、摸生殖器等）\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "behavior",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 注意力不集中，东张西望\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "behavior",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 攻击他人\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "behavior",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 自伤行为\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "behavior",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 多动\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "behavior",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 刻板行为\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("六、情绪反应")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "emotion",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 爱生气\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "emotion",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 常哭、闹、笑\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "emotion",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 极端恐惧（怕声音、怕黑）\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "emotion",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 摔东西、扔东西\n        ")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('label', {
+    staticClass: "check-box"
+  }, [_c('input', {
+    attrs: {
+      "type": "radio",
+      "name": "emotion",
+      "required": "true"
+    }
+  }), _c('span'), _vm._v(" 不满足时常发脾气\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("七、请家长详细描述儿童目前的问题和困难以及家长的困扰。")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('div', {
+    staticClass: "answer"
+  }, [_c('div', {
+    staticClass: "textarea-box"
+  }, [_c('textarea', {
+    attrs: {
+      "name": "puzzled",
+      "rows": "5"
+    }
+  })])])]), _vm._v(" "), _c('h3', [_vm._v("八、请家长案动作要求发送孩子视频")]), _vm._v(" "), _c('div', {
+    staticClass: "answer-wrap"
+  }, [_c('h4', [_vm._v("1.走平衡木")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('h5', [_vm._v("a.无法侧站着3秒以上，或者牵着孩子的手而孩子无法顺利完成动作")])]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('h5', [_vm._v("b.孩子想快冲而跌下")])]), _vm._v(" "), _c('h4', [_vm._v("2.逆时针方向转10圈（视情形而定是由家长或同仁抱着进行）- 了解眼球震颤情况")]), _vm._v(" "), _c('h4', [_vm._v("3.爬斜坡，在爬坡的过程请看孩子表现情况，是否需要有人扶，是否敢自己走")]), _vm._v(" "), _c('h4', [_vm._v("4.请家长准备糖果罐，罐中装一些糖果，请孩子自己开启瓶盖拿糖果")]), _vm._v(" "), _c('h4', [_vm._v("5.贴彩色胶带或粘贴于孩子的脸上、手臂与腿上，看其反应")]), _vm._v(" "), _c('h4', [_vm._v("6.球池群物体")]), _vm._v(" "), _c('div', {
+    staticClass: "answer"
+  }, [_c('h5', [_vm._v("将一个小物件的玩具放入众多玩具当中，或者球池当中，看孩子寻找物体的反应")])])])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-4088631c", module.exports)
+  }
+}
+
+/***/ }),
+/* 84 */,
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, "\n.answer-wrap[data-v-4088631c] {\n  margin-bottom: 1rem;\n}\n.answer-wrap h4[data-v-4088631c],\n.answer-wrap h5[data-v-4088631c] {\n  font-size: 16px;\n  padding: .5rem 0 0 0;\n  color: #555;\n}\n.answer-wrap h5[data-v-4088631c] {\n  font-size: 14px;\n  font-weight: 400;\n}\n.input-box[data-v-4088631c] {\n  position: relative;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding: .7rem 0;\n}\n.input-box label[data-v-4088631c] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 100px;\n          flex: 0 0 100px;\n  width: 100px;\n  color: #555;\n  font-size: 14px;\n}\n.input-box .input-text[data-v-4088631c] {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n}\n.input-box .input-text input[data-v-4088631c] {\n  width: 100%;\n  padding: 0;\n  border: 0;\n  outline: none;\n  font-size: 14px;\n}\n.input-box .input-text .check-box[data-v-4088631c] {\n  display: inline;\n  padding-top: 0;\n  padding-bottom: 0;\n  margin-right: 2rem;\n}\n.input-box-max label[data-v-4088631c] {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 150px;\n          flex: 0 0 150px;\n  width: 150px;\n}\n.textarea-box[data-v-4088631c] {\n  padding-right: 1rem;\n}\n.textarea-box textarea[data-v-4088631c] {\n  width: 100%;\n  padding: 1rem 0;\n  outline: none;\n  box-sizing: border-box;\n  font-size: 16px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(85);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("0f63c739", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-4088631c&scoped=true!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Baseinfo.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-4088631c&scoped=true!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Baseinfo.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

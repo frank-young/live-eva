@@ -8,14 +8,11 @@
             <div class="body">
                 <input type="hidden" name="_token" :value="token">
                 <input type="hidden" name="report_id" :value="report.id">
+                <h2>感觉统合基础资料表</h2>
                 <div class="answer-info">
-                  <h3>基础资料</h3>
-                  <div class="answer-wrap">
-                    <div class="answer">
-
-                    </div>
-                  </div>
+                  <base-info><base-info>
                 </div>
+                <h2>感觉统合评定量表</h2>
                 <div class="module" v-for="module in report.modules">
                     <!-- <h2>{{module.module_name}}</h2> -->
                     <div class="question" v-for="question in module.questions">
@@ -112,11 +109,19 @@
     margin-bottom: 1rem;
   }
 
+  .body h2,
   .body h3 {
     padding: 0 1rem .5rem 1rem;
     font-size: 16px;
     color: #666;
     font-weight: normal;
+  }
+
+  .body h2 {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin: 20px auto 10px auto;
   }
 
   .body .answer-wrap {
