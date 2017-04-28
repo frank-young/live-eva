@@ -89,11 +89,8 @@ class PaperController extends Controller
       $report_id = $request->get('report_id');
       $paper = Paper::where(['id'=>$report_id])->first(['id','name']);
       $modules = Module::where(['paper_id' => $report_id])->get(['id','module_name']);
-      $uuid = uniqid(mt_rand().'_', true);
-      $customer = new Customer;
-      $customer->user_token = $uuid;
-      $customer->ip = $request->getClientIp();
-      $customer->save();
+      // $uuid = uniqid(mt_rand().'_', true);
+      $customer = Customer::create($request->all());
 
       // 储存用户答卷报告信息
       $customer_record = new Customer_record;
