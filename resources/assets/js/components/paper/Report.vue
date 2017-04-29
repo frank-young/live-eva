@@ -30,7 +30,8 @@
             </div>
           </form>
           <div class="foot">
-            <p>呐呐科技 &copy; 2017</p>
+            <p>祥和家庭 &copy; 2017</p>
+            <p>由<a class="link" href="http://nanafly.com">呐呐科技</a>提供技术支持</p>
           </div>
     </div>
 </template>
@@ -67,7 +68,7 @@
                   alert('提交成功')
                   if (res.errno === ERR_OK) {
                       window.localStorage.setItem('report',JSON.stringify(res.paper))
-                      window.location.href = "/live/live-eva/public/admin/report"
+                      window.location.href = "/live/live-eva/public/report"
                   }
               })
             }
@@ -79,7 +80,7 @@
     })
 </script>
 
-<style>
+<style lang="less">
   body,h1,h2,h3,h4,h5,h6,div,p {
     margin: 0;
     padding: 0;
@@ -197,9 +198,14 @@
     outline: none;
   }
   .foot p {
-    padding: .5rem;
+    padding: 0;
+    margin-bottom: .5rem;
     font-size: 12px;
     color: #999;
     text-align: center;
+    .link {
+      color: #3388cc;
+      text-decoration: underline;
+    }
   }
 </style>

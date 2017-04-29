@@ -21747,6 +21747,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -21780,7 +21781,7 @@ var ERR_OK = 0;
                 alert('提交成功');
                 if (res.errno === ERR_OK) {
                     window.localStorage.setItem('report', JSON.stringify(res.paper));
-                    window.location.href = "/live/live-eva/public/admin/report";
+                    window.location.href = "/live/live-eva/public/report";
                 }
             });
         }
@@ -22432,13 +22433,79 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 /* harmony default export */ __webpack_exports__["default"] = {
     data: function data() {
         return {
             report: {},
-            sumArr: []
+            sumArr: [],
+            average: 0,
+            sexArr: ['男', '女'],
+            pregnancyArr: ['早产', '足月', ' 自然产', '刨腹产']
         };
     },
     created: function created() {
@@ -22446,11 +22513,27 @@ var ERR_OK = 0;
 
         this.default();
         this._getSumValue();
+        this.getAverageValue();
         this.$nextTick(function () {
             _this.chart();
         });
     },
 
+    computed: {
+        getAbnormalStatus: function getAbnormalStatus() {
+            if (this.average > 0 && this.average < 16) {
+                return '正常';
+            } else if (this.average >= 16 && this.average < 23) {
+                return '轻度失调';
+            } else if (this.average >= 23 && this.average < 28) {
+                return '中度失调';
+            } else if (this.average >= 28 && this.average < 32) {
+                return '重度失调';
+            } else {
+                return '重度失调';
+            }
+        }
+    },
     methods: {
         default: function _default() {
             this.report = window.localStorage.getItem('report') ? JSON.parse(window.localStorage.getItem('report')) : {};
@@ -22461,6 +22544,13 @@ var ERR_OK = 0;
             this.report.modules.forEach(function (v) {
                 _this2.sumArr.push(v.sum);
             });
+        },
+        getAverageValue: function getAverageValue() {
+            var sum = 0;
+            this.report.modules.forEach(function (v) {
+                sum += v.sum;
+            });
+            this.average = Number(sum / this.report.modules.length).toFixed(2);
         },
         chart: function chart() {
             var myChart = echarts.init(document.getElementById('main'));
@@ -24982,34 +25072,8 @@ if (typeof jQuery === 'undefined') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)();
-// imports
-
-
-// module
-exports.push([module.i, "\n.head[data-v-1494fbfc] {\n  padding: 1rem;\n}\n.head h1[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head h2[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 18px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body[data-v-1494fbfc] {\n  min-height: 85vh;\n  padding: 1rem;\n}\n.body h2[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 18px;\n  line-height: 1.6em;\n  font-weight: 400;\n  text-align: left;\n}\n.body .chart[data-v-1494fbfc] {\n  margin-bottom: 2rem;\n}\n.module[data-v-1494fbfc] {\n  margin-bottom: 2rem;\n}\n.module h3[data-v-1494fbfc] {\n  font-size: 16px;\n  margin-bottom: 1rem;\n  text-align: left;\n  color: #333;\n}\n.module .module-content h3[data-v-1494fbfc] {\n  line-height: 1.8em;\n  font-size: 16px;\n  line-height: 1.7em;\n  color: #333 !important;\n  margin-bottom: 10px;\n}\n.module .module-content p[data-v-1494fbfc] {\n  margin-bottom: 10px;\n  text-indent: 2em;\n}\n.module .module-content[data-v-1494fbfc]{\n  line-height: 1.8em;\n  font-size: 14px;\n  line-height: 1.7em;\n  color: #555;\n  margin-bottom: 10px;\n}\n.foot p[data-v-1494fbfc] {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)();
-// imports
-
-
-// module
-exports.push([module.i, "\nbody,h1,h2,h3,h4,h5,h6,div,p {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  background-color: #f8f8f8;\n}\n.container {\n}\n.head {\n  padding: 1rem;\n}\n.head h1 {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question {\n  margin-bottom: 1rem;\n}\n.body h2,\n.body h3 {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body h2 {\n  font-size: 18px;\n  color: #333;\n  text-align: center;\n  margin: 20px auto 10px auto;\n}\n.body .answer-wrap {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer:last-of-type {\n  border-bottom: 0;\n}\n.check-box {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span {\n  border-color: #1AAD19;\n  background-color: #1AAD19;\n}\n.check-box span:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .35rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn {\n  display: block;\n  width: 100%;\n  padding: .65rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 16px;\n  color: #fff;\n  background-color: #1AAD19;\n  outline: none;\n}\n.foot p {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
+/* 44 */,
+/* 45 */,
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -42269,7 +42333,7 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(69)
+__webpack_require__(96)
 
 var Component = __webpack_require__(1)(
   /* script */
@@ -42421,7 +42485,7 @@ module.exports = Component.exports
 
 
 /* styles */
-__webpack_require__(68)
+__webpack_require__(94)
 
 var Component = __webpack_require__(1)(
   /* script */
@@ -42429,7 +42493,7 @@ var Component = __webpack_require__(1)(
   /* template */
   __webpack_require__(60),
   /* scopeId */
-  "data-v-1494fbfc",
+  null,
   /* cssModules */
   null
 )
@@ -42525,27 +42589,35 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "container"
+    staticClass: "report-report"
   }, [_c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "head"
   }, [_c('h1', [_vm._v(_vm._s(_vm.report.name) + "（报告）")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.report.description))])]), _vm._v(" "), _c('div', {
     staticClass: "body"
-  }, [_c('h2', [_vm._v("\n                三、测评报告结果\n              ")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
+  }, [_c('h2', [_vm._v("一、基础资料")]), _vm._v(" "), _c('div', {
+    staticClass: "module"
+  }, [_c('p', [_vm._v("姓名：" + _vm._s(_vm.report.customer.name))]), _vm._v(" "), _c('p', [_vm._v("性别：" + _vm._s(_vm.sexArr[_vm.report.customer.sex]))]), _vm._v(" "), _c('p', [_vm._v("出生日期：" + _vm._s(_vm.report.customer.birthday))]), _vm._v(" "), _c('p', [_vm._v("监护人姓名：" + _vm._s(_vm.report.customer.guardian_name))]), _vm._v(" "), _c('p', [_vm._v("孩子年龄：" + _vm._s(_vm.report.customer.age))]), _vm._v(" "), _c('p', [_vm._v("关系：" + _vm._s(_vm.report.customer.relation))]), _vm._v(" "), _c('p', [_vm._v("职业：" + _vm._s(_vm.report.customer.profession))]), _vm._v(" "), _c('p', [_vm._v("联系地址：" + _vm._s(_vm.report.customer.address))]), _vm._v(" "), _c('p', [_vm._v("联系电话：" + _vm._s(_vm.report.customer.mobile))])]), _vm._v(" "), _c('h2', [_vm._v("二、测评解读")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('h2', [_vm._v("\n                三、测评报告结果\n              ")]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
     return _c('div', {
       staticClass: "module"
-    }, [_c('h3', [_vm._v(_vm._s(module.report.report_name) + " 得分：" + _vm._s(module.sum) + " ")]), _vm._v(" "), _c('div', {
+    }, [_c('h3', [_vm._v(_vm._s(module.report.report_name) + " 得分："), _c('span', [_vm._v(_vm._s(module.sum))]), _vm._v(" 分")]), _vm._v(" "), _c('div', {
       staticClass: "module-content",
       domProps: {
         "innerHTML": _vm._s(module.report.report_body)
       }
     })])
-  })], 2), _vm._v(" "), _vm._m(1)])])
+  }), _vm._v(" "), _c('h2', [_vm._v("\n                四、综合建议\n              ")]), _vm._v(" "), _c('div', {
+    staticClass: "module"
+  }, [_c('h3', [_vm._v("综合建议")]), _vm._v(" "), _c('p', [_vm._v("\n                  您的孩子处在\n                  " + _vm._s(Number(_vm.report.customer.age) <= 2 ? 0 : Number(_vm.report.customer.age) - 2) + " - " + _vm._s(Number(_vm.report.customer.age) + 2) + "\n                   岁年龄段，为" + _vm._s(_vm.pregnancyArr[_vm.report.customer.pregnancy]) + "产，经过测评，\n                   感觉统合综合得分为\n                   " + _vm._s(_vm.average) + "\n                   分，属于" + _vm._s(_vm.getAbnormalStatus) + "。\n                ")])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4)], 2), _vm._v(" "), _vm._m(5)])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "chart"
-  }, [_c('div', {
+    staticClass: "module"
+  }, [_c('h3', [_vm._v("关于祥和家庭")]), _vm._v(" "), _c('p', [_vm._v("\n                    祥和家庭的感觉统合测评标准依据儿童心理及智能运动的发展规律为基础，整合台湾奇德儿测评系统及“众望家学园”近10年的研究实践结果，让家长、老师、专业人员以科学的方式，对儿童感觉统合的发展有全面、深入的了解，让儿童在最强（0-6岁）最有效（0-12岁）的年龄段，提升天花板的高度、提升学习效率、弥补弱项，让优者更优。\n                  ")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "module"
+  }, [_c('h3', [_vm._v("图表对比")]), _vm._v(" "), _c('div', {
     staticStyle: {
       "width": "100%",
       "height": "300px"
@@ -42556,8 +42628,50 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
+    staticClass: "module"
+  }, [_c('h3', [_vm._v("详细建议")]), _vm._v(" "), _c('p', [_c('a', {
+    staticClass: "btn-line",
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("常规训练计划")])]), _vm._v(" "), _c('p', [_c('a', {
+    staticClass: "btn-line",
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("庭教育智能运动包")])]), _vm._v(" "), _c('p', [_c('a', {
+    staticClass: "btn-line",
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("感觉统合馆介绍")])]), _vm._v(" "), _c('p', [_c('a', {
+    staticClass: "btn-line",
+    attrs: {
+      "href": "#"
+    }
+  }, [_vm._v("返回首页")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "module"
+  }, [_c('h3', [_vm._v("我们的祝福")]), _vm._v(" "), _c('p', [_vm._v("\n                  感谢您智慧的家长，教育最大的成本不是金钱而是时间，孩子的成长是单行道，一旦错过了，花多少钱都无法弥补错失的遗憾。“不让孩子输在起跑线上”，真正的起跑线是家长的教育理念，只有家长好好学习，孩子才能天天向上！\n                ")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "module"
+  }, [_c('p', [_c('a', {
+    staticClass: "btn-line",
+    attrs: {
+      "onclick": "window.history.go(-1)"
+    }
+  }, [_vm._v("返回重新测评")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
     staticClass: "foot"
-  }, [_c('p', [_vm._v("呐呐科技 © 2017")])])
+  }, [_c('p', [_vm._v("祥和家庭 © 2017")]), _vm._v(" "), _c('p', [_vm._v("由"), _c('a', {
+    staticClass: "link",
+    attrs: {
+      "href": "http://nanafly.com"
+    }
+  }, [_vm._v("呐呐科技")]), _vm._v("提供技术支持")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -42788,7 +42902,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "foot"
-  }, [_c('p', [_vm._v("呐呐科技 © 2017")])])
+  }, [_c('p', [_vm._v("祥和家庭 © 2017")]), _vm._v(" "), _c('p', [_vm._v("由"), _c('a', {
+    staticClass: "link",
+    attrs: {
+      "href": "http://nanafly.com"
+    }
+  }, [_vm._v("呐呐科技")]), _vm._v("提供技术支持")])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -46473,58 +46592,8 @@ module.exports = plugin;
 
 
 /***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(44);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("5e2814fe", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1494fbfc&scoped=true!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1494fbfc&scoped=true!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(45);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("5d40f08e", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue", function() {
-     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
+/* 68 */,
+/* 69 */,
 /* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -46702,6 +46771,101 @@ module.exports = function(module) {
 __webpack_require__(14);
 module.exports = __webpack_require__(15);
 
+
+/***/ }),
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, "\n.report-report .head {\n  position: relative;\n  padding: .75rem 1rem;\n  background-color: #3388cc;\n  color: #fff;\n}\n.report-report .head h1 {\n  padding: 0;\n  margin: 0;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.report-report .head h2 {\n  margin-bottom: .75rem;\n  font-size: 18px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.report-report .head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.report-report .body {\n  min-height: 85vh;\n  padding: 0 1rem 1.5rem 1rem;\n}\n.report-report .body h2 {\n  margin-bottom: .75rem;\n  font-size: 18px;\n  line-height: 1.6em;\n  font-weight: 400;\n  text-align: left;\n}\n.report-report .module {\n  padding: 1.5rem 1rem;\n  margin-bottom: 1.5rem;\n  background-color: #fff;\n  box-shadow: 3px 3px 12px #ddd;\n}\n.report-report .module h3 {\n  padding: 0 0 .5rem 0;\n  margin-top: 0;\n  margin-bottom: 1rem;\n  font-size: 18px;\n  text-align: left;\n  color: #3388cc;\n  border-bottom: 1px solid #3388cc;\n}\n.report-report .module h3 span {\n  color: #f44;\n}\n.report-report .module p {\n  margin-bottom: .5rem;\n  line-height: 1.8em;\n  font-size: 16px;\n  color: #555;\n}\n.report-report .module .module-content h3 {\n  padding: 0;\n  line-height: 1.8em;\n  font-size: 18px;\n  color: #555;\n  margin-bottom: .5rem;\n  border: 0;\n}\n.report-report .module .btn-line {\n  display: block;\n  padding: .5rem;\n  margin-bottom: 1rem;\n  color: #1AAD19;\n  border: 1px solid #1AAD19;\n  border-radius: 4px;\n  text-decoration: none;\n  font-size: 16px;\n  text-align: center;\n}\n.report-report .foot p {\n  padding: 0;\n  margin-bottom: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n.report-report .foot p .link {\n  color: #3388cc;\n  text-decoration: underline;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(93);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("7326b0bb", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1494fbfc!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1494fbfc!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+// imports
+
+
+// module
+exports.push([module.i, "\nbody,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\ndiv,\np {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  background-color: #f8f8f8;\n}\n.head {\n  padding: 1rem;\n}\n.head h1 {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body .question {\n  margin-bottom: 1rem;\n}\n.body h2,\n.body h3 {\n  padding: 0 1rem .5rem 1rem;\n  font-size: 16px;\n  color: #666;\n  font-weight: normal;\n}\n.body h2 {\n  font-size: 18px;\n  color: #333;\n  text-align: center;\n  margin: 20px auto 10px auto;\n}\n.body .answer-wrap {\n  padding: 0 0 0 1rem;\n  border-top: 1px solid #eee;\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n}\n.body .answer {\n  border-bottom: 1px solid #eee;\n  background-color: #fff;\n  font-size: 14px;\n}\n.body .answer:last-of-type {\n  border-bottom: 0;\n}\n.check-box {\n  position: relative;\n  display: block;\n  padding: .7rem 0;\n  cursor: pointer;\n  padding-left: 2rem;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n}\n.check-box input[type=\"radio\"] {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  margin-top: -0.5rem;\n  opacity: 0;\n  -webkit-filter: opacity(0);\n          filter: opacity(0);\n}\n.check-box span {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  width: 1.15rem;\n  height: 1.15rem;\n  margin-top: -0.6rem;\n  border: 1px solid #bbb;\n  border-radius: 50%;\n}\n.check-box input[type=\"radio\"]:checked + span {\n  border-color: #1AAD19;\n  background-color: #1AAD19;\n}\n.check-box span:after {\n  content: '';\n  position: absolute;\n  left: .25rem;\n  top: .35rem;\n  width: .5rem;\n  height: .25rem;\n  border-left: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  -webkit-transform: rotate(-45deg);\n          transform: rotate(-45deg);\n}\n.btn-box {\n  padding: 1rem;\n  margin-bottom: 1rem;\n}\n.btn-box .btn {\n  display: block;\n  width: 100%;\n  padding: .65rem;\n  border: 0;\n  border-radius: 4px;\n  font-size: 16px;\n  color: #fff;\n  background-color: #1AAD19;\n  outline: none;\n}\n.foot p {\n  padding: 0;\n  margin-bottom: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n.foot p .link {\n  color: #3388cc;\n  text-decoration: underline;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(95);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("0bb238c0", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-1f61854c!../../../../../node_modules/less-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Report.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

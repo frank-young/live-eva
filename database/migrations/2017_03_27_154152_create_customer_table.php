@@ -17,6 +17,7 @@ class CreateCustomerTable extends Migration
       {
           $table->increments('id');
           $table->string('name');
+          $table->string('sex');
           $table->string('birthday');
           $table->string('guardian_name');
           $table->integer('age');

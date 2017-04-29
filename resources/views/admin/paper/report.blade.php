@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
   <title>问卷</title>
   <script>
       window.Laravel = {!! json_encode([
@@ -18,8 +17,5 @@
     </div>
     <!-- <script type="text/javascript" src="http://frank.s1.natapp.link/live/live-eva/public/js/app.js"></script> -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.8'><\/script>".replace("HOST", location.hostname));
-//]]></script>
 </body>
 </html>

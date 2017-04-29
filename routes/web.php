@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 });
 
 // Route::group(['middleware' => 'csrf'], function() {
-  Route::get('admin/report', 'Admin\ReportController@index');  // 报告模块
+  Route::get('report', 'Admin\ReportController@index');  // 报告模块
   Route::post('paper/ctrl', 'Admin\PaperController@reportCtrl');  // 问卷提交处理
 
 // });
