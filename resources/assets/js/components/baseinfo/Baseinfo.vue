@@ -15,10 +15,10 @@
               <label>性别</label>
               <div class="input-text">
                 <label class="check-box">
-                  <input type="radio" name="sex" :value="0" required="true"><span></span> 男
+                  <input type="radio" name="sex" :value="'0'" required="true"><span></span> 男
                 </label>
                 <label class="check-box">
-                  <input type="radio" name="sex" :value="1" required="true"><span></span> 女
+                  <input type="radio" name="sex" :value="'1'" required="true"><span></span> 女
                 </label>
               </div>
             </div>
@@ -86,22 +86,22 @@
         <h4>1.孕期</h4>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="0" required="true"><span></span> 早产
+              <input type="radio" name="pregnancy" :value="'0'" required="true"><span></span> 早产
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="1" required="true"><span></span> 足月
+              <input type="radio" name="pregnancy" :value="'1'" required="true"><span></span> 足月
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="2" required="true"><span></span> 自然产
+              <input type="radio" name="pregnancy" :value="'2'" required="true"><span></span> 自然产
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="3" required="true"><span></span> 刨腹产
+              <input type="radio" name="pregnancy" :value="'3'" required="true"><span></span> 刨腹产
             </label>
         </div>
       </div>
@@ -109,12 +109,12 @@
         <h4>2.母亲怀孕期间活动量</h4>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy_activity" :value="0" required="true"><span></span> 足
+              <input type="radio" name="pregnancy_activity" :value="'0'" required="true"><span></span> 足
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy_activity" :value="1" required="true"><span></span> 不足
+              <input type="radio" name="pregnancy_activity" :value="'1'" required="true"><span></span> 不足
             </label>
         </div>
       </div>
@@ -144,38 +144,38 @@
         <h5>岁独立前喂养情况</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed" :value="0" required="true"><span></span> 母乳
+              <input type="radio" name="feed" :value="'0'" required="true"><span></span> 母乳
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed" :value="1" required="true"><span></span> 人工
+              <input type="radio" name="feed" :value="'1'" required="true"><span></span> 人工
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed" :value="2" required="true"><span></span> 混合
+              <input type="radio" name="feed" :value="'2'" required="true"><span></span> 混合
             </label>
         </div>
         <h5>岁独立后喂养情况</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="0" required="true"><span></span> 岁独立用小勺进餐
+              <input type="radio" name="feed_old" :value="'0'" required="true"><span></span> 岁独立用小勺进餐
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="1" required="true"><span></span> 右手
+              <input type="radio" name="feed_old" :value="'1'" required="true"><span></span> 右手
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="2" required="true"><span></span> 左手
+              <input type="radio" name="feed_old" :value="'2'" required="true"><span></span> 左手
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="3" required="true"><span></span> 不分
+              <input type="radio" name="feed_old" :value="'3'" required="true"><span></span> 不分
             </label>
         </div>
       </div>
@@ -184,12 +184,12 @@
         <h4>2.运动发展情况</h4>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports" :value="0" required="true"><span></span> 婴儿期手脚自由活动
+              <input type="radio" name="sports" :value="'0'" required="true"><span></span> 婴儿期手脚自由活动
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports" :value="1" required="true"><span></span> 包裹“蜡烛包”
+              <input type="radio" name="sports" :value="'1'" required="true"><span></span> 包裹“蜡烛包”
             </label>
         </div>
         <div class="answer">
@@ -203,12 +203,12 @@
         <h5>是否用学步车</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports_car" :value="0" required="true"><span></span> 是
+              <input type="radio" name="sports_car" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports_car" :value="1" required="true"><span></span> 否
+              <input type="radio" name="sports_car" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
       </div>
@@ -226,34 +226,34 @@
         <h5>三岁之前和母亲是否有分离</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_mother" :value="0" required="true"><span></span> 是
+              <input type="radio" name="safe_mother" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_mother" :value="1" required="true"><span></span> 否
+              <input type="radio" name="safe_mother" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
         <h5>睡觉时需要依恋物</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_things" :value="0" required="true"><span></span> 是
+              <input type="radio" name="safe_things" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_things" :value="1" required="true"><span></span> 否
+              <input type="radio" name="safe_things" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
         <h5>习惯咬手指啃东西</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_bite" :value="0" required="true"><span></span> 是
+              <input type="radio" name="safe_bite" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_bite" :value="1" required="true"><span></span> 否
+              <input type="radio" name="safe_bite" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
       </div>
@@ -264,101 +264,101 @@
         <h5>父亲：</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="0" required="true"><span></span> 宽
+              <input type="radio" name="bring_father_method" :value="'0'" required="true"><span></span> 宽
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="1" required="true"><span></span> 严
+              <input type="radio" name="bring_father_method" :value="'1'" required="true"><span></span> 严
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="2" required="true"><span></span> 放任
+              <input type="radio" name="bring_father_method" :value="'2'" required="true"><span></span> 放任
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="3" required="true"><span></span> 普通
+              <input type="radio" name="bring_father_method" :value="'3'" required="true"><span></span> 普通
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="4" required="true"><span></span> 不定
+              <input type="radio" name="bring_father_method" :value="'4'" required="true"><span></span> 不定
             </label>
         </div>
         <h5>母亲：</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="0" required="true"><span></span> 宽
+              <input type="radio" name="bring_mother_method" :value="'0'" required="true"><span></span> 宽
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="1" required="true"><span></span> 严
+              <input type="radio" name="bring_mother_method" :value="'1'" required="true"><span></span> 严
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="2" required="true"><span></span> 放任
+              <input type="radio" name="bring_mother_method" :value="'2'" required="true"><span></span> 放任
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="3" required="true"><span></span> 普通
+              <input type="radio" name="bring_mother_method" :value="'3'" required="true"><span></span> 普通
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="4" required="true"><span></span> 不定
+              <input type="radio" name="bring_mother_method" :value="'4'" required="true"><span></span> 不定
             </label>
         </div>
         <h5>养育者与孩子沟通时间</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_time" :value="0" required="true"><span></span> 长
+              <input type="radio" name="bring_communicate_time" :value="'0'" required="true"><span></span> 长
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_time" :value="1" required="true"><span></span> 短
+              <input type="radio" name="bring_communicate_time" :value="'1'" required="true"><span></span> 短
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_time" :value="2" required="true"><span></span> 没有
+              <input type="radio" name="bring_communicate_time" :value="'2'" required="true"><span></span> 没有
             </label>
         </div>
         <h5>密切程度</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="0" required="true"><span></span> 很密切
+              <input type="radio" name="bring_intimate" :value="'0'" required="true"><span></span> 很密切
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="1" required="true"><span></span> 密切
+              <input type="radio" name="bring_intimate" :value="'1'" required="true"><span></span> 密切
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="2" required="true"><span></span> 一般
+              <input type="radio" name="bring_intimate" :value="'2'" required="true"><span></span> 一般
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="3" required="true"><span></span> 不密切
+              <input type="radio" name="bring_intimate" :value="'3'" required="true"><span></span> 不密切
             </label>
         </div>
         <h5>沟通方式</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_method" :value="0" required="true"><span></span> 鼓励肯定多
+              <input type="radio" name="bring_communicate_method" :value="'0'" required="true"><span></span> 鼓励肯定多
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_method" :value="1" required="true"><span></span> 批评否定多
+              <input type="radio" name="bring_communicate_method" :value="'1'" required="true"><span></span> 批评否定多
             </label>
         </div>
         <h5>沟通方式</h5>
@@ -376,47 +376,47 @@
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="0" required="true"><span></span> 口吃
+              <input type="radio" name="lange" :value="'0'" required="true"><span></span> 口吃
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="1" required="true"><span></span> 发音不清
+              <input type="radio" name="lange" :value="'1'" required="true"><span></span> 发音不清
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="2" required="true"><span></span> 自言自语
+              <input type="radio" name="lange" :value="'2'" required="true"><span></span> 自言自语
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="3" required="true"><span></span> 固定音调
+              <input type="radio" name="lange" :value="'3'" required="true"><span></span> 固定音调
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="4" required="true"><span></span> 鹦鹉学舌
+              <input type="radio" name="lange" :value="'4'" required="true"><span></span> 鹦鹉学舌
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="5" required="true"><span></span> 发音困难
+              <input type="radio" name="lange" :value="'5'" required="true"><span></span> 发音困难
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="6" required="true"><span></span> 说话声小
+              <input type="radio" name="lange" :value="'6'" required="true"><span></span> 说话声小
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="7" required="true"><span></span> 不爱讲话
+              <input type="radio" name="lange" :value="'7'" required="true"><span></span> 不爱讲话
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="8" required="true"><span></span> 其他
+              <input type="radio" name="lange" :value="'8'" required="true"><span></span> 其他
             </label>
         </div>
       </div>
@@ -425,32 +425,32 @@
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="0" required="true"><span></span> 小动作多（吸手指、摸生殖器等）
+              <input type="radio" name="behavior" :value="'0'" required="true"><span></span> 小动作多（吸手指、摸生殖器等）
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="1" required="true"><span></span> 注意力不集中，东张西望
+              <input type="radio" name="behavior" :value="'1'" required="true"><span></span> 注意力不集中，东张西望
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="2" required="true"><span></span> 攻击他人
+              <input type="radio" name="behavior" :value="'2'" required="true"><span></span> 攻击他人
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="3" required="true"><span></span> 自伤行为
+              <input type="radio" name="behavior" :value="'3'" required="true"><span></span> 自伤行为
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="4" required="true"><span></span> 多动
+              <input type="radio" name="behavior" :value="'4'" required="true"><span></span> 多动
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="5" required="true"><span></span> 刻板行为
+              <input type="radio" name="behavior" :value="'5'" required="true"><span></span> 刻板行为
             </label>
         </div>
       </div>
@@ -459,27 +459,27 @@
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="0" required="true"><span></span> 爱生气
+              <input type="radio" name="emotion" :value="'0'" required="true"><span></span> 爱生气
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="1" required="true"><span></span> 常哭、闹、笑
+              <input type="radio" name="emotion" :value="'1'" required="true"><span></span> 常哭、闹、笑
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="2" required="true"><span></span> 极端恐惧（怕声音、怕黑）
+              <input type="radio" name="emotion" :value="'2'" required="true"><span></span> 极端恐惧（怕声音、怕黑）
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="3" required="true"><span></span> 摔东西、扔东西
+              <input type="radio" name="emotion" :value="'3'" required="true"><span></span> 摔东西、扔东西
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="4" required="true"><span></span> 不满足时常发脾气
+              <input type="radio" name="emotion" :value="'4'" required="true"><span></span> 不满足时常发脾气
             </label>
         </div>
       </div>

@@ -22426,22 +22426,121 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 var ERR_OK = 0;
 /* harmony default export */ __webpack_exports__["default"] = {
     data: function data() {
         return {
-            report: {}
+            report: {},
+            sumArr: []
         };
     },
     created: function created() {
+        var _this = this;
+
         this.default();
-        console.log(this.report);
+        this._getSumValue();
+        this.$nextTick(function () {
+            _this.chart();
+        });
     },
 
     methods: {
         default: function _default() {
             this.report = window.localStorage.getItem('report') ? JSON.parse(window.localStorage.getItem('report')) : {};
+        },
+        _getSumValue: function _getSumValue() {
+            var _this2 = this;
+
+            this.report.modules.forEach(function (v) {
+                _this2.sumArr.push(v.sum);
+            });
+        },
+        chart: function chart() {
+            var myChart = echarts.init(document.getElementById('main'));
+            var option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                    formatter: "{b}:{c4}"
+                },
+
+                legend: {
+                    data: ['正常', '轻度', '中度', '重度', '您的值']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: ['前庭', '脑神经', '触觉', '发育', '空间形态', '重力']
+                }],
+                yAxis: [{
+                    type: 'value'
+                }],
+                series: [{
+                    name: '正常',
+                    type: 'bar',
+                    stack: '原始',
+                    data: [16, 18, 23, 16, 7, 15],
+                    itemStyle: {
+                        normal: {
+                            color: '#009966'
+                        }
+                    }
+                }, {
+                    name: '轻度',
+                    type: 'bar',
+                    stack: '原始',
+                    data: [5, 6, 7, 8, 3, 7],
+                    itemStyle: {
+                        normal: {
+                            color: '#3388cc'
+                        }
+                    }
+                }, {
+                    name: '中度',
+                    type: 'bar',
+                    stack: '原始',
+                    data: [6, 6, 7, 8, 4, 7],
+                    itemStyle: {
+                        normal: {
+                            color: '#FF9900'
+                        }
+                    }
+                }, {
+                    name: '重度',
+                    type: 'bar',
+                    stack: '原始',
+                    data: [11, 8, 15, 13, 6, 11],
+                    itemStyle: {
+                        normal: {
+                            color: '#FF0033'
+                        }
+                    }
+                }, {
+                    name: '您的值',
+                    type: 'bar',
+                    data: this.sumArr,
+                    itemStyle: {
+                        normal: {
+                            color: '#00aeef'
+                        }
+                    }
+                }]
+            };
+            myChart.setOption(option);
         }
     }
 };
@@ -24891,7 +24990,7 @@ exports = module.exports = __webpack_require__(2)();
 
 
 // module
-exports.push([module.i, "\n.head[data-v-1494fbfc] {\n  padding: 1rem;\n}\n.head h1[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body[data-v-1494fbfc] {\n  min-height: 85vh;\n  padding: 1rem;\n}\n.module[data-v-1494fbfc] {\n  margin-bottom: 2rem;\n}\n.module h2[data-v-1494fbfc] {\n  font-size: 16px;\n  margin-bottom: 1rem;\n  color: #333;\n}\n.module p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.7em;\n  color: #555;\n}\n.foot p[data-v-1494fbfc] {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.head[data-v-1494fbfc] {\n  padding: 1rem;\n}\n.head h1[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 20px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head h2[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 18px;\n  line-height: 1.6em;\n  font-weight: 400;\n}\n.head p[data-v-1494fbfc] {\n  font-size: 14px;\n  line-height: 1.6em;\n  color: #888;\n}\n.body[data-v-1494fbfc] {\n  min-height: 85vh;\n  padding: 1rem;\n}\n.body h2[data-v-1494fbfc] {\n  margin-bottom: .75rem;\n  font-size: 18px;\n  line-height: 1.6em;\n  font-weight: 400;\n  text-align: left;\n}\n.body .chart[data-v-1494fbfc] {\n  margin-bottom: 2rem;\n}\n.module[data-v-1494fbfc] {\n  margin-bottom: 2rem;\n}\n.module h3[data-v-1494fbfc] {\n  font-size: 16px;\n  margin-bottom: 1rem;\n  text-align: left;\n  color: #333;\n}\n.module .module-content h3[data-v-1494fbfc] {\n  line-height: 1.8em;\n  font-size: 16px;\n  line-height: 1.7em;\n  color: #333 !important;\n  margin-bottom: 10px;\n}\n.module .module-content p[data-v-1494fbfc] {\n  margin-bottom: 10px;\n  text-indent: 2em;\n}\n.module .module-content[data-v-1494fbfc]{\n  line-height: 1.8em;\n  font-size: 14px;\n  line-height: 1.7em;\n  color: #555;\n  margin-bottom: 10px;\n}\n.foot p[data-v-1494fbfc] {\n  padding: .5rem;\n  font-size: 12px;\n  color: #999;\n  text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -42431,14 +42530,31 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row"
   }, [_c('div', {
     staticClass: "head"
-  }, [_c('h1', [_vm._v(_vm._s(_vm.report.name) + "（测评报告）")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.report.description))])]), _vm._v(" "), _c('div', {
+  }, [_c('h1', [_vm._v(_vm._s(_vm.report.name) + "（报告）")]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.report.description))])]), _vm._v(" "), _c('div', {
     staticClass: "body"
-  }, _vm._l((_vm.report.modules), function(module) {
+  }, [_c('h2', [_vm._v("\n                三、测评报告结果\n              ")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._l((_vm.report.modules), function(module) {
     return _c('div', {
       staticClass: "module"
-    }, [_c('h2', [_vm._v(_vm._s(module.report.report_name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(module.report.report_body))])])
-  })), _vm._v(" "), _vm._m(0)])])
+    }, [_c('h3', [_vm._v(_vm._s(module.report.report_name) + " 得分：" + _vm._s(module.sum) + " ")]), _vm._v(" "), _c('div', {
+      staticClass: "module-content",
+      domProps: {
+        "innerHTML": _vm._s(module.report.report_body)
+      }
+    })])
+  })], 2), _vm._v(" "), _vm._m(1)])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "chart"
+  }, [_c('div', {
+    staticStyle: {
+      "width": "100%",
+      "height": "300px"
+    },
+    attrs: {
+      "id": "main"
+    }
+  })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "foot"
   }, [_c('p', [_vm._v("呐呐科技 © 2017")])])
@@ -42706,7 +42822,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 男\n            ")]), _vm._v(" "), _c('label', {
     staticClass: "check-box"
@@ -42717,7 +42833,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 女\n            ")])])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6), _vm._v(" "), _vm._m(7)]), _vm._v(" "), _c('h3', [_vm._v("一、母孕期情况")]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -42732,7 +42848,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 早产\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42745,7 +42861,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 足月\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42758,7 +42874,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 自然产\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42771,7 +42887,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 刨腹产\n        ")])])]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -42786,7 +42902,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 足\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42799,7 +42915,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 不足\n        ")])])]), _vm._v(" "), _vm._m(8), _vm._v(" "), _c('h3', [_vm._v("二、生长养育史")]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -42814,7 +42930,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 母乳\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42827,7 +42943,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 人工\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42840,7 +42956,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 混合\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("岁独立后喂养情况")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42853,7 +42969,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 岁独立用小勺进餐\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42866,7 +42982,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 右手\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42879,7 +42995,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 左手\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42892,7 +43008,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 不分\n        ")])])]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -42907,7 +43023,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 婴儿期手脚自由活动\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42920,7 +43036,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 包裹“蜡烛包”\n        ")])]), _vm._v(" "), _vm._m(9), _vm._v(" "), _c('h5', [_vm._v("是否用学步车")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42933,7 +43049,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42946,7 +43062,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 否\n        ")])])]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -42961,7 +43077,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42974,7 +43090,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 否\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("睡觉时需要依恋物")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -42987,7 +43103,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43000,7 +43116,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 否\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("习惯咬手指啃东西")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43013,7 +43129,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 是\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43026,7 +43142,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 否\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("三、生活环境")]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -43041,7 +43157,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 宽\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43054,7 +43170,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 严\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43067,7 +43183,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 放任\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43080,7 +43196,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 普通\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43093,7 +43209,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 4
+      "value": '4'
     }
   }), _c('span'), _vm._v(" 不定\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("母亲：")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43106,7 +43222,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 宽\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43119,7 +43235,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 严\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43132,7 +43248,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 放任\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43145,7 +43261,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 普通\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43158,7 +43274,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 4
+      "value": '4'
     }
   }), _c('span'), _vm._v(" 不定\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("养育者与孩子沟通时间")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43171,7 +43287,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 长\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43184,7 +43300,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 短\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43197,7 +43313,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 没有\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("密切程度")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43210,7 +43326,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 很密切\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43223,7 +43339,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 密切\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43236,7 +43352,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 一般\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43249,7 +43365,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 不密切\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("沟通方式")]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43262,7 +43378,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 鼓励肯定多\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43275,7 +43391,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 批评否定多\n        ")])]), _vm._v(" "), _c('h5', [_vm._v("沟通方式")]), _vm._v(" "), _vm._m(11)]), _vm._v(" "), _c('h3', [_vm._v("四、语言现状")]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -43290,7 +43406,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 口吃\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43303,7 +43419,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 发音不清\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43316,7 +43432,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 自言自语\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43329,7 +43445,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 固定音调\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43342,7 +43458,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 4
+      "value": '4'
     }
   }), _c('span'), _vm._v(" 鹦鹉学舌\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43355,7 +43471,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 5
+      "value": '5'
     }
   }), _c('span'), _vm._v(" 发音困难\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43368,7 +43484,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 6
+      "value": '6'
     }
   }), _c('span'), _vm._v(" 说话声小\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43381,7 +43497,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 7
+      "value": '7'
     }
   }), _c('span'), _vm._v(" 不爱讲话\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43394,7 +43510,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 8
+      "value": '8'
     }
   }), _c('span'), _vm._v(" 其他\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("五、行为表现")]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -43409,7 +43525,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 小动作多（吸手指、摸生殖器等）\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43422,7 +43538,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 注意力不集中，东张西望\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43435,7 +43551,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 攻击他人\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43448,7 +43564,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 自伤行为\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43461,7 +43577,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 4
+      "value": '4'
     }
   }), _c('span'), _vm._v(" 多动\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43474,7 +43590,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 5
+      "value": '5'
     }
   }), _c('span'), _vm._v(" 刻板行为\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("六、情绪反应")]), _vm._v(" "), _c('div', {
     staticClass: "answer-wrap"
@@ -43489,7 +43605,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 0
+      "value": '0'
     }
   }), _c('span'), _vm._v(" 爱生气\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43502,7 +43618,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 1
+      "value": '1'
     }
   }), _c('span'), _vm._v(" 常哭、闹、笑\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43515,7 +43631,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 2
+      "value": '2'
     }
   }), _c('span'), _vm._v(" 极端恐惧（怕声音、怕黑）\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43528,7 +43644,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 3
+      "value": '3'
     }
   }), _c('span'), _vm._v(" 摔东西、扔东西\n        ")])]), _vm._v(" "), _c('div', {
     staticClass: "answer"
@@ -43541,7 +43657,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "required": "true"
     },
     domProps: {
-      "value": 4
+      "value": '4'
     }
   }), _c('span'), _vm._v(" 不满足时常发脾气\n        ")])])]), _vm._v(" "), _c('h3', [_vm._v("七、请家长详细描述儿童目前的问题和困难以及家长的困扰。")]), _vm._v(" "), _vm._m(12), _vm._v(" "), _c('h3', [_vm._v("八、请家长案动作要求发送孩子视频")]), _vm._v(" "), _vm._m(13)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -44268,7 +44384,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('table', {
     staticClass: "table"
   }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.data), function(d) {
-    return _c('tr', [_c('td', [_vm._v(_vm._s(d.record[0].paper_name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(d.ip))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(d.created_at))]), _vm._v(" "), _c('td', [_c('a', {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(d.record[0].paper_name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(d.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(d.created_at))]), _vm._v(" "), _c('td', [_c('a', {
       staticClass: "btn btn-primary btn-sm",
       attrs: {
         "href": "#",
@@ -44320,7 +44436,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.detail), function(det, i) {
     return _c('div', {
       staticClass: "detail-box"
-    }, [_c('h3', [_vm._v(_vm._s(i + 1) + " . " + _vm._s(det.question_name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(det.answer_name) + " --> " + _vm._s(det.score) + "分")])])
+    }, [_c('h3', [_vm._v(_vm._s(det.question_name))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(det.answer_name) + " --> " + _vm._s(det.score) + "分")])])
   })), _vm._v(" "), _vm._m(3)])])]), _vm._v(" "), _c('div', {
     staticClass: "modal fade",
     attrs: {
@@ -44361,7 +44477,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-4 text-right"
   })])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("问卷名称")]), _vm._v(" "), _c('th', [_vm._v("用户ip")]), _vm._v(" "), _c('th', [_vm._v("填写时间")]), _vm._v(" "), _c('th', [_vm._v("操作")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("问卷名称")]), _vm._v(" "), _c('th', [_vm._v("用户姓名")]), _vm._v(" "), _c('th', [_vm._v("填写时间")]), _vm._v(" "), _c('th', [_vm._v("操作")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('button', {
     staticClass: "close",
@@ -44607,7 +44723,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "name": "report_body",
-      "rows": "3",
+      "rows": "10",
       "placeholder": "请输入内容"
     },
     domProps: {
@@ -44764,7 +44880,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control",
     attrs: {
       "name": "report_body",
-      "rows": "3",
+      "rows": "10",
       "placeholder": "请输入内容"
     },
     domProps: {

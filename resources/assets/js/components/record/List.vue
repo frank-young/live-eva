@@ -17,7 +17,7 @@
                   <thead>
                     <tr>
                       <th>问卷名称</th>
-                      <th>用户ip</th>
+                      <th>用户姓名</th>
                       <th>填写时间</th>
                       <th>操作</th>
                     </tr>
@@ -25,7 +25,7 @@
                   <tbody>
                     <tr v-for="d in data">
                       <td>{{d.record[0].paper_name}}</td>
-                      <td>{{d.ip}}</td>
+                      <td>{{d.name}}</td>
                       <td>{{d.created_at}}</td>
                       <td>
                         <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detailModal" @click="showDetail(d.record)">问卷详情</a>
@@ -48,7 +48,7 @@
             </div>
             <div class="modal-body">
               <div class="detail-box" v-for="(det,i) in detail">
-                <h3>{{i + 1}} . {{det.question_name}}</h3>
+                <h3>{{det.question_name}}</h3>
                 <p>{{det.answer_name}} --> {{det.score}}分</p>
               </div>
             </div>

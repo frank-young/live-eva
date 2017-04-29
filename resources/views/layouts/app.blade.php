@@ -42,8 +42,9 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
+                    <ul class="nav navbar-nav" style="margin-left:100px;">
+                        <li><a href="{{ url('admin/paper') }}">问卷</a></li>
+                        <li><a href="{{ url('admin/record') }}">资料</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

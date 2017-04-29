@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">内容</label>
                                 <div class="col-sm-10">
-                                    <textarea name="report_body" rows="3" class="form-control" v-model="reportDefault.report_body" placeholder="请输入内容"></textarea>
+                                    <textarea name="report_body" rows="10" class="form-control" v-model="reportDefault.report_body" placeholder="请输入内容"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -100,7 +100,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">内容</label>
                                 <div class="col-sm-10">
-                                    <textarea name="report_body" rows="3" class="form-control" v-model="reportEdit.report_body" placeholder="请输入内容"></textarea>
+                                    <textarea name="report_body" rows="10" class="form-control" v-model="reportEdit.report_body" placeholder="请输入内容"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">

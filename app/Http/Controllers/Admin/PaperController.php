@@ -129,9 +129,14 @@ class PaperController extends Controller
           $value->report = $report;
       }
       $paper->modules = $modules;
+      $paper->customer = $customer;
       $customer_record->report_json = $paper;
       $customer_record->save();
-      $data = ['errno'=>0, 'msg'=>'success', 'paper'=>$paper];
+      $data = [
+        'errno'=>0,
+        'msg'=>'success',
+        'paper'=>$paper
+      ];
       return Response::json($data);
   }
 
