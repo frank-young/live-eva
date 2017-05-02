@@ -10,7 +10,7 @@
                 <input type="hidden" name="report_id" :value="report.id">
                 <h2>感觉统合基础资料表</h2>
                 <div class="answer-info">
-                  <base-info><base-info>
+                  <base-info :data="customer"><base-info>
                 </div>
                 <h2>感觉统合评定量表</h2>
                 <div class="module" v-for="module in report.modules">
@@ -49,11 +49,46 @@
         data() {
             return {
                 picked: [],
-                token: window.Laravel.csrfToken
+                token: window.Laravel.csrfToken,
+                customer: {
+                  'name': '',
+                  'sex': '',
+                  'birthday': '',
+                  'guardian_name': '',
+                  'age': null,
+                  'relation': '',
+                  'profession': '',
+                  'address': '',
+                  'mobile': '',
+                  'pregnancy': '',
+                  'pregnancy_activity': '',
+                  'father_age': null,
+                  'mother_age': null,
+                  'feed': '',
+                  'feed_old': '',
+                  'sports': '',
+                  'sports_time': '',
+                  'sports_car': '',
+                  'safe_person': '',
+                  'safe_mother': '',
+                  'safe_things': '',
+                  'safe_bite': '',
+                  'bring_father_method': '',
+                  'bring_mother_method': '',
+                  'bring_communicate_time': '',
+                  'bring_intimate': '',
+                  'bring_communicate_method': '',
+                  'bring_relation': '',
+                  'lange': '',
+                  'behavior': '',
+                  'emotion': '',
+                  'puzzled': ''
+                }
             }
         },
         created() {
             console.log(this.report)
+            // this.customer = JSON.parse(window.localStorage.getItem('paper'))
         },
         methods: {
             total(event) {
@@ -62,13 +97,13 @@
 
               options.headers = {'Content-Type': 'application/x-www-form-urlencoded'}
               options.emulateJSON = true
-              this.$http.post('/live/live-eva/public/paper/ctrl', formData, options).then((res) => {
+              this.$http.post('/paper/ctrl', formData, options).then((res) => {
                   res = res.body
                   console.log('提交成功')
                   alert('提交成功')
                   if (res.errno === ERR_OK) {
                       window.localStorage.setItem('report',JSON.stringify(res.paper))
-                      window.location.href = "/live/live-eva/public/report"
+                      window.location.href = "/report"
                   }
               })
             }

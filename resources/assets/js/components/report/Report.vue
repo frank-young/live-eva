@@ -62,9 +62,6 @@
                     <p>
                       <a class="btn-line" href="#">感觉统合馆介绍</a>
                     </p>
-                    <p>
-                      <a class="btn-line" href="#">返回首页</a>
-                    </p>
                   </div>
                   <div class="module">
                     <h3>我们的祝福</h3>

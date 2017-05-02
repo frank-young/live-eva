@@ -6,7 +6,7 @@
             <div class="input-box">
               <label>姓名</label>
               <div class="input-text">
-                <input type="text" name="name" value="" required="true" placeholder="请输入孩子姓名">
+                <input type="text" name="name" v-model="data.name" required="true" placeholder="请输入孩子姓名">
               </div>
             </div>
         </div>
@@ -15,10 +15,10 @@
               <label>性别</label>
               <div class="input-text">
                 <label class="check-box">
-                  <input type="radio" name="sex" :value="'0'" required="true"><span></span> 男
+                  <input type="radio" name="sex" v-model="data.sex" :value="'0'" required="true"><span></span> 男
                 </label>
                 <label class="check-box">
-                  <input type="radio" name="sex" :value="'1'" required="true"><span></span> 女
+                  <input type="radio" name="sex" v-model="data.sex" :value="'1'" required="true"><span></span> 女
                 </label>
               </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="input-box">
               <label>出生日期</label>
               <div class="input-text">
-                <input type="date" name="birthday" value="" required="true">
+                <input type="date" name="birthday" v-model="data.birthday" value="" required="true">
               </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="input-box">
               <label>监护人姓名</label>
               <div class="input-text">
-                <input type="text" name="guardian_name" value="" required="true" placeholder="监护人姓名">
+                <input type="text" name="guardian_name" v-model="data.guardian_name" value="" required="true" placeholder="监护人姓名">
               </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="input-box">
               <label>孩子年龄</label>
               <div class="input-text">
-                <input type="text" name="age" value="" required="true" placeholder="孩子年龄">
+                <input type="text" name="age" v-model="data.age" required="true" placeholder="孩子年龄">
               </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
             <div class="input-box">
               <label>关系</label>
               <div class="input-text">
-                <input type="text" name="relation" value="" required="true" placeholder="与孩子的关系">
+                <input type="text" name="relation"  v-model="data.relation" required="true" placeholder="与孩子的关系">
               </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
             <div class="input-box">
               <label>职业</label>
               <div class="input-text">
-                <input type="text" name="profession" value="" required="true" placeholder="请输入您的职业">
+                <input type="text" name="profession" v-model="data.profession" required="true" placeholder="请输入您的职业">
               </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
             <div class="input-box">
               <label>联系地址</label>
               <div class="input-text">
-                <input type="text" name="address" value="" required="true" placeholder="详细的联系地址">
+                <input type="text" name="address" v-model="data.address" required="true" placeholder="详细的联系地址">
               </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
             <div class="input-box">
               <label>联系电话</label>
               <div class="input-text">
-                <input type="text" name="mobile" value="" required="true" placeholder="请输入联系电话">
+                <input type="text" name="mobile" v-model="data.mobile" required="true" placeholder="请输入联系电话">
               </div>
             </div>
         </div>
@@ -86,22 +86,22 @@
         <h4>1.孕期</h4>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="'0'" required="true"><span></span> 早产
+              <input type="radio" name="pregnancy" v-model="data.pregnancy" :value="'0'" required="true"><span></span> 早产
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="'1'" required="true"><span></span> 足月
+              <input type="radio" name="pregnancy" v-model="data.pregnancy" :value="'1'" required="true"><span></span> 足月
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="'2'" required="true"><span></span> 自然产
+              <input type="radio" name="pregnancy" v-model="data.pregnancy" :value="'2'" required="true"><span></span> 自然产
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy" :value="'3'" required="true"><span></span> 刨腹产
+              <input type="radio" name="pregnancy" v-model="data.pregnancy" :value="'3'" required="true"><span></span> 刨腹产
             </label>
         </div>
       </div>
@@ -109,12 +109,12 @@
         <h4>2.母亲怀孕期间活动量</h4>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy_activity" :value="'0'" required="true"><span></span> 足
+              <input type="radio" name="pregnancy_activity" v-model="data.pregnancy_activity" :value="'0'" required="true"><span></span> 足
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="pregnancy_activity" :value="'1'" required="true"><span></span> 不足
+              <input type="radio" name="pregnancy_activity" v-model="data.pregnancy_activity" :value="'1'" required="true"><span></span> 不足
             </label>
         </div>
       </div>
@@ -124,7 +124,7 @@
             <div class="input-box">
               <label>父亲</label>
               <div class="input-text">
-                <input type="text" name="father_age" value="" required="true" placeholder="请输入年龄（数字）">
+                <input type="text" name="father_age" v-model="data.father_age" required="true" placeholder="请输入年龄（数字）">
               </div>
             </div>
         </div>
@@ -132,7 +132,7 @@
             <div class="input-box">
               <label>母亲</label>
               <div class="input-text">
-                <input type="text" name="mother_age" value="" required="true" placeholder="请输入年龄（数字）">
+                <input type="text" name="mother_age" v-model="data.mother_age" required="true" placeholder="请输入年龄（数字）">
               </div>
             </div>
         </div>
@@ -144,38 +144,38 @@
         <h5>岁独立前喂养情况</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed" :value="'0'" required="true"><span></span> 母乳
+              <input type="radio" name="feed" v-model="data.feed" :value="'0'" required="true"><span></span> 母乳
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed" :value="'1'" required="true"><span></span> 人工
+              <input type="radio" name="feed" v-model="data.feed" :value="'1'" required="true"><span></span> 人工
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed" :value="'2'" required="true"><span></span> 混合
+              <input type="radio" name="feed" v-model="data.feed" :value="'2'" required="true"><span></span> 混合
             </label>
         </div>
         <h5>岁独立后喂养情况</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="'0'" required="true"><span></span> 岁独立用小勺进餐
+              <input type="radio" name="feed_old" v-model="data.feed_old" :value="'0'" required="true"><span></span> 岁独立用小勺进餐
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="'1'" required="true"><span></span> 右手
+              <input type="radio" name="feed_old" v-model="data.feed_old" :value="'1'" required="true"><span></span> 右手
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="'2'" required="true"><span></span> 左手
+              <input type="radio" name="feed_old" v-model="data.feed_old" :value="'2'" required="true"><span></span> 左手
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="feed_old" :value="'3'" required="true"><span></span> 不分
+              <input type="radio" name="feed_old" v-model="data.feed_old" :value="'3'" required="true"><span></span> 不分
             </label>
         </div>
       </div>
@@ -184,31 +184,31 @@
         <h4>2.运动发展情况</h4>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports" :value="'0'" required="true"><span></span> 婴儿期手脚自由活动
+              <input type="radio" name="sports" v-model="data.sports" :value="'0'" required="true"><span></span> 婴儿期手脚自由活动
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports" :value="'1'" required="true"><span></span> 包裹“蜡烛包”
+              <input type="radio" name="sports" v-model="data.sports" :value="'1'" required="true"><span></span> 包裹“蜡烛包”
             </label>
         </div>
         <div class="answer">
           <div class="input-box">
             <label>爬行时间</label>
             <div class="input-text">
-              <input type="text" name="sports_time" value="" required="true" placeholder="几个月会爬（输入数字）">
+              <input type="text" name="sports_time" v-model="data.sports_time" value="" required="true" placeholder="几个月会爬（输入数字）">
             </div>
           </div>
         </div>
         <h5>是否用学步车</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports_car" :value="'0'" required="true"><span></span> 是
+              <input type="radio" name="sports_car" v-model="data.sports_car" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="sports_car" :value="'1'" required="true"><span></span> 否
+              <input type="radio" name="sports_car" v-model="data.sports_car" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
       </div>
@@ -219,41 +219,41 @@
           <div class="input-box input-box-max">
             <label>两岁之前晚上和谁睡</label>
             <div class="input-text">
-              <input type="text" name="safe_person" value="" required="true" placeholder="父亲、母亲、爷爷、奶奶">
+              <input type="text" name="safe_person" v-model="data.safe_person" required="true" placeholder="父亲、母亲、爷爷、奶奶">
             </div>
           </div>
         </div>
         <h5>三岁之前和母亲是否有分离</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_mother" :value="'0'" required="true"><span></span> 是
+              <input type="radio" name="safe_mother" v-model="data.safe_mother" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_mother" :value="'1'" required="true"><span></span> 否
+              <input type="radio" name="safe_mother" v-model="data.safe_mother" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
         <h5>睡觉时需要依恋物</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_things" :value="'0'" required="true"><span></span> 是
+              <input type="radio" name="safe_things" v-model="data.safe_things" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_things" :value="'1'" required="true"><span></span> 否
+              <input type="radio" name="safe_things" v-model="data.safe_things" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
         <h5>习惯咬手指啃东西</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_bite" :value="'0'" required="true"><span></span> 是
+              <input type="radio" name="safe_bite" v-model="data.safe_bite" :value="'0'" required="true"><span></span> 是
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="safe_bite" :value="'1'" required="true"><span></span> 否
+              <input type="radio" name="safe_bite" v-model="data.safe_bite" :value="'1'" required="true"><span></span> 否
             </label>
         </div>
       </div>
@@ -264,101 +264,101 @@
         <h5>父亲：</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="'0'" required="true"><span></span> 宽
+              <input type="radio" name="bring_father_method" v-model="data.bring_father_method" :value="'0'" required="true"><span></span> 宽
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="'1'" required="true"><span></span> 严
+              <input type="radio" name="bring_father_method" v-model="data.bring_father_method" :value="'1'" required="true"><span></span> 严
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="'2'" required="true"><span></span> 放任
+              <input type="radio" name="bring_father_method" v-model="data.bring_father_method" :value="'2'" required="true"><span></span> 放任
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="'3'" required="true"><span></span> 普通
+              <input type="radio" name="bring_father_method" v-model="data.bring_father_method" :value="'3'" required="true"><span></span> 普通
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_father_method" :value="'4'" required="true"><span></span> 不定
+              <input type="radio" name="bring_father_method" v-model="data.bring_father_method" :value="'4'" required="true"><span></span> 不定
             </label>
         </div>
         <h5>母亲：</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="'0'" required="true"><span></span> 宽
+              <input type="radio" name="bring_mother_method" v-model="data.bring_mother_method" :value="'0'" required="true"><span></span> 宽
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="'1'" required="true"><span></span> 严
+              <input type="radio" name="bring_mother_method" v-model="data.bring_mother_method" :value="'1'" required="true"><span></span> 严
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="'2'" required="true"><span></span> 放任
+              <input type="radio" name="bring_mother_method" v-model="data.bring_mother_method" :value="'2'" required="true"><span></span> 放任
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="'3'" required="true"><span></span> 普通
+              <input type="radio" name="bring_mother_method" v-model="data.bring_mother_method" :value="'3'" required="true"><span></span> 普通
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_mother_method" :value="'4'" required="true"><span></span> 不定
+              <input type="radio" name="bring_mother_method" v-model="data.bring_mother_method" :value="'4'" required="true"><span></span> 不定
             </label>
         </div>
         <h5>养育者与孩子沟通时间</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_time" :value="'0'" required="true"><span></span> 长
+              <input type="radio" name="bring_communicate_time" v-model="data.bring_communicate_time" :value="'0'" required="true"><span></span> 长
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_time" :value="'1'" required="true"><span></span> 短
+              <input type="radio" name="bring_communicate_time" v-model="data.bring_communicate_time" :value="'1'" required="true"><span></span> 短
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_time" :value="'2'" required="true"><span></span> 没有
+              <input type="radio" name="bring_communicate_time" v-model="data.bring_communicate_time" :value="'2'" required="true"><span></span> 没有
             </label>
         </div>
         <h5>密切程度</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="'0'" required="true"><span></span> 很密切
+              <input type="radio" name="bring_intimate" v-model="data.bring_intimate" :value="'0'" required="true"><span></span> 很密切
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="'1'" required="true"><span></span> 密切
+              <input type="radio" name="bring_intimate" v-model="data.bring_intimate" :value="'1'" required="true"><span></span> 密切
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="'2'" required="true"><span></span> 一般
+              <input type="radio" name="bring_intimate" v-model="data.bring_intimate" :value="'2'" required="true"><span></span> 一般
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_intimate" :value="'3'" required="true"><span></span> 不密切
+              <input type="radio" name="bring_intimate" v-model="data.bring_intimate" :value="'3'" required="true"><span></span> 不密切
             </label>
         </div>
         <h5>沟通方式</h5>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_method" :value="'0'" required="true"><span></span> 鼓励肯定多
+              <input type="radio" name="bring_communicate_method" v-model="data.bring_communicate_method" :value="'0'" required="true"><span></span> 鼓励肯定多
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="bring_communicate_method" :value="'1'" required="true"><span></span> 批评否定多
+              <input type="radio" name="bring_communicate_method" v-model="data.bring_communicate_method" :value="'1'" required="true"><span></span> 批评否定多
             </label>
         </div>
         <h5>沟通方式</h5>
@@ -366,7 +366,7 @@
           <div class="input-box input-box-max">
             <label>父母关系如何</label>
             <div class="input-text">
-              <input type="text" name="bring_relation" value="" required="true" placeholder="很好、好、还不错、不好">
+              <input type="text" name="bring_relation" v-model="data.bring_relation" required="true" placeholder="很好、好、还不错、不好">
             </div>
           </div>
         </div>
@@ -376,47 +376,47 @@
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'0'" required="true"><span></span> 口吃
+              <input type="radio" name="lange" v-model="data.lange" :value="'0'" required="true"><span></span> 口吃
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'1'" required="true"><span></span> 发音不清
+              <input type="radio" name="lange" v-model="data.lange" :value="'1'" required="true"><span></span> 发音不清
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'2'" required="true"><span></span> 自言自语
+              <input type="radio" name="lange" v-model="data.lange" :value="'2'" required="true"><span></span> 自言自语
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'3'" required="true"><span></span> 固定音调
+              <input type="radio" name="lange" v-model="data.lange" :value="'3'" required="true"><span></span> 固定音调
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'4'" required="true"><span></span> 鹦鹉学舌
+              <input type="radio" name="lange" v-model="data.lange" :value="'4'" required="true"><span></span> 鹦鹉学舌
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'5'" required="true"><span></span> 发音困难
+              <input type="radio" name="lange" v-model="data.lange" :value="'5'" required="true"><span></span> 发音困难
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'6'" required="true"><span></span> 说话声小
+              <input type="radio" name="lange" v-model="data.lange" :value="'6'" required="true"><span></span> 说话声小
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'7'" required="true"><span></span> 不爱讲话
+              <input type="radio" name="lange" v-model="data.lange" :value="'7'" required="true"><span></span> 不爱讲话
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" :value="'8'" required="true"><span></span> 其他
+              <input type="radio" name="lange" v-model="data.lange" :value="'8'" required="true"><span></span> 其他
             </label>
         </div>
       </div>
@@ -425,32 +425,32 @@
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="'0'" required="true"><span></span> 小动作多（吸手指、摸生殖器等）
+              <input type="radio" name="behavior" v-model="data.behavior" :value="'0'" required="true"><span></span> 小动作多（吸手指、摸生殖器等）
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="'1'" required="true"><span></span> 注意力不集中，东张西望
+              <input type="radio" name="behavior" v-model="data.behavior" :value="'1'" required="true"><span></span> 注意力不集中，东张西望
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="'2'" required="true"><span></span> 攻击他人
+              <input type="radio" name="behavior" v-model="data.behavior" :value="'2'" required="true"><span></span> 攻击他人
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="'3'" required="true"><span></span> 自伤行为
+              <input type="radio" name="behavior" v-model="data.behavior" :value="'3'" required="true"><span></span> 自伤行为
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="'4'" required="true"><span></span> 多动
+              <input type="radio" name="behavior" v-model="data.behavior" :value="'4'" required="true"><span></span> 多动
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" :value="'5'" required="true"><span></span> 刻板行为
+              <input type="radio" name="behavior" v-model="data.behavior" :value="'5'" required="true"><span></span> 刻板行为
             </label>
         </div>
       </div>
@@ -459,27 +459,27 @@
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="'0'" required="true"><span></span> 爱生气
+              <input type="radio" name="emotion" v-model="data.emotion" :value="'0'" required="true"><span></span> 爱生气
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="'1'" required="true"><span></span> 常哭、闹、笑
+              <input type="radio" name="emotion" v-model="data.emotion" :value="'1'" required="true"><span></span> 常哭、闹、笑
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="'2'" required="true"><span></span> 极端恐惧（怕声音、怕黑）
+              <input type="radio" name="emotion" v-model="data.emotion" :value="'2'" required="true"><span></span> 极端恐惧（怕声音、怕黑）
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="'3'" required="true"><span></span> 摔东西、扔东西
+              <input type="radio" name="emotion" v-model="data.emotion" :value="'3'" required="true"><span></span> 摔东西、扔东西
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" :value="'4'" required="true"><span></span> 不满足时常发脾气
+              <input type="radio" name="emotion" v-model="data.emotion" :value="'4'" required="true"><span></span> 不满足时常发脾气
             </label>
         </div>
       </div>
@@ -488,7 +488,7 @@
       <div class="answer-wrap">
         <div class="answer">
           <div class="textarea-box">
-            <textarea name="puzzled" rows="5"></textarea>
+            <textarea name="puzzled" v-model="data.puzzled" rows="5"></textarea>
           </div>
         </div>
       </div>
@@ -517,6 +517,45 @@
 
 <script>
     export default {
+        props: {
+          data: {
+            type: Object,
+            default: {
+              'name': '',
+              'sex': '',
+              'birthday': '',
+              'guardian_name': '',
+              'age': null,
+              'relation': '',
+              'profession': '',
+              'address': '',
+              'mobile': '',
+              'pregnancy': '',
+              'pregnancy_activity': '',
+              'father_age': null,
+              'mother_age': null,
+              'feed': '',
+              'feed_old': '',
+              'sports': '',
+              'sports_time': '',
+              'sports_car': '',
+              'safe_person': '',
+              'safe_mother': '',
+              'safe_things': '',
+              'safe_bite': '',
+              'bring_father_method': '',
+              'bring_mother_method': '',
+              'bring_communicate_time': '',
+              'bring_intimate': '',
+              'bring_communicate_method': '',
+              'bring_relation': '',
+              'lange': '',
+              'behavior': '',
+              'emotion': '',
+              'puzzled': ''
+            }
+          }
+        },
         data() {
             return {
                 report: {}

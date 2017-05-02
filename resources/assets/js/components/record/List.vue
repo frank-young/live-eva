@@ -30,6 +30,7 @@
                       <td>
                         <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#detailModal" @click="showDetail(d.record)">问卷详情</a>
                         <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#reportModal" @click="produceReport(d.report)">生成报告</a>
+                        <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#baseinfoModal" @click="baseinfoReport(d)">基础资料</a>
                       </td>
                     </tr>
                   </tbody>
@@ -70,8 +71,26 @@
             <div class="modal-body">
               <div class="module detail-box" v-for="module in report.modules">
                   <h3>{{module.report.report_name}}</h3>
-                  <p>{{module.report.report_body}}</p>
+                  <div class="" v-html="module.report.report_body"></div>
               </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button type="button" class="btn btn-primary">保存</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="baseinfoModal" tabindex="-1" role="dialog" aria-labelledby="baseinfoModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="baseinfoModalLabel">基础资料</h4>
+            </div>
+            <div class="modal-body">
+              <base-info :data="customer"></base-info>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -95,7 +114,8 @@
           return {
             paperName: '',
             detail: [],
-            report: {}
+            report: {},
+            customer: {}
           }
         },
         created () {
@@ -105,13 +125,17 @@
           showDetail (value) {
             this.detail = value
             this.paperName = value[0].paper_name
-            console.log(this.detail[0].paper_name)
+            // console.log(this.detail[0].paper_name)
           },
           produceReport (value) {
             this.detail = value
             this.paperName = value.paper_name
             this.report = JSON.parse(value.report_json)
-            console.log(this.report)
+            // console.log(this.report)
+          },
+          baseinfoReport (value) {
+            this.customer = value
+            console.log(this.customer)
           }
         }
     }
