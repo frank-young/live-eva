@@ -78,7 +78,7 @@
 
                 <div class="foot">
                   <p>祥和家庭 &copy; 2017</p>
-                  <p>由<a class="link" href="http://nanafly.com">呐呐科技</a>提供技术支持</p>
+                  <p>由<a class="link" href="http://mobile.nanafly.com">呐呐科技</a>提供技术支持</p>
                 </div>
             </div>
     </div>
@@ -115,7 +115,7 @@
             } else if (this.average >= 28 && this.average < 32) {
               return '重度失调'
             } else {
-              return '重度失调'
+              return '暂无'
             }
           }
         },

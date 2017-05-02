@@ -19,8 +19,8 @@ class ReportController extends Controller
         return view('admin/report/show', compact('id'));
     }
 
-    // 展示报告列表。
-    public function list($id)
+    // 展示报告列表
+    public function listShow($id)
     {
         $reports = Report::where(['module_id' => $id])->get();
         $data = ['errno'=>0, 'msg'=>'success','reports' => $reports];

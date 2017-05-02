@@ -8,6 +8,7 @@ class Customer extends Model
 {
   protected $fillable = [
     'name',
+    'sex',
     'birthday',
     'guardian_name',
     'age',
@@ -37,7 +38,6 @@ class Customer extends Model
     'lange',
     'behavior',
     'emotion',
-    'puzzled',
-
+    'puzzled'
   ];
 }
