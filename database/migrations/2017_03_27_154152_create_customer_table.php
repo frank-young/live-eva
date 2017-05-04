@@ -30,6 +30,7 @@ class CreateCustomerTable extends Migration
           $table->integer('father_age');
           $table->integer('mother_age');
           $table->string('feed');
+          $table->string('feed_self');
           $table->string('feed_old');
           $table->string('sports');
           $table->string('sports_time');
@@ -44,9 +45,9 @@ class CreateCustomerTable extends Migration
           $table->string('bring_intimate');
           $table->string('bring_communicate_method');
           $table->string('bring_relation');
-          $table->string('lange');
-          $table->string('behavior');
-          $table->string('emotion');
+          $table->string('lange')->nullable();
+          $table->string('behavior')->nullable();
+          $table->string('emotion')->nullable();
           $table->text('puzzled');
           $table->timestamps();
       });

@@ -21,6 +21,7 @@ class Customer extends Model
     'father_age',
     'mother_age',
     'feed',
+    'feed_self',
     'feed_old',
     'sports',
     'sports_time',
@@ -35,9 +36,9 @@ class Customer extends Model
     'bring_intimate',
     'bring_communicate_method',
     'bring_relation',
-    'lange',
-    'behavior',
-    'emotion',
+    // 'lange',
+    // 'behavior',
+    // 'emotion',
     'puzzled'
   ];
 }

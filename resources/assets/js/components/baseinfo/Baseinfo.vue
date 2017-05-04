@@ -75,7 +75,7 @@
             <div class="input-box">
               <label>联系电话</label>
               <div class="input-text">
-                <input type="text" name="mobile" v-model="data.mobile" required="true" placeholder="请输入联系电话">
+                <input type="tel" name="mobile" v-model="data.mobile" required="true" placeholder="请输入联系电话">
               </div>
             </div>
         </div>
@@ -159,9 +159,12 @@
         </div>
         <h5>岁独立后喂养情况</h5>
         <div class="answer">
-            <label class="check-box">
-              <input type="radio" name="feed_old" v-model="data.feed_old" :value="'0'" required="true"><span></span> 岁独立用小勺进餐
-            </label>
+            <div class="input-box input-box-max">
+              <label>几岁独立用小勺进餐</label>
+              <div class="input-text">
+                <input type="text" name="feed_self" v-model="data.feed_self" required="true" placeholder="请输入年龄（数字）">
+              </div>
+            </div>
         </div>
         <div class="answer">
             <label class="check-box">
@@ -361,10 +364,9 @@
               <input type="radio" name="bring_communicate_method" v-model="data.bring_communicate_method" :value="'1'" required="true"><span></span> 批评否定多
             </label>
         </div>
-        <h5>沟通方式</h5>
         <div class="answer">
           <div class="input-box input-box-max">
-            <label>父母关系如何</label>
+            <label>父母夫妻关系如何</label>
             <div class="input-text">
               <input type="text" name="bring_relation" v-model="data.bring_relation" required="true" placeholder="很好、好、还不错、不好">
             </div>
@@ -372,114 +374,114 @@
         </div>
       </div>
 
-      <h3>四、语言现状</h3>
+      <h3>四、语言现状（多选）</h3>
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'0'" required="true"><span></span> 口吃
+              <input type="checkbox" name="lange[0]" v-model="data.lange" :value="'0'"><span></span> 口吃
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'1'" required="true"><span></span> 发音不清
+              <input type="checkbox" name="lange[1]" v-model="data.lange" :value="'1'"><span></span> 发音不清
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'2'" required="true"><span></span> 自言自语
+              <input type="checkbox" name="lange[2]" v-model="data.lange" :value="'2'"><span></span> 自言自语
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'3'" required="true"><span></span> 固定音调
+              <input type="checkbox" name="lange[3]" v-model="data.lange" :value="'3'"><span></span> 固定音调
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'4'" required="true"><span></span> 鹦鹉学舌
+              <input type="checkbox" name="lange[4]" v-model="data.lange" :value="'4'"><span></span> 鹦鹉学舌
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'5'" required="true"><span></span> 发音困难
+              <input type="checkbox" name="lange[5]" v-model="data.lange" :value="'5'"><span></span> 发音困难
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'6'" required="true"><span></span> 说话声小
+              <input type="checkbox" name="lange[6]" v-model="data.lange" :value="'6'"><span></span> 说话声小
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'7'" required="true"><span></span> 不爱讲话
+              <input type="checkbox" name="lange[7]" v-model="data.lange" :value="'7'"><span></span> 不爱讲话
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="lange" v-model="data.lange" :value="'8'" required="true"><span></span> 其他
+              <input type="checkbox" name="lange[8]" v-model="data.lange" :value="'8'"><span></span> 其他
             </label>
         </div>
       </div>
 
-      <h3>五、行为表现</h3>
+      <h3>五、行为表现（多选）</h3>
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" v-model="data.behavior" :value="'0'" required="true"><span></span> 小动作多（吸手指、摸生殖器等）
+              <input type="checkbox" name="behavior[0]" v-model="data.behavior" :value="'0'"><span></span> 小动作多（吸手指、摸生殖器等）
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" v-model="data.behavior" :value="'1'" required="true"><span></span> 注意力不集中，东张西望
+              <input type="checkbox" name="behavior[1]" v-model="data.behavior" :value="'1'"><span></span> 注意力不集中，东张西望
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" v-model="data.behavior" :value="'2'" required="true"><span></span> 攻击他人
+              <input type="checkbox" name="behavior[2]" v-model="data.behavior" :value="'2'"><span></span> 攻击他人
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" v-model="data.behavior" :value="'3'" required="true"><span></span> 自伤行为
+              <input type="checkbox" name="behavior[3]" v-model="data.behavior" :value="'3'"><span></span> 自伤行为
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" v-model="data.behavior" :value="'4'" required="true"><span></span> 多动
+              <input type="checkbox" name="behavior[4]" v-model="data.behavior" :value="'4'"><span></span> 多动
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="behavior" v-model="data.behavior" :value="'5'" required="true"><span></span> 刻板行为
+              <input type="checkbox" name="behavior[5]" v-model="data.behavior" :value="'5'"><span></span> 刻板行为
             </label>
         </div>
       </div>
 
-      <h3>六、情绪反应</h3>
+      <h3>六、情绪反应（多选）</h3>
       <div class="answer-wrap">
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" v-model="data.emotion" :value="'0'" required="true"><span></span> 爱生气
+              <input type="checkbox" name="emotion[0]" v-model="data.emotion" :value="'0'"><span></span> 爱生气
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" v-model="data.emotion" :value="'1'" required="true"><span></span> 常哭、闹、笑
+              <input type="checkbox" name="emotion[1]" v-model="data.emotion" :value="'1'"><span></span> 常哭、闹、笑
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" v-model="data.emotion" :value="'2'" required="true"><span></span> 极端恐惧（怕声音、怕黑）
+              <input type="checkbox" name="emotion[2]" v-model="data.emotion" :value="'2'"><span></span> 极端恐惧（怕声音、怕黑）
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" v-model="data.emotion" :value="'3'" required="true"><span></span> 摔东西、扔东西
+              <input type="checkbox" name="emotion[3]" v-model="data.emotion" :value="'3'"><span></span> 摔东西、扔东西
             </label>
         </div>
         <div class="answer">
             <label class="check-box">
-              <input type="radio" name="emotion" v-model="data.emotion" :value="'4'" required="true"><span></span> 不满足时常发脾气
+              <input type="checkbox" name="emotion[4]" v-model="data.emotion" :value="'4'"><span></span> 不满足时常发脾气
             </label>
         </div>
       </div>
@@ -492,7 +494,7 @@
           </div>
         </div>
       </div>
-      <h3>八、请家长案动作要求发送孩子视频</h3>
+      <h3>八、请家长按动作要求发送孩子视频</h3>
       <div class="answer-wrap">
         <h4>1.走平衡木</h4>
         <div class="answer">
@@ -535,6 +537,7 @@
               'father_age': null,
               'mother_age': null,
               'feed': '',
+              'feed_self': '',
               'feed_old': '',
               'sports': '',
               'sports_time': '',
@@ -549,9 +552,9 @@
               'bring_intimate': '',
               'bring_communicate_method': '',
               'bring_relation': '',
-              'lange': '',
-              'behavior': '',
-              'emotion': '',
+              'lange': [],
+              'behavior': [],
+              'emotion': [],
               'puzzled': ''
             }
           }

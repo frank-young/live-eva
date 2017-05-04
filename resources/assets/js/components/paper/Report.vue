@@ -79,16 +79,23 @@
                   'bring_intimate': '',
                   'bring_communicate_method': '',
                   'bring_relation': '',
-                  'lange': '',
-                  'behavior': '',
-                  'emotion': '',
+                  'lange': [],
+                  'behavior': [],
+                  'emotion': [],
                   'puzzled': ''
                 }
             }
         },
         created() {
             console.log(this.report)
-            // this.customer = JSON.parse(window.localStorage.getItem('paper'))
+
+            if (JSON.parse(window.localStorage.getItem('report')) !== '') {
+              let report = JSON.parse(window.localStorage.getItem('report'))
+              this.customer = report.customer
+              this.customer.lange = report.customer.lange.split(',')
+              this.customer.behavior = report.customer.behavior.split(',')
+              this.customer.emotion = report.customer.emotion.split(',')
+            }
         },
         methods: {
             total(event) {
@@ -184,7 +191,8 @@
     padding-left: 2rem;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
-  .check-box input[type="radio"] {
+  .check-box input[type="radio"],
+  .check-box input[type="checkbox"] {
     position: absolute;
     left: 0;
     top: 50%;
@@ -202,7 +210,8 @@
     border: 1px solid #bbb;
     border-radius: 50%;
   }
-  .check-box input[type="radio"]:checked + span {
+  .check-box input[type="radio"]:checked + span,
+  .check-box input[type="checkbox"]:checked + span {
     border-color: #1AAD19;
     background-color: #1AAD19;
   }

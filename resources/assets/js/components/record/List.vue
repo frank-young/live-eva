@@ -16,7 +16,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th>问卷名称</th>
+                      <!-- <th>问卷名称</th> -->
                       <th>用户姓名</th>
                       <th>填写时间</th>
                       <th>操作</th>
@@ -24,7 +24,7 @@
                   </thead>
                   <tbody>
                     <tr v-for="d in data">
-                      <td>{{d.record[0].paper_name}}</td>
+                      <!-- <td>{{d.report}}</td> -->
                       <td>{{d.name}}</td>
                       <td>{{d.created_at}}</td>
                       <td>

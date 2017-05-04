@@ -92,6 +92,10 @@ class PaperController extends Controller
       $modules = Module::where(['paper_id' => $report_id])->get(['id','module_name']);
       // $uuid = uniqid(mt_rand().'_', true);
       $customer = Customer::create($request->all());
+      $customer->lange = $this->getValue($request->input('lange'));
+      $customer->behavior = $this->getValue($request->input('behavior'));
+      $customer->emotion = $this->getValue($request->input('emotion'));
+      $customer->save();
 
       // 储存用户答卷报告信息
       $customer_record = new Customer_record;
@@ -173,6 +177,14 @@ class PaperController extends Controller
 	// }
   public function save_record() {
 
+  }
+
+  public function getValue ($data) {
+    $arr = array();
+    foreach ($data as $value) {
+      array_push($arr, $value);
+    }
+    return json_encode($arr);
   }
 
 }
