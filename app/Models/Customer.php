@@ -35,6 +35,7 @@ class Customer extends Model
     'bring_communicate_time',
     'bring_intimate',
     'bring_communicate_method',
+    'bring_communicate_text',
     'bring_relation',
     // 'lange',
     // 'behavior',

@@ -78,6 +78,7 @@
                   'bring_communicate_time': '',
                   'bring_intimate': '',
                   'bring_communicate_method': '',
+                  'bring_communicate_text': '',
                   'bring_relation': '',
                   'lange': [],
                   'behavior': [],
@@ -87,9 +88,7 @@
             }
         },
         created() {
-            console.log(this.report)
-
-            if (JSON.parse(window.localStorage.getItem('report')) !== '') {
+            if (window.localStorage.getItem('report') !== null) {
               let report = JSON.parse(window.localStorage.getItem('report'))
               this.customer = report.customer
               this.customer.lange = report.customer.lange.split(',')

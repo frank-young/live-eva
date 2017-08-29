@@ -57,7 +57,7 @@
                       <a class="btn-line" href="#">常规训练计划</a>
                     </p>
                     <p>
-                      <a class="btn-line" href="#">庭教育智能运动包</a>
+                      <a class="btn-line" href="#">家庭教育智能运动包</a>
                     </p>
                     <p>
                       <a class="btn-line" href="#">感觉统合馆介绍</a>

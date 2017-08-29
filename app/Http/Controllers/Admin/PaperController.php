@@ -76,13 +76,13 @@ class PaperController extends Controller
           $value->questions = $questions;
       }
       $paper->modules = $modules;
-      $html =  view('admin/paper/report', compact('paper'))->__toString();
-      $path = 'public/static/report'.md5($id.$SALT).'.html';
-      $visit_path = '/storage/static/report'.md5($id.$SALT).'.html';
-      Storage::put($path, $html);
-      $data = ['errno' => 0, 'msg' => 'success', 'url' => $URL.$visit_path];
-      // return view('admin/paper/report', compact('paper'));
-      return Response::json($data);
+      // $html =  view('admin/paper/report', compact('paper'))->__toString();
+      // $path = 'public/static/report'.md5($id.$SALT).'.html';
+      // $visit_path = '/storage/static/report'.md5($id.$SALT).'.html';
+      // Storage::put($path, $html);
+      // $data = ['errno' => 0, 'msg' => 'success', 'url' => $URL.$visit_path];
+      return view('admin/paper/report', compact('paper'));
+      // return Response::json($data);
   }
   // 处理问卷提交信息
   public function reportCtrl(Request $request)

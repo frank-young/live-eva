@@ -366,6 +366,14 @@
         </div>
         <div class="answer">
           <div class="input-box input-box-max">
+            <label>沟通方式</label>
+            <div class="input-text">
+              <input type="text" name="bring_communicate_text" v-model="data.bring_communicate_text" required="true" placeholder="沟通的方式">
+            </div>
+          </div>
+        </div>
+        <div class="answer">
+          <div class="input-box input-box-max">
             <label>父母夫妻关系如何</label>
             <div class="input-text">
               <input type="text" name="bring_relation" v-model="data.bring_relation" required="true" placeholder="很好、好、还不错、不好">
@@ -551,6 +559,7 @@
               'bring_communicate_time': '',
               'bring_intimate': '',
               'bring_communicate_method': '',
+              'bring_communicate_text': '',
               'bring_relation': '',
               'lange': [],
               'behavior': [],

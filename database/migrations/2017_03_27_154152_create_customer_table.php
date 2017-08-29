@@ -44,6 +44,7 @@ class CreateCustomerTable extends Migration
           $table->string('bring_communicate_time');
           $table->string('bring_intimate');
           $table->string('bring_communicate_method');
+          $table->string('bring_communicate_text');
           $table->string('bring_relation');
           $table->string('lange')->nullable();
           $table->string('behavior')->nullable();
